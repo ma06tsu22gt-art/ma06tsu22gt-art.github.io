@@ -3,85 +3,443 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>STEAM BASE</title>
+<title>STEAM BASE｜個人開発のゲームとアプリ</title>
+<meta name="description" content="STEAM BASE は、Android 向けのゲームとアプリを個人で開発しています。STARFALL SURVIVOR、Stonecrown、NOVA FORGE、HodoHodo など。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="STEAM BASE｜個人開発のゲームとアプリ">
+<meta property="og:description" content="Android 向けのゲームとアプリを個人で開発しています。">
+<meta property="og:url" content="https://ma06tsu22gt-art.github.io/">
+<meta property="og:image" content="https://ma06tsu22gt-art.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="img/sb.png">
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    margin: 0 auto; padding: 48px 20px 80px; max-width: 34em;
-    font-family: system-ui, "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
-    line-height: 1.9; color: #1c1a17; background: #fbfaf8;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e8e3d8; background: #14120f; }
-    a { color: #d8bd7a; }
-  }
-  h1 { font-size: 1.4rem; margin: 0 0 4px; }
-  h2 { font-size: 1.05rem; margin: 40px 0 8px; padding-top: 16px;
-       border-top: 1px solid rgba(128,128,128,.35); }
-  .sub { color: #6d675d; margin: 0 0 32px; font-size: .95rem; }
-  ul { padding-left: 1.3em; }
-  code { font-size: .95em; }
+:root {
+  --bg: #0a1322; --bg2: #0f1c33; --panel: #13223d; --line: rgba(138,172,255,.18);
+  --ink: #eaf0ff; --muted: #a3b2d1; --accent: #8aacff; --accent2: #ffb454; --white: #fff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); line-height: 1.8;
+  font-family: "Segoe UI", system-ui, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display: none; }
+a { color: var(--accent); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* header */
+header.top {
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+  background: rgba(10,19,34,.78); border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-weight: 700; letter-spacing: .06em; }
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+nav.menu { margin-left: auto; display: flex; gap: 22px; font-size: .92rem; }
+nav.menu a { color: var(--muted); text-decoration: none; }
+nav.menu a:hover { color: var(--white); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang button { background: none; border: 0; color: var(--muted); font: inherit; font-size: .8rem; padding: 4px 11px; cursor: pointer; }
+html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background: var(--accent); color: #0a1322; font-weight: 700; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; padding: 96px 0 84px; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(600px 340px at 78% 30%, rgba(138,172,255,.22), transparent 70%),
+    radial-gradient(500px 300px at 12% 90%, rgba(255,180,84,.12), transparent 70%),
+    repeating-linear-gradient(135deg, rgba(138,172,255,.045) 0 22px, transparent 22px 64px);
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center; }
+.eyebrow { color: var(--accent2); font-weight: 700; letter-spacing: .16em; font-size: .82rem; text-transform: uppercase; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin: 10px 0 18px; letter-spacing: .02em; color: var(--white); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: 1.12rem; color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px;
+  border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 600; font-size: .92rem;
+  transition: transform .15s, background .15s, border-color .15s;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: #0a1322; border-color: var(--accent); }
+.btn svg { width: 16px; height: 16px; fill: currentColor; }
+.stats { display: flex; gap: 28px; margin-top: 36px; }
+.stats div { font-size: .85rem; color: var(--muted); }
+.stats b { display: block; font-size: 1.9rem; color: var(--white); line-height: 1.2; }
+.emblem { justify-self: center; position: relative; }
+.emblem img { width: min(300px, 60vw); height: auto; border-radius: 50%; box-shadow: 0 0 0 10px rgba(138,172,255,.08), 0 30px 80px rgba(0,0,0,.5); animation: float 6s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .emblem img { animation: none; } html { scroll-behavior: auto; } }
+
+section { padding: 72px 0; }
+section.alt { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+h2 { font-size: 1.7rem; margin: 0 0 6px; color: var(--white); }
+.sub { color: var(--muted); margin: 0 0 28px; }
+
+/* coming soon */
+.coming { display: grid; grid-template-columns: 1.1fr .9fr; gap: 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.coming .kv { min-height: 280px; background-size: cover; background-position: center; }
+.coming .txt { padding: 32px; }
+.badge { display: inline-block; background: var(--accent2); color: #2a1a00; font-weight: 800; font-size: .75rem; letter-spacing: .1em; padding: 3px 10px; border-radius: 999px; }
+.coming h3 { font-size: 1.6rem; margin: 12px 0 2px; color: var(--white); }
+.coming .en-name { color: var(--muted); font-size: .9rem; margin: 0 0 12px; }
+
+/* works */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+.filters button {
+  background: var(--panel); border: 1px solid var(--line); color: var(--muted); font: inherit; font-size: .88rem;
+  padding: 6px 16px; border-radius: 999px; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--accent); color: #0a1322; border-color: var(--accent); font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.35); border-color: rgba(138,172,255,.45); }
+.card[hidden] { display: none; }
+.card .shot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.card .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card .head { display: flex; gap: 14px; align-items: center; }
+.card .icon { width: 56px; height: 56px; border-radius: 14px; margin-top: -40px; border: 3px solid var(--panel); background: var(--panel); box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+.card h3 { margin: 0; font-size: 1.08rem; color: var(--white); line-height: 1.4; }
+.chip { display: inline-block; font-size: .72rem; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 0 9px; margin-top: 3px; }
+.card p { margin: 0; color: var(--muted); font-size: .92rem; flex: 1; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.actions .btn { padding: 7px 14px; font-size: .85rem; }
+.actions .link { font-size: .82rem; color: var(--muted); margin-left: auto; }
+
+/* about */
+.points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.point { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.point .num { color: var(--accent2); font-weight: 800; font-size: .85rem; letter-spacing: .1em; }
+.point h3 { margin: 6px 0 6px; font-size: 1.05rem; color: var(--white); }
+.point p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+/* follow & contact */
+.follow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.follow a {
+  display: flex; align-items: center; gap: 14px; padding: 20px; border-radius: 14px; text-decoration: none;
+  background: var(--panel); border: 1px solid var(--line); color: var(--ink); transition: border-color .15s, transform .15s;
+}
+.follow a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.follow svg { width: 34px; height: 34px; flex: none; }
+.follow b { display: block; color: var(--white); }
+.follow small { color: var(--muted); }
+
+footer { padding: 36px 0 48px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+footer a { color: var(--muted); }
+
+.anim .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .anim .reveal { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 820px) {
+  nav.menu { display: none; }
+  .lang { margin-left: auto; }
+  .hero { padding: 56px 0 56px; }
+  .hero .wrap, .coming { grid-template-columns: 1fr; }
+  .emblem { order: -1; }
+  .emblem img { width: 150px; }
+  .points, .follow { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .coming .kv { min-height: 190px; }
+  .coming .txt { padding: 22px; }
+  section { padding: 52px 0; }
+}
 </style>
 </head>
 <body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/sb.png" alt="">STEAM BASE</a>
+    <nav class="menu">
+      <a href="#works"><span lang="ja">作品</span><span lang="en">Works</span></a>
+      <a href="#about"><span lang="ja">STEAM BASE について</span><span lang="en">About</span></a>
+      <a href="#follow"><span lang="ja">最新情報</span><span lang="en">Follow</span></a>
+      <a href="#contact"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button>
+    </div>
+  </div>
+</header>
 
-<h1>STEAM BASE</h1>
-<p class="sub">Android 向けのゲームとアプリを作っています。</p>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Indie games &amp; apps for Android</div>
+      <h1><span lang="ja">遊んで楽しい。</span><span lang="en">Fun to play.</span><br><em><span lang="ja">使って続く。</span><span lang="en">Easy to keep.</span></em></h1>
+      <p class="lead"><span lang="ja">STEAM BASE は、Android 向けのゲームとアプリを個人で開発しています。すきま時間に遊べるゲームから、毎日の暮らしで使える小さなアプリまで。</span><span lang="en">STEAM BASE is a one-person studio making games and apps for Android — from quick games for your spare minutes to small tools for everyday life.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#works"><span lang="ja">作品を見る</span><span lang="en">See our works</span></a>
+        <a class="btn" href="https://play.google.com/store/apps/developer?id=STEAM+BASE" target="_blank" rel="noopener"><span lang="ja">Google Play の全作品</span><span lang="en">All on Google Play</span></a>
+      </div>
+      <div class="stats">
+        <div><b>8</b><span lang="ja">Google Play で配信中</span><span lang="en">on Google Play</span></div>
+        <div><b>7</b><span lang="ja">ゲーム</span><span lang="en">games</span></div>
+        <div><b>1</b><span lang="ja">アプリ</span><span lang="en">app</span></div>
+      </div>
+    </div>
+    <div class="emblem"><img src="img/sb.png" alt="STEAM BASE" width="300" height="300"></div>
+  </div>
+</section>
 
-<h2>Stonecrown（石と王冠）</h2>
-<p>押し寄せる大軍を、街づくりと塔と魔法でしのぐ、中世ファンタジーの防衛ストラテジーです。</p>
-<ul>
-  <li><a href="https://play.google.com/store/apps/details?id=com.aios.stonecrown">Google Play で見る</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/">プライバシーポリシー</a></li>
-</ul>
+<section id="coming" class="alt">
+  <div class="wrap reveal">
+    <h2><span lang="ja">開発中の新作</span><span lang="en">Coming soon</span></h2>
+    <p class="sub"><span lang="ja">いま、いちばん力を入れているタイトルです。</span><span lang="en">The title we are working hardest on right now.</span></p>
+    <div class="coming">
+      <div class="kv" style="background-image:url('https://ma06tsu22gt-art.github.io/lanternstarsea/assets/lp/og_kv.jpg')" role="img" aria-label="星海のランタン"></div>
+      <div class="txt">
+        <span class="badge">COMING SOON</span>
+        <h3>星海のランタン</h3>
+        <p class="en-name">Lantern of the Star Sea</p>
+        <p><span lang="ja">艦隊を率いて星の海へ。66人の指揮官と30の艦種で戦う、宇宙艦隊リアルタイムストラテジー。Android版のみ・近日リリース予定です（App Store／iOSでは未リリース）。</span><span lang="en">Lead your fleets into the star sea. A real-time space fleet strategy game with 66 commanders and 30 ship classes. Coming soon on Android only (not on the App Store / iOS).</span></p>
+        <div class="cta">
+          <a class="btn primary" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><span lang="ja">特設ページ</span><span lang="en">Official page</span></a>
+          <a class="btn" href="https://www.youtube.com/watch?v=1QRdVLoc8_c" target="_blank" rel="noopener"><span lang="ja">トレーラーを見る</span><span lang="en">Watch the trailer</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>NOVA FORGE</h2>
-<p>ブロックで宇宙艦を組んで、オートバトルで宙域を突破していく、全40宙域のローグライトです。</p>
-<ul>
-  <li><a href="https://play.google.com/store/apps/details?id=com.novaforge.game">Google Play で見る</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/novaforge-privacy/">プライバシーポリシー</a></li>
-</ul>
+<section id="works">
+  <div class="wrap">
+    <h2 class="reveal"><span lang="ja">作品</span><span lang="en">Works</span></h2>
+    <p class="sub reveal"><span lang="ja">すべて Google Play で配信中です。</span><span lang="en">All available on Google Play.</span></p>
+    <div class="filters" role="group" aria-label="Filter">
+      <button type="button" data-filter="all" aria-pressed="true"><span lang="ja">すべて</span><span lang="en">All</span></button>
+      <button type="button" data-filter="game" aria-pressed="false"><span lang="ja">ゲーム</span><span lang="en">Games</span></button>
+      <button type="button" data-filter="app" aria-pressed="false"><span lang="ja">アプリ</span><span lang="en">Apps</span></button>
+    </div>
+    <div class="grid">
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/starfall_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/starfall_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>STARFALL SURVIVOR</h3>
+            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">四方から押し寄せる敵の大群を撃ち抜く、ネオンのサバイバーシューティング。操作は移動とダッシュだけ、武器は自動で撃ちます。</span><span lang="en">A neon survivor shooter. You only move and dash — your weapons fire on their own as the swarm closes in.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/starfall-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/stonecrown_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/stonecrown_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>Stonecrown 石と王冠</h3>
+            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">街づくりと塔と魔法で大軍をしのぐ、片手で遊べる中世ファンタジーの防衛ストラテジー。1戦はおよそ5〜10分。</span><span lang="en">A one-handed medieval fantasy defense game: hold back the horde with town building, towers and magic. 5–10 minutes a battle.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.novaforge.game" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/novaforge_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/novaforge_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>NOVA FORGE</h3>
+            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライト。</span><span lang="en">Design your own starship from parts and break through sector after sector in auto-battles. A roguelite.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/novaforge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.dropmerge.puzzle" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/dropmerge_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/dropmerge_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>DropMerge - しずく合流パズル</h3>
+            <span class="chip"><span lang="ja">パズル</span><span lang="en">Puzzle</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">氷の上を滑るしずくを、同じ色どうしで合流させるパズル。1ステージ1〜3分、全150ステージ。</span><span lang="en">Slide droplets across the ice and merge matching colors. 1–3 minutes a stage, 150 stages.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.dropmerge.puzzle" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/dropmerge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.Prototype.ShipBuilderM1" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/shipbuilder_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/shipbuilder_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>星組み造船所</h3>
+            <span class="chip"><span lang="ja">シミュレーション</span><span lang="en">Simulation</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">船体・エンジン・主砲を組み合わせて宇宙船を建造し、自分の艦で戦う3D造船・戦闘ゲーム。全50ステージ。</span><span lang="en">Build a starship from hulls, engines and guns, then fly it into battle. A 3D ship-building game with 50 stages.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.Prototype.ShipBuilderM1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/blockspace_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/blockspace_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>Block Space Roguelite</h3>
+            <span class="chip"><span lang="ja">ロールプレイング</span><span lang="en">RPG</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="game">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/makikomi_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/makikomi_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>巻き込みおじさん</h3>
+            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    <article class="card" data-kind="app">
+      <a class="shot" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src="img/apps/hodohodo_card.webp" alt="" loading="lazy" width="800" height="500">
+      </a>
+      <div class="body">
+        <div class="head">
+          <img class="icon" src="img/apps/hodohodo_icon.png" alt="" width="64" height="64" loading="lazy">
+          <div>
+            <h3>HodoHodo ほどほど記録</h3>
+            <span class="chip"><span lang="ja">ライフスタイル</span><span lang="en">Lifestyle</span></span>
+          </div>
+        </div>
+        <p><span lang="ja">コーヒー・お酒・間食など、やめずに減らしたい習慣に上限を決めて1タップで記録。我慢した分は節約額で見えます。</span><span lang="en">Set a limit for coffee, drinks or snacks and log each one with a tap — cut back without quitting, and see what you saved.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/hodohodo/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
 
-<h2>HodoHodo（ほどほど記録）</h2>
-<p>コーヒーやお酒、間食など「やめずに減らしたい」習慣に回数の上限を決めて、1タップで記録するアプリです。</p>
-<ul>
-  <li><a href="https://ma06tsu22gt-art.github.io/hodohodo/">紹介ページ</a></li>
-  <li><a href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2">Google Play で見る</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/">プライバシーポリシー</a></li>
-</ul>
+<section id="about" class="alt">
+  <div class="wrap reveal">
+    <h2><span lang="ja">STEAM BASE について</span><span lang="en">About STEAM BASE</span></h2>
+    <p class="sub"><span lang="ja">企画・デザイン・開発・ストア公開まで、ひとりで手がけています。</span><span lang="en">Planning, design, development and publishing — all done by one person.</span></p>
+    <div class="points">
+      <div class="point"><div class="num">01</div><h3><span lang="ja">すきま時間に、手軽に</span><span lang="en">Short sessions</span></h3><p><span lang="ja">1回数分で区切りよく遊べる、スマホらしいゲームを作っています。</span><span lang="en">Games you can play in a few minutes and put down at a natural break.</span></p></div>
+      <div class="point"><div class="num">02</div><h3><span lang="ja">つくる楽しさ</span><span lang="en">The joy of building</span></h3><p><span lang="ja">宇宙艦の設計や街づくりなど、自分で組み立てる遊びが好きです。</span><span lang="en">Designing starships, building towns — we love games where you put things together yourself.</span></p></div>
+      <div class="point"><div class="num">03</div><h3><span lang="ja">暮らしに役立つ道具も</span><span lang="en">Tools for everyday life</span></h3><p><span lang="ja">ゲームだけでなく、毎日の習慣を助ける小さなアプリも作っています。</span><span lang="en">Besides games, we make small apps that help with everyday habits.</span></p></div>
+    </div>
+  </div>
+</section>
 
-<h2>お問い合わせ</h2>
-<p><code>steam.base777@gmail.com</code></p>
+<section id="follow">
+  <div class="wrap reveal">
+    <h2><span lang="ja">最新情報</span><span lang="en">Follow us</span></h2>
+    <p class="sub"><span lang="ja">新作の情報や開発の裏側を発信しています。</span><span lang="en">News on new titles and behind-the-scenes notes.</span></p>
+    <div class="follow">
+      <a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4.5" width="22" height="15" rx="4.5" fill="#ff0033"/><path d="M10 9v6l5.2-3z" fill="#fff"/></svg>
+        <span><b>YouTube</b><small><span lang="ja">トレーラー・プレイ動画</span><span lang="en">Trailers &amp; gameplay</span></small></span>
+      </a>
+      <a href="https://note.com/steambase_dev" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="5" fill="#fff"/><path d="M7 17V8.6c0-.4.3-.6.7-.6h5.6c2.2 0 3.7 1.4 3.7 3.6V17h-2.4v-5.2c0-1-.6-1.6-1.6-1.6H9.4V17z" fill="#111"/></svg>
+        <span><b>note</b><small><span lang="ja">開発記・アプリ紹介</span><span lang="en">Dev notes (Japanese)</span></small></span>
+      </a>
+      <a href="https://play.google.com/store/apps/developer?id=STEAM+BASE" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.5 13.4 12l-9.8 10.5c-.4-.2-.6-.6-.6-1.1V2.6c0-.5.2-.9.6-1.1z" fill="#00d26a"/><path d="m16.7 8.6-3.3 3.4L3.6 1.5l.2.1z" fill="#3bccff"/><path d="m16.7 15.4-12.9 7-.2.1L13.4 12z" fill="#ff3d4f"/><path d="M20.6 10.8c.8.5.8 1.9 0 2.4l-3.9 2.2-3.3-3.4 3.3-3.4z" fill="#ffd400"/></svg>
+        <span><b>Google Play</b><small><span lang="ja">すべての作品</span><span lang="en">All titles</span></small></span>
+      </a>
+    </div>
+  </div>
+</section>
 
-<hr>
+<section id="contact" class="alt">
+  <div class="wrap reveal">
+    <h2><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></h2>
+    <p class="sub"><span lang="ja">ご意見・ご要望・不具合のご報告は、メールでお送りください。</span><span lang="en">For feedback, requests or bug reports, please email us.</span></p>
+    <a class="btn primary" href="mailto:steam.base777@gmail.com">✉ steam.base777@gmail.com</a>
+  </div>
+</section>
+</main>
 
-<h1>STEAM BASE</h1>
-<p class="sub">We make games and apps for Android.</p>
+<footer>
+  <div class="wrap">
+    <span>© 2026 STEAM BASE</span>
+    <a href="app-ads.txt">app-ads.txt</a>
+  </div>
+</footer>
 
-<h2>Stonecrown</h2>
-<p>A medieval fantasy defense strategy game: hold back the horde with town building, towers and magic.</p>
-<ul>
-  <li><a href="https://play.google.com/store/apps/details?id=com.aios.stonecrown">View on Google Play</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/">Privacy Policy</a></li>
-</ul>
+<script>
+(function () {
+  var root = document.documentElement, KEY = 'sb-lang';
+  function setLang(l) {
+    root.setAttribute('data-lang', l); root.lang = l;
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
+  });
 
-<h2>NOVA FORGE</h2>
-<p>A roguelite where you build a starship out of blocks and fight through 40 sectors in auto-battles.</p>
-<ul>
-  <li><a href="https://play.google.com/store/apps/details?id=com.novaforge.game">View on Google Play</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/novaforge-privacy/">Privacy Policy</a></li>
-</ul>
+  var cards = document.querySelectorAll('.card');
+  document.querySelectorAll('.filters button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-filter');
+      document.querySelectorAll('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-kind') === f); });
+    });
+  });
 
-<h2>HodoHodo</h2>
-<p>A habit limit counter: set a limit for coffee, drinks or snacks and log each time with one tap — cut back without quitting.</p>
-<ul>
-  <li><a href="https://ma06tsu22gt-art.github.io/hodohodo/en/">About the app</a></li>
-  <li><a href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2">View on Google Play</a></li>
-  <li><a href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/">Privacy Policy</a></li>
-</ul>
-
-<h2>Contact</h2>
-<p><code>steam.base777@gmail.com</code></p>
-
+  var els = document.querySelectorAll('.reveal, .card');
+  function showAll() { els.forEach(function (el) { el.classList.add('in'); }); }
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    root.classList.add('anim');
+    setTimeout(showAll, 2500);  // never leave content hidden if the observer does not fire
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { if (el.classList.contains('card')) el.classList.add('reveal'); io.observe(el); });
+  } else {
+    showAll();
+  }
+})();
+</script>
 </body>
 </html>

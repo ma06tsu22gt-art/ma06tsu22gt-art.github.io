@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HodoHodo 适度记录｜不戒掉、只适量的习惯次数限制计数器</title>
+<meta name="description" content="不戒掉，只适量。为咖啡、饮酒、零食设定每天/每周/每月的次数上限，一键记录，并把少用的次数换算成省下的钱和热量。免费，无需注册。">
+<link rel="canonical" href="https://ma06tsu22gt-art.github.io/hodohodo/zh/">
+<link rel="alternate" hreflang="ja" href="https://ma06tsu22gt-art.github.io/hodohodo/">
+<link rel="alternate" hreflang="en" href="https://ma06tsu22gt-art.github.io/hodohodo/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ma06tsu22gt-art.github.io/hodohodo/zh/">
+<link rel="alternate" hreflang="ko" href="https://ma06tsu22gt-art.github.io/hodohodo/ko/">
+<link rel="alternate" hreflang="x-default" href="https://ma06tsu22gt-art.github.io/hodohodo/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HodoHodo 适度记录｜不戒掉、只适量的习惯次数限制计数器">
+<meta property="og:description" content="不戒掉，只适量。为咖啡、饮酒、零食设定每天/每周/每月的次数上限，一键记录，并把少用的次数换算成省下的钱和热量。免费，无需注册。">
+<meta property="og:url" content="https://ma06tsu22gt-art.github.io/hodohodo/zh/">
+<meta property="og:image" content="https://ma06tsu22gt-art.github.io/hodohodo/img/og_zh.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HodoHodo", "operatingSystem": "Android", "applicationCategory": "LifestyleApplication", "description": "不戒掉，只适量。为咖啡、饮酒、零食设定每天/每周/每月的次数上限，一键记录，并把少用的次数换算成省下的钱和热量。免费，无需注册。", "url": "https://ma06tsu22gt-art.github.io/hodohodo/zh/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.mashi.hodohodo2", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "STEAM BASE"}}</script>
+<style>
+:root{--bg:#f4f8fe;--card:#ffffff;--ink:#14233c;--muted:#4e5f7a;--accent:#2f5bd3;--soft:#daeafc;--line:#d6e2f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1522;--card:#18202f;--ink:#e8eef8;--muted:#a3b1c7;--accent:#8fb0ff;--soft:#1d2a44;--line:#2a3550}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Noto Sans SC","Noto Sans KR","Malgun Gothic","Microsoft YaHei",sans-serif;line-height:1.75}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:9px}
+.langs{display:flex;gap:6px;flex-wrap:wrap;font-size:.9rem}
+.langs a{padding:4px 10px;border-radius:999px;text-decoration:none;border:1px solid var(--line);color:var(--muted)}
+.langs a[aria-current]{background:var(--soft);color:var(--ink);border-color:transparent}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.25;margin:0 0 18px}
+.hero p.lead{font-size:1.08rem;color:var(--muted);margin:0 0 28px}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 26px;border-radius:12px;text-decoration:none;font-size:1.05rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .cta{color:#0f1522}}
+.note{font-size:.88rem;color:var(--muted);margin-top:12px}
+.hero img.phone{width:100%;max-width:340px;justify-self:center;filter:drop-shadow(0 18px 30px rgba(20,35,60,.18))}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:1.5rem;margin:0 0 22px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border-radius:16px;padding:22px;border:1px solid var(--line)}
+.card h3{margin:0 0 8px;font-size:1.1rem}
+.card p{margin:0;color:var(--muted)}
+.shots{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{height:440px;width:auto;border-radius:14px;scroll-snap-align:start;flex:none}
+ul.why{padding-left:1.2em;margin:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer}
+details p{margin:10px 0 0;color:var(--muted)}
+.end{text-align:center;padding:56px 0}
+footer{padding:28px 0 48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:28px;padding:20px 0 40px}.benefits{grid-template-columns:1fr}.shots img{height:360px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="../zh/"><img src="../img/icon.png" alt="" width="36" height="36">HodoHodo</a>
+  <nav class="langs" aria-label="Language"><a href="../" lang="ja">日本語</a><a href="../en/" lang="en">English</a><a href="../zh/" aria-current="page" lang="zh-Hans">简体中文</a><a href="../ko/" lang="ko">한국어</a></nav>
+</header>
+<main>
+<div class="hero">
+  <div>
+    <h1>不戒掉，<br>只适量。</h1>
+    <p class="lead">咖啡、喝酒、零食、游戏、网购。为不想戒掉、只想少一点的习惯设定「每周3次」这样的上限，一键记录次数。</p>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2&hl=zh-CN&referrer=utm_source%3Dhodohodo_site%26utm_medium%3Dweb%26utm_campaign%3Dlp_zh">在 Google Play 免费下载</a>
+    <p class="note">Android · 免费（最多3个项目） · 无需登录</p>
+  </div>
+  <img class="phone" src="../img/zh_1.webp" width="340" height="680" alt="界面">
+</div>
+<section><div class="benefits"><div class="card"><h3>设定上限，一键记录</h3><p>「每天3次」「每周5次」「每月10次」。设好周期和次数后，只需点一下。「还剩几次」一目了然。</p></div><div class="card"><h3>看见省下了多少</h3><p>少用的次数会换算成金额、kcal、分钟等单位，例如「本周咖啡省了40元」。</p></div><div class="card"><h3>在桌面直接记录</h3><p>放上桌面小组件，不用打开应用就能记录。周期结束后自动从0重新开始。</p></div></div></section>
+<section><h2>界面</h2><div class="shots"><img src="../img/zh_1.webp" width="270" height="540" loading="lazy" alt="界面 1"><img src="../img/zh_2.webp" width="270" height="540" loading="lazy" alt="界面 2"><img src="../img/zh_3.webp" width="270" height="540" loading="lazy" alt="界面 3"><img src="../img/zh_4.webp" width="270" height="540" loading="lazy" alt="界面 4"><img src="../img/zh_5.webp" width="270" height="540" loading="lazy" alt="界面 5"></div></section>
+<section><h2>适合这样的你</h2><ul class="why"><li>想节省咖啡和饮料的花费</li><li>不想戒酒，只想少喝一点</li><li>零食不想归零，只想控制在每周3次</li><li>连续打卡一中断就没动力</li><li>不想注册账号，只想轻松记录</li></ul></section>
+<section><h2>常见问题</h2><details><summary>可以免费使用吗？</summary><p>免费版最多可登记3个项目。无限项目方案（按月或一次性购买）取消项目数量限制，其他功能相同。免费版会显示横幅广告。</p></details><details><summary>记录保存在哪里？</summary><p>记录数据只保存在设备内，不会发送到服务器。也可以导出备份文件，用于更换手机。</p></details><details><summary>有 iPhone 版吗？</summary><p>目前只有 Android 版。</p></details></section>
+<div class="end"><a class="cta" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2&hl=zh-CN&referrer=utm_source%3Dhodohodo_site%26utm_medium%3Dweb%26utm_campaign%3Dlp_zh">在 Google Play 免费下载</a></div>
+</main>
+<footer><span>开发：STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/">隐私政策</a><a href="https://ma06tsu22gt-art.github.io/">STEAM BASE</a></footer>
+</div>
+</body>
+</html>

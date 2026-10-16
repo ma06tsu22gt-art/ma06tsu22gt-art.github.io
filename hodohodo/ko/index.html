@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HodoHodo 적당히 기록｜끊지 말고 줄이는 습관 횟수 카운터</title>
+<meta name="description" content="끊지 말고 줄이기. 커피·술·간식에 하루/주/월 상한을 정하고 1탭으로 기록, 참은 횟수는 절약한 금액과 칼로리로 환산. 무료, 로그인 불필요.">
+<link rel="canonical" href="https://ma06tsu22gt-art.github.io/hodohodo/ko/">
+<link rel="alternate" hreflang="ja" href="https://ma06tsu22gt-art.github.io/hodohodo/">
+<link rel="alternate" hreflang="en" href="https://ma06tsu22gt-art.github.io/hodohodo/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://ma06tsu22gt-art.github.io/hodohodo/zh/">
+<link rel="alternate" hreflang="ko" href="https://ma06tsu22gt-art.github.io/hodohodo/ko/">
+<link rel="alternate" hreflang="x-default" href="https://ma06tsu22gt-art.github.io/hodohodo/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HodoHodo 적당히 기록｜끊지 말고 줄이는 습관 횟수 카운터">
+<meta property="og:description" content="끊지 말고 줄이기. 커피·술·간식에 하루/주/월 상한을 정하고 1탭으로 기록, 참은 횟수는 절약한 금액과 칼로리로 환산. 무료, 로그인 불필요.">
+<meta property="og:url" content="https://ma06tsu22gt-art.github.io/hodohodo/ko/">
+<meta property="og:image" content="https://ma06tsu22gt-art.github.io/hodohodo/img/og_ko.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HodoHodo", "operatingSystem": "Android", "applicationCategory": "LifestyleApplication", "description": "끊지 말고 줄이기. 커피·술·간식에 하루/주/월 상한을 정하고 1탭으로 기록, 참은 횟수는 절약한 금액과 칼로리로 환산. 무료, 로그인 불필요.", "url": "https://ma06tsu22gt-art.github.io/hodohodo/ko/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.mashi.hodohodo2", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "publisher": {"@type": "Organization", "name": "STEAM BASE"}}</script>
+<style>
+:root{--bg:#f4f8fe;--card:#ffffff;--ink:#14233c;--muted:#4e5f7a;--accent:#2f5bd3;--soft:#daeafc;--line:#d6e2f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1522;--card:#18202f;--ink:#e8eef8;--muted:#a3b1c7;--accent:#8fb0ff;--soft:#1d2a44;--line:#2a3550}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Noto Sans SC","Noto Sans KR","Malgun Gothic","Microsoft YaHei",sans-serif;line-height:1.75}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:9px}
+.langs{display:flex;gap:6px;flex-wrap:wrap;font-size:.9rem}
+.langs a{padding:4px 10px;border-radius:999px;text-decoration:none;border:1px solid var(--line);color:var(--muted)}
+.langs a[aria-current]{background:var(--soft);color:var(--ink);border-color:transparent}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.25;margin:0 0 18px}
+.hero p.lead{font-size:1.08rem;color:var(--muted);margin:0 0 28px}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 26px;border-radius:12px;text-decoration:none;font-size:1.05rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .cta{color:#0f1522}}
+.note{font-size:.88rem;color:var(--muted);margin-top:12px}
+.hero img.phone{width:100%;max-width:340px;justify-self:center;filter:drop-shadow(0 18px 30px rgba(20,35,60,.18))}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:1.5rem;margin:0 0 22px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border-radius:16px;padding:22px;border:1px solid var(--line)}
+.card h3{margin:0 0 8px;font-size:1.1rem}
+.card p{margin:0;color:var(--muted)}
+.shots{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{height:440px;width:auto;border-radius:14px;scroll-snap-align:start;flex:none}
+ul.why{padding-left:1.2em;margin:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer}
+details p{margin:10px 0 0;color:var(--muted)}
+.end{text-align:center;padding:56px 0}
+footer{padding:28px 0 48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:28px;padding:20px 0 40px}.benefits{grid-template-columns:1fr}.shots img{height:360px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="../ko/"><img src="../img/icon.png" alt="" width="36" height="36">HodoHodo</a>
+  <nav class="langs" aria-label="Language"><a href="../" lang="ja">日本語</a><a href="../en/" lang="en">English</a><a href="../zh/" lang="zh-Hans">简体中文</a><a href="../ko/" aria-current="page" lang="ko">한국어</a></nav>
+</header>
+<main>
+<div class="hero">
+  <div>
+    <h1>끊지 말고,<br>적당히.</h1>
+    <p class="lead">커피, 술, 간식, 게임, 쇼핑. 끊고 싶진 않지만 줄이고 싶은 습관에 &#x27;주 3회까지&#x27; 같은 상한을 정하고 1탭으로 기록하는 카운터 앱입니다.</p>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2&hl=ko&referrer=utm_source%3Dhodohodo_site%26utm_medium%3Dweb%26utm_campaign%3Dlp_ko">Google Play에서 무료 다운로드</a>
+    <p class="note">Android · 무료(항목 3개까지) · 로그인 불필요</p>
+  </div>
+  <img class="phone" src="../img/ko_1.webp" width="340" height="680" alt="화면">
+</div>
+<section><div class="benefits"><div class="card"><h3>상한을 정하고 1탭으로 기록</h3><p>&#x27;하루 3회&#x27;, &#x27;주 5회&#x27;, &#x27;월 10회&#x27;. 기간과 횟수만 정하면 버튼 한 번이면 끝. 남은 횟수를 한눈에 확인할 수 있어요.</p></div><div class="card"><h3>아낀 만큼 눈에 보이게</h3><p>상한보다 적게 쓴 횟수를 금액·kcal·분 등으로 환산합니다. &#x27;이번 주 커피값 6000원 절약&#x27;처럼요.</p></div><div class="card"><h3>홈 화면에서 바로 기록</h3><p>위젯을 두면 앱을 열지 않고 기록할 수 있어요. 기간이 끝나면 자동으로 0회부터 다시 시작합니다.</p></div></div></section>
+<section><h2>화면</h2><div class="shots"><img src="../img/ko_1.webp" width="270" height="540" loading="lazy" alt="화면 1"><img src="../img/ko_2.webp" width="270" height="540" loading="lazy" alt="화면 2"><img src="../img/ko_3.webp" width="270" height="540" loading="lazy" alt="화면 3"><img src="../img/ko_4.webp" width="270" height="540" loading="lazy" alt="화면 4"><img src="../img/ko_5.webp" width="270" height="540" loading="lazy" alt="화면 5"></div></section>
+<section><h2>이런 분께 추천해요</h2><ul class="why"><li>커피값과 음료 지출을 줄이고 싶은 분</li><li>금주가 아니라 절주로 횟수를 조절하고 싶은 분</li><li>간식을 &#x27;0&#x27;이 아니라 &#x27;주 3회까지&#x27;로 하고 싶은 분</li><li>연속 기록이 끊기면 의욕이 사라지는 분</li><li>회원가입 없이 간단히 기록하고 싶은 분</li></ul></section>
+<section><h2>자주 묻는 질문</h2><details><summary>무료로 쓸 수 있나요?</summary><p>무료 버전은 항목을 3개까지 등록할 수 있습니다. 항목 무제한 플랜(월정액 또는 1회 구매)은 항목 수 제한만 없애며 기능은 같습니다. 무료 버전에는 배너 광고가 표시됩니다.</p></details><details><summary>기록은 어디에 저장되나요?</summary><p>기록 데이터는 기기에만 저장되며 서버로 전송되지 않습니다. 기기 변경 시에는 백업 파일을 내보내 사용할 수 있습니다.</p></details><details><summary>아이폰 버전이 있나요?</summary><p>현재는 Android 버전만 있습니다.</p></details></section>
+<div class="end"><a class="cta" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2&hl=ko&referrer=utm_source%3Dhodohodo_site%26utm_medium%3Dweb%26utm_campaign%3Dlp_ko">Google Play에서 무료 다운로드</a></div>
+</main>
+<footer><span>개발: STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/">개인정보처리방침</a><a href="https://ma06tsu22gt-art.github.io/">STEAM BASE</a></footer>
+</div>
+</body>
+</html>

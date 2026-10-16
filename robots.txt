@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ma06tsu22gt-art.github.io/sitemap.xml

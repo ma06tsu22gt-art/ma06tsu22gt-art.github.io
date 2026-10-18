@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>巻き込みおじさん｜カジュアルアクション（Android・無料）｜STEAM BASE</title>
+<meta name="description" content="全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。">
+<link rel="canonical" href="https://ma06tsu22gt-art.github.io/apps/makikomi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="巻き込みおじさん｜STEAM BASE">
+<meta property="og:description" content="全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。">
+<meta property="og:url" content="https://ma06tsu22gt-art.github.io/apps/makikomi/">
+<meta property="og:image" content="https://ma06tsu22gt-art.github.io/img/apps/makikomi_card.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "巻き込みおじさん", "operatingSystem": "Android", "applicationCategory": "GameApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "url": "https://ma06tsu22gt-art.github.io/apps/makikomi/", "installUrl": "https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan", "image": "https://ma06tsu22gt-art.github.io/img/apps/makikomi_icon.png", "description": "全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。", "author": {"@type": "Organization", "name": "STEAM BASE", "url": "https://ma06tsu22gt-art.github.io/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "無料で遊べますか?", "acceptedAnswer": {"@type": "Answer", "text": "完全無料で遊べます。広告を削除する買い切りアイテムもあります。"}}, {"@type": "Question", "name": "どんな操作ですか?", "acceptedAnswer": {"@type": "Answer", "text": "画面の左右をタップしてレーンを移動するだけです。"}}, {"@type": "Question", "name": "iPhone（iOS）でも遊べますか?", "acceptedAnswer": {"@type": "Answer", "text": "現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。"}}]}</script>
+<style>
+:root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
+html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+a { color:var(--accent); }
+img { max-width:100%; display:block; }
+.wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+header.top { position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); background:rgba(10,19,34,.8); border-bottom:1px solid var(--line); }
+header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
+.brand { display:flex; align-items:center; gap:10px; color:var(--white); text-decoration:none; font-weight:700; letter-spacing:.06em; }
+.brand img { width:30px; height:30px; border-radius:50%; }
+.crumb { color:var(--muted); font-size:.85rem; margin-left:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.crumb a { color:var(--muted); }
+.lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
+.lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
+html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
+.hero { position:relative; overflow:hidden; }
+.hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
+.hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
+.hero .key { border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px rgba(0,0,0,.5); }
+.hero .key img { width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; }
+.hero .id { display:flex; gap:16px; align-items:center; }
+.hero .id img { width:84px; height:84px; border-radius:20px; box-shadow:0 8px 24px rgba(0,0,0,.45); flex:none; }
+.hero h1 { margin:0; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.25; color:var(--white); }
+.chip { display:inline-block; font-size:.78rem; color:var(--accent); border:1px solid var(--line); border-radius:999px; padding:0 10px; margin-top:6px; background:rgba(10,19,34,.5); }
+.hero p.lead { color:#d3dcf2; margin:18px 0 22px; }
+.cta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:10px; border:1px solid var(--line); color:var(--ink); text-decoration:none; font-weight:700; }
+.btn.primary { background:var(--accent); color:#0a1322; border-color:var(--accent); }
+.btn svg { width:16px; height:16px; fill:currentColor; }
+.note { color:var(--muted); font-size:.82rem; }
+section { padding:56px 0; }
+section.alt { background:var(--bg2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+h2 { font-size:1.5rem; color:var(--white); margin:0 0 20px; }
+.gallery { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
+.gallery img { height:360px; width:auto; border-radius:12px; border:1px solid var(--line); scroll-snap-align:start; flex:none; }
+.video { position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#000; }
+.video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.desc { max-width:760px; }
+.desc h3 { color:var(--accent2); font-size:1.05rem; margin:28px 0 6px; }
+.desc p { margin:0 0 10px; }
+.desc ul { margin:0 0 10px; padding-left:1.3em; }
+.desc li { margin:2px 0; }
+.faq details { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:0 0 10px; max-width:760px; }
+.faq summary { cursor:pointer; font-weight:700; color:var(--white); }
+.faq p { margin:8px 0 0; color:var(--muted); }
+.others { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+.other { display:flex; gap:12px; align-items:center; padding:12px; border-radius:12px; background:var(--panel); border:1px solid var(--line); color:var(--ink); text-decoration:none; font-size:.92rem; }
+.other img { width:44px; height:44px; border-radius:11px; flex:none; }
+.other:hover { border-color:var(--accent); }
+footer { padding:30px 0 44px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
+footer .wrap { display:flex; flex-wrap:wrap; gap:10px 22px; }
+footer a { color:var(--muted); }
+@media (max-width:820px) {
+  .hero .wrap { grid-template-columns:1fr; padding-top:32px; padding-bottom:36px; }
+  .crumb { display:none; }
+  .lang { margin-left:auto; }
+  .gallery img { height:260px; }
+  section { padding:44px 0; }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › 巻き込みおじさん</nav>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+</div></header>
+<main>
+<section class="hero">
+  <div class="bg" style="background-image:url('../../img/apps/makikomi_card.webp')"></div>
+  <div class="wrap">
+    <div>
+      <div class="id"><img src="../../img/apps/makikomi_icon.png" alt="" width="84" height="84">
+        <div><h1>巻き込みおじさん</h1><span class="chip"><span lang="ja">カジュアルアクション</span><span lang="en">Casual action</span></span></div></div>
+      <p class="lead"><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+      </div>
+    </div>
+    <div class="key"><img src="../../img/apps/makikomi_card.webp" alt="巻き込みおじさん" width="800" height="500"></div>
+  </div>
+</section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/makikomi/shot1.webp" alt="巻き込みおじさん スクリーンショット 1" loading="lazy"><img src="../../img/apps/makikomi/shot2.webp" alt="巻き込みおじさん スクリーンショット 2" loading="lazy"><img src="../../img/apps/makikomi/shot3.webp" alt="巻き込みおじさん スクリーンショット 3" loading="lazy"><img src="../../img/apps/makikomi/shot4.webp" alt="巻き込みおじさん スクリーンショット 4" loading="lazy"></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/XMnJf1tt4mU" title="巻き込みおじさん gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">巻き込みおじさん はどんなゲーム?</span><span lang="en">What is 巻き込みおじさん?</span></h2>
+  <div class="desc"><div lang="ja"><p>スーツ姿のおじさんが、なぜか全力疾走。 左右をタップしてレーンを移動し、道行く人をどんどん巻き込め！ 気づけば後ろには長蛇の行列……でも電柱や障害物にぶつかったら一巻の終わり。</p>
+<h3>あそびかた</h3>
+<ul><li>画面の左右をタップしておじさんをレーン移動</li><li>通行人にぶつかると仲間になって行列に加わる(得点アップ)</li><li>障害物(コーン・看板・電柱)にぶつかるとゲームオーバー</li><li>巻き込んだ仲間が障害物に当たると、その人だけ行列から脱落(減点)</li></ul>
+<h3>ボーナスアイテム</h3>
+<ul><li>お宝:取ると即座にスコアアップ</li><li>栄養ドリンク:一時的にスピードアップ</li><li>磁石:一時的に周囲の通行人を自動で巻き込む</li><li>ヘルメット:次の1回だけ障害物への激突を無効化</li></ul>
+<p>10人ごとに称号が輝かしく表示され、SNSでの自慢にも使えるかも? 「町内ちょっとした有名人」から「世紀の巻き込みマスター」まで、 一体どこまで巻き込めるか挑戦してみてください。</p>
+<p>完全無料でプレイでき、広告を削除する買い切りアイテムもご用意しています。</p>
+<h3>こんな方におすすめ</h3>
+<ul><li>ちょっとした待ち時間に遊べる暇つぶしゲームを探している</li><li>くだらないバカゲーで笑いたい</li><li>タップだけのシンプルなランゲームが好き</li><li>ハイスコアや称号を友だちに自慢したい</li></ul></div><div lang="en"><p>A man in a suit is inexplicably sprinting at full speed. Tap left and right to move him between lanes and pick up passersby! Before you know it, a long line has formed behind him... but crashing into a lamppost or obstacle means game over.</p>
+<p>[How to Play]</p>
+<ul><li>Tap left and right of the screen to move the man between lanes</li><li>Bumping into passersby makes them allies and adds them to the line (increases your score)</li><li>Hitting obstacles (cones, signs, lampposts) results in a game over</li><li>If an ally hits an obstacle, that person is removed from the line (points deducted)</li></ul>
+<p>[Bonus Items]</p>
+<ul><li>Treasure: Instantly increases your score</li><li>Energy Drink: Temporarily increases your speed</li><li>Magnet: Temporarily automatically picks up nearby passersby</li><li>Helmet: Prevents collisions with obstacles for the next time only</li></ul>
+<p>A title is displayed brilliantly every 10 people, which you might even use to brag on social media! From &quot;A Little Local Celebrity&quot; to &quot;The Master of Picking Up People,&quot; see how far you can pick up!</p>
+<p>It&#x27;s completely free to play, and we also offer a one-time purchase option to remove ads.</p>
+<h3>Recommended for those who:</h3>
+<ul><li>Are looking for a time-killing game to play during short waiting times</li><li>Want to laugh at a silly, goofy game</li><li>Like simple tap-only running games</li><li>Want to show off their high scores and titles to their friends</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+</div></section>
+<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">完全無料で遊べます。広告を削除する買い切りアイテムもあります。</span><span lang="en">Yes, completely. A one-time purchase removes ads.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span></summary><p><span lang="ja">画面の左右をタップしてレーンを移動するだけです。</span><span lang="en">Just tap the left or right side of the screen to change lanes.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+</div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a></div></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<script>
+(function () {
+  var root = document.documentElement, KEY = 'sb-lang';
+  function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
+  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+})();
+</script>
+</body>
+</html>

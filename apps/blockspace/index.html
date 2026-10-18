@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Block Space Roguelite｜宇宙戦艦ビルド・ローグライト（Android・無料）｜STEAM BASE</title>
+<meta name="description" content="武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。">
+<link rel="canonical" href="https://ma06tsu22gt-art.github.io/apps/blockspace/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Block Space Roguelite｜STEAM BASE">
+<meta property="og:description" content="武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。">
+<meta property="og:url" content="https://ma06tsu22gt-art.github.io/apps/blockspace/">
+<meta property="og:image" content="https://ma06tsu22gt-art.github.io/img/apps/blockspace_card.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Block Space Roguelite", "operatingSystem": "Android", "applicationCategory": "GameApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "url": "https://ma06tsu22gt-art.github.io/apps/blockspace/", "installUrl": "https://play.google.com/store/apps/details?id=com.blockspaceroguelit", "image": "https://ma06tsu22gt-art.github.io/img/apps/blockspace_icon.png", "description": "武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。", "author": {"@type": "Organization", "name": "STEAM BASE", "url": "https://ma06tsu22gt-art.github.io/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "どんなゲームですか?", "acceptedAnswer": {"@type": "Answer", "text": "ブロックで宇宙戦艦を組み、探索で装備を集めて宙域の攻略を目指すローグライトです。同じ装備を合体させて強化できます。"}}, {"@type": "Question", "name": "繰り返し遊ぶ要素はありますか?", "acceptedAnswer": {"@type": "Answer", "text": "恒久強化で次の探索に備え、より難しい宙域に挑戦できます。"}}, {"@type": "Question", "name": "iPhone（iOS）でも遊べますか?", "acceptedAnswer": {"@type": "Answer", "text": "現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。"}}]}</script>
+<style>
+:root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
+html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+a { color:var(--accent); }
+img { max-width:100%; display:block; }
+.wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+header.top { position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); background:rgba(10,19,34,.8); border-bottom:1px solid var(--line); }
+header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
+.brand { display:flex; align-items:center; gap:10px; color:var(--white); text-decoration:none; font-weight:700; letter-spacing:.06em; }
+.brand img { width:30px; height:30px; border-radius:50%; }
+.crumb { color:var(--muted); font-size:.85rem; margin-left:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.crumb a { color:var(--muted); }
+.lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
+.lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
+html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
+.hero { position:relative; overflow:hidden; }
+.hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
+.hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
+.hero .key { border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px rgba(0,0,0,.5); }
+.hero .key img { width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; }
+.hero .id { display:flex; gap:16px; align-items:center; }
+.hero .id img { width:84px; height:84px; border-radius:20px; box-shadow:0 8px 24px rgba(0,0,0,.45); flex:none; }
+.hero h1 { margin:0; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.25; color:var(--white); }
+.chip { display:inline-block; font-size:.78rem; color:var(--accent); border:1px solid var(--line); border-radius:999px; padding:0 10px; margin-top:6px; background:rgba(10,19,34,.5); }
+.hero p.lead { color:#d3dcf2; margin:18px 0 22px; }
+.cta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:10px; border:1px solid var(--line); color:var(--ink); text-decoration:none; font-weight:700; }
+.btn.primary { background:var(--accent); color:#0a1322; border-color:var(--accent); }
+.btn svg { width:16px; height:16px; fill:currentColor; }
+.note { color:var(--muted); font-size:.82rem; }
+section { padding:56px 0; }
+section.alt { background:var(--bg2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+h2 { font-size:1.5rem; color:var(--white); margin:0 0 20px; }
+.gallery { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
+.gallery img { height:360px; width:auto; border-radius:12px; border:1px solid var(--line); scroll-snap-align:start; flex:none; }
+.video { position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#000; }
+.video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.desc { max-width:760px; }
+.desc h3 { color:var(--accent2); font-size:1.05rem; margin:28px 0 6px; }
+.desc p { margin:0 0 10px; }
+.desc ul { margin:0 0 10px; padding-left:1.3em; }
+.desc li { margin:2px 0; }
+.faq details { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:0 0 10px; max-width:760px; }
+.faq summary { cursor:pointer; font-weight:700; color:var(--white); }
+.faq p { margin:8px 0 0; color:var(--muted); }
+.others { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+.other { display:flex; gap:12px; align-items:center; padding:12px; border-radius:12px; background:var(--panel); border:1px solid var(--line); color:var(--ink); text-decoration:none; font-size:.92rem; }
+.other img { width:44px; height:44px; border-radius:11px; flex:none; }
+.other:hover { border-color:var(--accent); }
+footer { padding:30px 0 44px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
+footer .wrap { display:flex; flex-wrap:wrap; gap:10px 22px; }
+footer a { color:var(--muted); }
+@media (max-width:820px) {
+  .hero .wrap { grid-template-columns:1fr; padding-top:32px; padding-bottom:36px; }
+  .crumb { display:none; }
+  .lang { margin-left:auto; }
+  .gallery img { height:260px; }
+  section { padding:44px 0; }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › Block Space Roguelite</nav>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+</div></header>
+<main>
+<section class="hero">
+  <div class="bg" style="background-image:url('../../img/apps/blockspace_card.webp')"></div>
+  <div class="wrap">
+    <div>
+      <div class="id"><img src="../../img/apps/blockspace_icon.png" alt="" width="84" height="84">
+        <div><h1>Block Space Roguelite</h1><span class="chip"><span lang="ja">宇宙戦艦ビルド・ローグライト</span><span lang="en">Battleship-building roguelite</span></span></div></div>
+      <p class="lead"><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+      </div>
+    </div>
+    <div class="key"><img src="../../img/apps/blockspace_card.webp" alt="Block Space Roguelite" width="800" height="500"></div>
+  </div>
+</section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/blockspace/shot1.webp" alt="Block Space Roguelite スクリーンショット 1" loading="lazy"><img src="../../img/apps/blockspace/shot2.webp" alt="Block Space Roguelite スクリーンショット 2" loading="lazy"><img src="../../img/apps/blockspace/shot3.webp" alt="Block Space Roguelite スクリーンショット 3" loading="lazy"><img src="../../img/apps/blockspace/shot4.webp" alt="Block Space Roguelite スクリーンショット 4" loading="lazy"><img src="../../img/apps/blockspace/shot5.webp" alt="Block Space Roguelite スクリーンショット 5" loading="lazy"><img src="../../img/apps/blockspace/shot6.webp" alt="Block Space Roguelite スクリーンショット 6" loading="lazy"></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/W1t4uXu_SRA" title="Block Space Roguelite gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">Block Space Roguelite はどんなゲーム?</span><span lang="en">What is Block Space Roguelite?</span></h2>
+  <div class="desc"><div lang="ja"><p>ブロックを組み合わせ、自分だけの宇宙戦艦を建造しよう。</p>
+<p>武器、装甲、エンジン、シールドなどを配置して艦船を設計。</p>
+<p>探索で装備を集め、強敵が待つ宙域の攻略を目指します。</p>
+<h3>自由な艦船建造</h3>
+<p>パーツの配置と組み合わせで戦い方が変化。</p>
+<p>攻撃力、防御力、機動力のバランスを考え、自分の戦艦を作れます。</p>
+<h3>宇宙を巡る探索</h3>
+<p>ショートランと遠征で、さまざまなエリアに挑戦。</p>
+<p>戦闘やショップを通して装備を整え、ボスとの戦いに備えます。</p>
+<h3>多彩な武器とドローン</h3>
+<p>砲撃、ビーム、ミサイル、ドローンを組み合わせて戦闘。</p>
+<p>敵の構成に合わせた編成を楽しめます。</p>
+<h3>装備収集と強化</h3>
+<p>獲得した装備を倉庫に保管。</p>
+<p>同じ種類・同じマークの装備を合体し、さらに強化できます。</p>
+<h3>繰り返し挑戦して成長</h3>
+<p>恒久強化で次の探索に備え、より難しい宙域の攻略を目指します。</p>
+<h3>こんな方におすすめ</h3>
+<ul><li>ローグライク、ローグライトで装備を集めるのが好き</li><li>同じ装備を合体させて強くするのが好き</li><li>宇宙戦艦を自分好みに組み立てたい</li><li>何度も挑戦して少しずつ先へ進むゲームが好き</li></ul></div><div lang="en"><p>Build your own space battleship by combining blocks.</p>
+<p>Design your ship by arranging weapons, armor, engines, shields, and more.</p>
+<p>Collect equipment through exploration and aim to conquer sectors of space where powerful enemies await.</p>
+<h3>Free Ship Construction</h3>
+<p>The way you arrange and combine parts changes your combat style.</p>
+<p>Consider the balance of attack power, defense power, and mobility to create your own battleship.</p>
+<h3>Exploring Space</h3>
+<p>Challenge various areas with short runs and expeditions.</p>
+<p>Equip yourself through battles and the shop to prepare for boss battles.</p>
+<h3>Diverse Weapons and Drones</h3>
+<p>Combine artillery, beams, missiles, and drones in combat.</p>
+<p>Enjoy strategizing to match the enemy&#x27;s composition.</p>
+<h3>Equipment Collection and Enhancement</h3>
+<p>Store acquired equipment in the warehouse.</p>
+<p>Combine equipment of the same type and mark to further enhance it.</p>
+<h3>Repeated Challenges for Growth</h3>
+<p>Prepare for the next exploration with permanent enhancements and aim to conquer more difficult sectors of space.</p>
+<h3>Recommended for those who:</h3>
+<ul><li>Enjoy collecting equipment in roguelike and roguelite games</li><li>Enjoy combining identical equipment to make it stronger</li><li>Want to build their own spaceship</li><li>Enjoy games where you make gradual progress by trying multiple times</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+</div></section>
+<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
+  <details><summary><span lang="ja">どんなゲームですか?</span><span lang="en">What kind of game is it?</span></summary><p><span lang="ja">ブロックで宇宙戦艦を組み、探索で装備を集めて宙域の攻略を目指すローグライトです。同じ装備を合体させて強化できます。</span><span lang="en">A roguelite: build a battleship from blocks, collect gear while exploring, and merge matching gear to power it up.</span></p></details><details><summary><span lang="ja">繰り返し遊ぶ要素はありますか?</span><span lang="en">Is there long-term progression?</span></summary><p><span lang="ja">恒久強化で次の探索に備え、より難しい宙域に挑戦できます。</span><span lang="en">Yes — permanent upgrades carry over to your next run.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+</div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a></div></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<script>
+(function () {
+  var root = document.documentElement, KEY = 'sb-lang';
+  function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
+  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+})();
+</script>
+</body>
+</html>

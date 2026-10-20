@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ヨカッタ プライバシーポリシー / Yokatta Privacy Policy</title>
+<meta name="description" content="ヨカッタ(1行日記アプリ)のプライバシーポリシー。日記は端末の中だけに保存され、外部へ送信されません。">
+<link rel="icon" href="../favicon.png">
+<style>
+  :root {
+    --bg: #fffaf1;
+    --surface: #ffffff;
+    --ink: #2f251b;
+    --ink-muted: #6b5a48;
+    --ink-faint: #9a8a78;
+    --accent: #c27a12;
+    --accent-soft: #fdeccc;
+    --border: #efe3cf;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a150f;
+      --surface: #241d15;
+      --ink: #f5efe6;
+      --ink-muted: #b8a993;
+      --ink-faint: #8a7b68;
+      --accent: #f0b75a;
+      --accent-soft: #3a2c17;
+      --border: #3a3024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Segoe UI", Roboto,
+      "Noto Sans JP", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 120px;
+  }
+
+  header.hero {
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: 16px;
+    color: var(--ink-muted);
+    max-width: 60ch;
+    margin: 0 0 20px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .meta-row span strong {
+    color: var(--ink-muted);
+    font-weight: 600;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 32px 0 8px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 16px 15px;
+  }
+
+  .summary-card .icon {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .summary-card .label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .summary-card .detail {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 8px clamp(24px, 5vw, 56px);
+  }
+
+  section {
+    padding: 34px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child {
+    border-bottom: none;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-num {
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+
+  section p {
+    margin: 0 0 12px;
+    color: var(--ink-muted);
+    font-size: 15px;
+    max-width: 64ch;
+  }
+
+  section p:last-child { margin-bottom: 0; }
+
+  section ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+    color: var(--ink-muted);
+    font-size: 15px;
+  }
+
+  section li {
+    margin-bottom: 6px;
+  }
+
+  section li::marker {
+    color: var(--accent);
+  }
+
+  .no-collect {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  code {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 0.92em;
+    font-family: "SF Mono", ui-monospace, Consolas, monospace;
+  }
+
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 520px) {
+    .page { padding: 40px 16px 80px; }
+    main { padding: 4px 20px; border-radius: 16px; }
+    section { padding: 26px 0; }
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Privacy Policy</div>
+    <h1>ヨカッタ プライバシーポリシー</h1>
+    <p class="lede">
+      ヨカッタ(Yokatta)は、今日よかったことを1日1行だけ残す日記アプリです。アカウント登録は不要で、書いた日記は端末の中にだけ保存されます。
+      本ポリシーでは、アプリが扱う情報とその取り扱いについて説明します。
+    </p>
+    <div class="meta-row">
+      <span><strong>制定日</strong> 2026年10月21日</span>
+      <span><strong>最終更新日</strong> 2026年10月21日</span>
+      <span><strong>対象</strong> ヨカッタ(Android版・iPhone/iPad版)</span>
+      <span><a href="#en">English</a></span>
+    </div>
+  </header>
+
+  <div class="summary-grid">
+    <div class="summary-card"><span class="icon">🔒</span><div class="label">ログイン不要</div><div class="detail">アカウント作成や個人情報の入力を求めません</div></div>
+    <div class="summary-card"><span class="icon">📱</span><div class="label">日記は端末の中だけ</div><div class="detail">書いた1行は外部へ送信しません</div></div>
+    <div class="summary-card"><span class="icon">📢</span><div class="label">広告あり</div><div class="detail">Google AdMobのバナー広告を表示します。日記の内容は広告に使われません</div></div>
+    <div class="summary-card"><span class="icon">🔔</span><div class="label">通知は端末内で予約</div><div class="detail">毎晩のお知らせはオンにしたときだけ、端末内で予約します</div></div>
+  </div>
+
+  <main>
+    <section>
+      <div class="section-head"><span class="section-num">01</span><h2>収集する情報</h2></div>
+      <div class="no-collect">✓ 日記の内容を収集・送信することはありません</div>
+      <p>ヨカッタは、氏名・メールアドレス・電話番号などの個人情報の入力を求めません。アプリで作成される次の情報は、すべて端末内にのみ保存されます。</p>
+      <ul>
+        <li>日付ごとの「よかったこと」の1行</li>
+        <li>お知らせのオン/オフと時刻などのアプリ内設定</li>
+      </ul>
+      <p>広告の表示のために、Google Mobile Ads SDK(Google AdMob)が広告IDなどの端末情報を扱います。詳しくは「第三者への提供」をご覧ください。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">02</span><h2>データの保存場所</h2></div>
+      <p>日記と設定は、お使いの端末内のアプリ専用領域(SQLiteデータベース)に保存されます。STEAM BASEが運営するサーバーや第三者のサーバーに日記を送信・保管することはありません。アプリをアンインストールすると、端末内のデータも削除されます。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">03</span><h2>バックアップと画像の共有</h2></div>
+      <p>設定の「バックアップを書き出す」を使うと、日記をファイル(JSON形式)として書き出せます。ふりかえり画面の「画像にして共有」では、その月の1行をまとめた画像を作れます。</p>
+      <p>どちらもユーザーが操作したときだけ行われ、保存先・共有先は端末標準の共有シートでユーザーが選びます。アプリが自動でどこかへアップロードすることはありません。書き出したファイルや共有した画像は、選んだ保存先・共有先のポリシーに従って扱われます。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">04</span><h2>ホーム画面ウィジェット</h2></div>
+      <p>Android版のウィジェットには、過去の1行を表示します。表示のための文字は端末内のアプリ専用領域に置かれ、外部へは送信されません。ホーム画面に表示されるため、端末を他の人が見たときに内容が見えることがあります。気になる場合はウィジェットを外してください。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">05</span><h2>第三者への提供</h2></div>
+      <p>ヨカッタは、バナー広告を表示するために、Google LLC が提供する Google Mobile Ads SDK(Google AdMob)を組み込んでいます。広告の配信・効果測定・不正防止のため、同SDKは広告ID、IPアドレス、端末やOSの情報、広告の表示・タップなどの情報を収集し、Googleに送信することがあります。</p>
+      <p>これらの情報の取り扱いは <a href="https://policies.google.com/technologies/partner-sites?hl=ja">Google のパートナーのサイトやアプリでのデータ利用</a> および <a href="https://policies.google.com/privacy?hl=ja">Google プライバシー ポリシー</a> に従います。</p>
+      <ul>
+        <li>日記の内容は、広告SDKにも外部にも送信されません。</li>
+        <li>欧州経済領域(EEA)・英国などでは、広告の個人に合わせた配信について同意を確認する画面を表示する場合があります。設定の「広告のプライバシー設定」からいつでも見直せます。</li>
+        <li>広告IDは端末の設定(設定 &gt; プライバシー &gt; 広告 など)からリセット・削除できます。</li>
+        <li>iPhone/iPad版では、トラッキングの許可(App Tracking Transparency)を求めないため、広告用の識別子(IDFA)は使用されません。</li>
+        <li>アクセス解析SDK・クラッシュレポートSDKは組み込んでいません。</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">06</span><h2>権限の利用</h2></div>
+      <ul>
+        <li>通知 — 毎晩のお知らせをオンにしたときだけ、許可を求めます</li>
+        <li>端末の再起動の検知 — 再起動後にお知らせの予約を戻すため</li>
+        <li>ファイル選択・共有 — バックアップの書き出し/読み込みと画像の共有のときだけ</li>
+        <li>インターネット — 広告の表示のため</li>
+      </ul>
+      <p>位置情報・連絡先・カメラ・マイク・写真へのアクセスは行いません。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">07</span><h2>お子様のプライバシー</h2></div>
+      <p>ヨカッタは、特定の年齢層を対象に個人情報を収集することはありません。13歳未満のお子様を主な対象としたアプリではありません。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">08</span><h2>本ポリシーの変更</h2></div>
+      <p>機能の追加などでデータの取り扱いが変わる場合は、本ポリシーを改訂し、本ページでお知らせします。アプリの「設定 &gt; プライバシーポリシー」からいつでも最新の内容を確認できます。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">09</span><h2>お問い合わせ</h2></div>
+      <p>本ポリシーおよびアプリに関するご質問は、<a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a>(STEAM BASE)までお願いいたします。</p>
+    </section>
+  </main>
+
+  <header class="hero" id="en" style="margin-top:72px">
+    <div class="eyebrow">Privacy Policy</div>
+    <h1>Yokatta Privacy Policy</h1>
+    <p class="lede">
+      Yokatta is a journal app for writing down one good thing a day, in one line. No account is needed, and what you write stays on your device.
+    </p>
+    <div class="meta-row">
+      <span><strong>Effective</strong> October 21, 2026</span>
+      <span><strong>Last updated</strong> October 21, 2026</span>
+      <span><strong>Applies to</strong> Yokatta for Android and iPhone/iPad</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-head"><span class="section-num">01</span><h2>Information we collect</h2></div>
+      <div class="no-collect">✓ Your journal entries are never collected or sent anywhere</div>
+      <p>Yokatta does not ask for your name, email address, phone number or any other personal information. Your daily lines and in-app settings (such as the reminder time) are stored only on your device.</p>
+      <p>To show ads, the Google Mobile Ads SDK (Google AdMob) handles device information such as the advertising ID. See “Third parties” below.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">02</span><h2>Where data is stored</h2></div>
+      <p>Entries and settings are kept in the app's private storage on your device (an SQLite database). They are not sent to or stored on servers run by STEAM BASE or anyone else. Uninstalling the app deletes this data.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">03</span><h2>Backups and shared images</h2></div>
+      <p>“Export backup” saves your entries as a JSON file, and “Share as image” creates a picture of a month's lines. Both happen only when you tap them, and you choose where the file goes through your device's share sheet. The app never uploads anything automatically.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">04</span><h2>Home screen widget</h2></div>
+      <p>The Android widget shows one of your past lines. The text is kept in the app's private storage and is not sent anywhere. Because it is on your home screen, other people looking at your phone may see it; remove the widget if you prefer.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">05</span><h2>Third parties</h2></div>
+      <p>Yokatta includes the Google Mobile Ads SDK (Google AdMob) from Google LLC to show banner ads. For ad delivery, measurement and fraud prevention, the SDK may collect the advertising ID, IP address, device and OS information, and ad views and taps, and send them to Google. See <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+      <ul>
+        <li>Your entries are never sent to the ads SDK or anywhere else.</li>
+        <li>In the EEA, the UK and similar regions, you may be asked for consent to personalized ads. You can review it any time from “Ad privacy settings”.</li>
+        <li>You can reset or delete the advertising ID in your device settings.</li>
+        <li>The iPhone/iPad version does not request App Tracking Transparency permission, so the IDFA is not used.</li>
+        <li>No analytics or crash-reporting SDKs are included.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">06</span><h2>Permissions</h2></div>
+      <ul>
+        <li>Notifications — requested only when you turn on the evening reminder</li>
+        <li>Boot completed — to restore scheduled reminders after a restart</li>
+        <li>File picking and sharing — only for backups and shared images</li>
+        <li>Internet — to show ads</li>
+      </ul>
+      <p>The app does not access your location, contacts, camera, microphone or photos.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">07</span><h2>Children</h2></div>
+      <p>Yokatta does not knowingly collect personal information from any age group and is not directed primarily at children under 13.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><span class="section-num">08</span><h2>Changes and contact</h2></div>
+      <p>If the way we handle data changes, we will update this page. Questions: <a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a> (STEAM BASE).</p>
+    </section>
+  </main>
+
+  <footer>ヨカッタ — 今日よかったこと、ひとつだけ。 · <a href="https://ma06tsu22gt-art.github.io/">STEAM BASE</a></footer>
+</div>
+
+</body>
+</html>

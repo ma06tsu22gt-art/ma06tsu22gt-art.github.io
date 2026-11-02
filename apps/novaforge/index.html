@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › NOVA FORGE</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › NOVA FORGE</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/novaforge_icon.png" alt="" width="84" height="84">
-        <div><h1>NOVA FORGE</h1><span class="chip"><span lang="ja">宇宙艦ビルド・ローグライト</span><span lang="en">Ship-building roguelite</span></span></div></div>
-      <p class="lead"><span lang="ja">パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライト。</span><span lang="en">Design your own starship from parts and break through sector after sector in auto-battles. A roguelite.</span></p>
+        <div><h1>NOVA FORGE</h1><span class="chip"><span lang="ja">宇宙艦ビルド・ローグライト</span><span lang="en">Ship-building roguelite</span><span lang="zh-Hant">太空艦建造 Roguelite</span><span lang="zh-Hans">太空舰建造 Roguelite</span><span lang="ko">우주함 빌드 로그라이트</span></span></div></div>
+      <p class="lead"><span lang="ja">パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライト。</span><span lang="en">Design your own starship from parts and break through sector after sector in auto-battles. A roguelite.</span><span lang="zh-Hant">組合零件設計專屬的太空艦，以自動戰鬥突破宙域的 Roguelite 遊戲。</span><span lang="zh-Hans">组合零件设计专属的太空舰，以自动战斗突破宙域的 Roguelite 游戏。</span><span lang="ko">부품을 조합해 나만의 우주함을 설계하고, 오토 배틀로 우주 해역을 돌파해 나가는 로그라이트.</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/novaforge_card.webp" alt="NOVA FORGE" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/novaforge/shot1.webp" alt="NOVA FORGE スクリーンショット 1" loading="lazy"><img src="../../img/apps/novaforge/shot2.webp" alt="NOVA FORGE スクリーンショット 2" loading="lazy"><img src="../../img/apps/novaforge/shot3.webp" alt="NOVA FORGE スクリーンショット 3" loading="lazy"><img src="../../img/apps/novaforge/shot4.webp" alt="NOVA FORGE スクリーンショット 4" loading="lazy"><img src="../../img/apps/novaforge/shot5.webp" alt="NOVA FORGE スクリーンショット 5" loading="lazy"><img src="../../img/apps/novaforge/shot6.webp" alt="NOVA FORGE スクリーンショット 6" loading="lazy"><img src="../../img/apps/novaforge/shot7.webp" alt="NOVA FORGE スクリーンショット 7" loading="lazy"><img src="../../img/apps/novaforge/shot8.webp" alt="NOVA FORGE スクリーンショット 8" loading="lazy"></div></div></section>
-<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/EyMEtXgZgNs" title="NOVA FORGE gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">NOVA FORGE はどんなゲーム?</span><span lang="en">What is NOVA FORGE?</span></h2>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/novaforge/shot1.webp" alt="NOVA FORGE スクリーンショット 1" loading="lazy"><img src="../../img/apps/novaforge/shot2.webp" alt="NOVA FORGE スクリーンショット 2" loading="lazy"><img src="../../img/apps/novaforge/shot3.webp" alt="NOVA FORGE スクリーンショット 3" loading="lazy"><img src="../../img/apps/novaforge/shot4.webp" alt="NOVA FORGE スクリーンショット 4" loading="lazy"><img src="../../img/apps/novaforge/shot5.webp" alt="NOVA FORGE スクリーンショット 5" loading="lazy"><img src="../../img/apps/novaforge/shot6.webp" alt="NOVA FORGE スクリーンショット 6" loading="lazy"><img src="../../img/apps/novaforge/shot7.webp" alt="NOVA FORGE スクリーンショット 7" loading="lazy"><img src="../../img/apps/novaforge/shot8.webp" alt="NOVA FORGE スクリーンショット 8" loading="lazy"></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span><span lang="zh-Hant">遊玩影片</span><span lang="zh-Hans">游玩视频</span><span lang="ko">플레이 영상</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/EyMEtXgZgNs" title="NOVA FORGE gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">NOVA FORGE はどんなゲーム?</span><span lang="en">What is NOVA FORGE?</span><span lang="zh-Hant">NOVA FORGE 是什麼樣的遊戲？</span><span lang="zh-Hans">NOVA FORGE 是什么样的游戏？</span><span lang="ko">NOVA FORGE는 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>艦を組め。撃ち抜け。生き延びろ。</p>
 <p>NOVA FORGE は、パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライトです。</p>
 <h3>遊び方</h3>
@@ -121,22 +127,58 @@ footer a { color:var(--muted); }
 <p>[Shop]</p>
 <ul><li>Free to play. We don&#x27;t sell strength.</li><li>Ad removal, ship types, paint, beam colors, explosion effects, and humanoid weapon skins are available for purchase (all are one-time purchases).</li><li>Ship types can also be unlocked as you progress through the game.</li><li>Watching an ad allows you to revive once after being sunk and reroll rewards.</li></ul>
 <h3>Recommended for those who:</h3>
-<ul><li>Like games where you design your own spaceships and battleships.</li><li>Want to watch their assembled ships fight in auto-battles.</li><li>Enjoy roguelike and roguelite games with different gameplay each time.</li><li>Love science fiction and space war settings.</li></ul></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<ul><li>Like games where you design your own spaceships and battleships.</li><li>Want to watch their assembled ships fight in auto-battles.</li><li>Enjoy roguelike and roguelite games with different gameplay each time.</li><li>Love science fiction and space war settings.</li></ul></div><div lang="zh-Hant"><p>組裝艦艇。擊穿敵人。活下去。</p>
+<p>NOVA FORGE 是一款 Roguelite 遊戲，組合零件設計專屬的太空艦，並以自動戰鬥突破宙域。</p>
+<h3>玩法</h3>
+<ul><li>在改裝船塢，排列裝甲、雷射、飛彈、護盾、引擎等零件來設計艦艇</li><li>戰鬥為自動進行。點擊敵艦可集中攻擊，關鍵時刻可啟動超載</li><li>獲勝後可選擇獎勵的零件或遺物，讓艦艇不斷變強</li><li>一次航行要越過 5 個宙域，擊敗最後的頭目即獲勝。被擊沉則航行結束</li></ul>
+<h3>特色</h3>
+<ul><li>以方塊組成的艦艇，戰鬥時會成為一艘流暢的完整船體進行戰鬥</li><li>也能建造搭載戰鬥機、轟炸機與人形兵器的航空母艦</li><li>難度各異的 5 個關卡，共 40 個宙域、40 名頭目</li><li>各宙域擁有不同的敵人、特色、故事與事件</li><li>敵人種類多樣，包括修理艦、衝撞的突擊艇、會被吸附的水雷、EMP、會再生與分裂的生物艦，以及複製你艦艇的鏡像艦</li><li>最初的艦艇設計（艦型）有 5 種。通關關卡後解鎖</li><li>可離線遊玩</li></ul>
+<h3>商店</h3>
+<ul><li>基本遊玩免費。不販售強度</li><li>販售移除廣告、艦型、塗裝、光束顏色、爆炸演出與人形兵器外觀（全部為買斷制）</li><li>艦型也可以透過遊戲進度解鎖</li><li>觀看廣告後，被擊沉時可復活一次，也能重新抽取獎勵</li></ul>
+<h3>推薦給這樣的你</h3>
+<ul><li>喜歡自己設計太空船或戰艦的遊戲</li><li>想用自動戰鬥看著自己組裝的艦艇作戰</li><li>想在 Roguelike、Roguelite 中享受每次都不同的展開</li><li>喜歡科幻、宇宙戰爭的世界觀</li></ul></div><div lang="zh-Hans"><p>组装舰艇。击穿敌人。活下去。</p>
+<p>NOVA FORGE 是一款 Roguelite 游戏，组合零件设计专属的太空舰，并以自动战斗突破宙域。</p>
+<h3>玩法</h3>
+<ul><li>在改装船坞，排列装甲、激光、导弹、护盾、引擎等零件来设计舰艇</li><li>战斗为自动进行。点击敌舰可集中攻击，关键时刻可启动超载</li><li>获胜后可选择奖励的零件或遗物，让舰艇不断变强</li><li>一次航行要越过 5 个宙域，击败最后的首领即获胜。被击沉则航行结束</li></ul>
+<h3>特色</h3>
+<ul><li>以方块组成的舰艇，战斗时会成为一艘流畅的完整船体进行战斗</li><li>也能建造搭载战斗机、轰炸机与人形兵器的航空母舰</li><li>难度各异的 5 个关卡，共 40 个宙域、40 名首领</li><li>各宙域拥有不同的敌人、特色、故事与事件</li><li>敌人种类多样，包括修理舰、冲撞的突击艇、会被吸附的水雷、EMP、会再生与分裂的生物舰，以及复制你舰艇的镜像舰</li><li>最初的舰艇设计（舰型）有 5 种。通关关卡后解锁</li><li>可离线游玩</li></ul>
+<h3>商店</h3>
+<ul><li>基本游玩免费。不贩售强度</li><li>贩售移除广告、舰型、涂装、光束颜色、爆炸演出与人形兵器外观（全部为买断制）</li><li>舰型也可以透过游戏进度解锁</li><li>观看广告后，被击沉时可复活一次，也能重新抽取奖励</li></ul>
+<h3>推荐给这样的你</h3>
+<ul><li>喜欢自己设计太空船或战舰的游戏</li><li>想用自动战斗看着自己组装的舰艇作战</li><li>想在 Roguelike、Roguelite 中享受每次都不同的展开</li><li>喜欢科幻、宇宙战争的世界观</li></ul></div><div lang="ko"><p>함선을 조립하라. 쏘아 쓰러뜨려라. 살아남아라.</p>
+<p>NOVA FORGE는 부품을 조합해 나만의 우주함을 설계하고, 오토 배틀로 우주 해역을 돌파해 나가는 로그라이트입니다.</p>
+<h3>플레이 방법</h3>
+<ul><li>개장 도크에서 장갑·레이저·미사일·실드·엔진 등의 부품을 배치해 함선을 설계</li><li>전투는 자동. 적함을 탭해 집중 공격하고, 결정적인 순간에는 오버드라이브</li><li>이기면 보상 부품이나 유물을 골라 함선을 계속 강화</li><li>한 번의 항해에서 5개의 우주 해역을 넘고, 마지막 보스를 쓰러뜨리면 승리. 격침되면 항해는 끝</li></ul>
+<p>특징</p>
+<ul><li>블록으로 조립한 함선이 전투에서는 매끄러운 하나의 선체가 되어 싸운다</li><li>전투기·폭격기·인간형 병기를 탑재한 항공모함도 만들 수 있다</li><li>난이도가 다른 5개의 스테이지, 전 40개 우주 해역·40체의 보스</li><li>우주 해역마다 다른 적·특색·이야기·이벤트</li><li>수리함, 몸통 박치기하는 돌격정, 끌어당겨지는 기뢰, EMP, 재생·분열하는 생체함, 당신의 함선을 복제하는 거울상 함 등 다채로운 적</li><li>처음 선택하는 함선 설계(함형)는 5종류. 스테이지를 클리어하면 해금</li><li>오프라인에서도 즐길 수 있다</li></ul>
+<p>상점</p>
+<ul><li>기본 플레이 무료. 강함은 판매하지 않는 방침입니다</li><li>광고 제거, 함형, 도장·빔 색상·폭발 연출·인간형 병기 스킨을 판매(모두 1회 구매)</li><li>함형은 게임을 진행하여 해금할 수도 있습니다</li><li>광고를 보면 격침되었을 때 1회 부활, 보상 다시 뽑기를 할 수 있습니다</li></ul>
+<h3>이런 분께 추천합니다</h3>
+<ul><li>우주선이나 전함을 직접 설계하는 게임을 좋아한다</li><li>오토 배틀로 조립한 함선이 싸우는 모습을 지켜보고 싶다</li><li>로그라이크, 로그라이트로 매번 다른 전개를 즐기고 싶다</li><li>SF, 우주 전쟁의 세계관을 좋아한다</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">基本プレイ無料です。強さは売らない方針で、販売しているのは広告削除・艦型・見た目のスキンです（すべて買い切り）。</span><span lang="en">Yes, free to play. Power is not for sale: the shop sells ad removal, hull types and cosmetic skins (all one-time purchases).</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span></summary><p><span lang="ja">はい、オフラインでも遊べます。</span><span lang="en">Yes.</span></p></details><details><summary><span lang="ja">戦闘は操作が必要ですか?</span><span lang="en">Do I control the battles?</span></summary><p><span lang="ja">戦闘は自動です。敵艦をタップして集中攻撃したり、オーバードライブを使ったりできます。</span><span lang="en">Battles are automatic. You can tap an enemy to focus fire and trigger Overdrive.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span><span lang="zh-Hant">可以免費玩嗎？</span><span lang="zh-Hans">可以免费玩吗？</span><span lang="ko">무료로 즐길 수 있나요?</span></summary><p><span lang="ja">基本プレイ無料です。強さは売らない方針で、販売しているのは広告削除・艦型・見た目のスキンです（すべて買い切り）。</span><span lang="en">Yes, free to play. Power is not for sale: the shop sells ad removal, hull types and cosmetic skins (all one-time purchases).</span><span lang="zh-Hant">基本遊玩免費。不販售強度，販售的是移除廣告、艦型與外觀造型（全部為買斷制）。</span><span lang="zh-Hans">基本游玩免费。不贩售强度，贩售的是移除广告、舰型与外观造型（全部为买断制）。</span><span lang="ko">기본 플레이 무료입니다. 강함은 판매하지 않는 방침이며, 판매하는 것은 광고 제거·함형·외형 스킨입니다(모두 1회 구매).</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span><span lang="zh-Hant">可以離線玩嗎？</span><span lang="zh-Hans">可以离线玩吗？</span><span lang="ko">오프라인에서도 즐길 수 있나요?</span></summary><p><span lang="ja">はい、オフラインでも遊べます。</span><span lang="en">Yes.</span><span lang="zh-Hant">可以，沒有連上網路也能玩。</span><span lang="zh-Hans">可以，没有连上网络也能玩。</span><span lang="ko">네, 인터넷에 연결되어 있지 않아도 즐길 수 있습니다.</span></p></details><details><summary><span lang="ja">戦闘は操作が必要ですか?</span><span lang="en">Do I control the battles?</span><span lang="zh-Hant">戰鬥需要操作嗎？</span><span lang="zh-Hans">战斗需要操作吗？</span><span lang="ko">전투에 조작이 필요한가요?</span></summary><p><span lang="ja">戦闘は自動です。敵艦をタップして集中攻撃したり、オーバードライブを使ったりできます。</span><span lang="en">Battles are automatic. You can tap an enemy to focus fire and trigger Overdrive.</span><span lang="zh-Hant">戰鬥為自動進行。可以點擊敵艦集中攻擊，也能使用超載。</span><span lang="zh-Hans">战斗为自动进行。可以点击敌舰集中攻击，也能使用超载。</span><span lang="ko">전투는 자동입니다. 적함을 탭해 집중 공격하거나 오버드라이브를 사용할 수 있습니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/novaforge-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="https://ma06tsu22gt-art.github.io/novaforge-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span><span lang="zh-Hant">隱私權政策</span><span lang="zh-Hans">隐私政策</span><span lang="ko">개인정보 처리방침</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>

@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › Stonecrown 石と王冠</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › Stonecrown 石と王冠</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/stonecrown_icon.png" alt="" width="84" height="84">
-        <div><h1>Stonecrown 石と王冠</h1><span class="chip"><span lang="ja">防衛ストラテジー</span><span lang="en">Defense strategy</span></span></div></div>
-      <p class="lead"><span lang="ja">街づくりと塔と魔法で大軍をしのぐ、片手で遊べる中世ファンタジーの防衛ストラテジー。1戦はおよそ5〜10分。</span><span lang="en">A one-handed medieval fantasy defense game: hold back the horde with town building, towers and magic. 5–10 minutes a battle.</span></p>
+        <div><h1>Stonecrown 石と王冠</h1><span class="chip"><span lang="ja">防衛ストラテジー</span><span lang="en">Defense strategy</span><span lang="zh-Hant">防衛策略</span><span lang="zh-Hans">防卫策略</span><span lang="ko">방어 전략</span></span></div></div>
+      <p class="lead"><span lang="ja">街づくりと塔と魔法で大軍をしのぐ、片手で遊べる中世ファンタジーの防衛ストラテジー。1戦はおよそ5〜10分。</span><span lang="en">A one-handed medieval fantasy defense game: hold back the horde with town building, towers and magic. 5–10 minutes a battle.</span><span lang="zh-Hant">以建設城鎮、箭塔與魔法擋下大軍，單手就能玩的中世紀奇幻防衛策略遊戲。每場戰鬥約 5～10 分鐘。</span><span lang="zh-Hans">以建设城镇、箭塔与魔法挡下大军，单手就能玩的中世纪奇幻防卫策略游戏。每场战斗约 5～10 分钟。</span><span lang="ko">마을 건설과 탑과 마법으로 대군을 막아 내는, 한 손으로 즐기는 중세 판타지 방어 전략 게임. 1판은 약 5~10분.</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/stonecrown_card.webp" alt="Stonecrown 石と王冠" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/stonecrown/shot1.webp" alt="Stonecrown 石と王冠 スクリーンショット 1" loading="lazy"><img src="../../img/apps/stonecrown/shot2.webp" alt="Stonecrown 石と王冠 スクリーンショット 2" loading="lazy"><img src="../../img/apps/stonecrown/shot3.webp" alt="Stonecrown 石と王冠 スクリーンショット 3" loading="lazy"><img src="../../img/apps/stonecrown/shot4.webp" alt="Stonecrown 石と王冠 スクリーンショット 4" loading="lazy"><img src="../../img/apps/stonecrown/shot5.webp" alt="Stonecrown 石と王冠 スクリーンショット 5" loading="lazy"><img src="../../img/apps/stonecrown/shot6.webp" alt="Stonecrown 石と王冠 スクリーンショット 6" loading="lazy"><img src="../../img/apps/stonecrown/shot7.webp" alt="Stonecrown 石と王冠 スクリーンショット 7" loading="lazy"><img src="../../img/apps/stonecrown/shot8.webp" alt="Stonecrown 石と王冠 スクリーンショット 8" loading="lazy"></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/stonecrown/shot1.webp" alt="Stonecrown 石と王冠 スクリーンショット 1" loading="lazy"><img src="../../img/apps/stonecrown/shot2.webp" alt="Stonecrown 石と王冠 スクリーンショット 2" loading="lazy"><img src="../../img/apps/stonecrown/shot3.webp" alt="Stonecrown 石と王冠 スクリーンショット 3" loading="lazy"><img src="../../img/apps/stonecrown/shot4.webp" alt="Stonecrown 石と王冠 スクリーンショット 4" loading="lazy"><img src="../../img/apps/stonecrown/shot5.webp" alt="Stonecrown 石と王冠 スクリーンショット 5" loading="lazy"><img src="../../img/apps/stonecrown/shot6.webp" alt="Stonecrown 石と王冠 スクリーンショット 6" loading="lazy"><img src="../../img/apps/stonecrown/shot7.webp" alt="Stonecrown 石と王冠 スクリーンショット 7" loading="lazy"><img src="../../img/apps/stonecrown/shot8.webp" alt="Stonecrown 石と王冠 スクリーンショット 8" loading="lazy"></div></div></section>
 
-<section><div class="wrap"><h2><span lang="ja">Stonecrown 石と王冠 はどんなゲーム?</span><span lang="en">What is Stonecrown 石と王冠?</span></h2>
+<section><div class="wrap"><h2><span lang="ja">Stonecrown 石と王冠 はどんなゲーム?</span><span lang="en">What is Stonecrown 石と王冠?</span><span lang="zh-Hant">Stonecrown 石與王冠 是什麼樣的遊戲？</span><span lang="zh-Hans">Stonecrown 石与王冠 是什么样的游戏？</span><span lang="ko">Stonecrown은 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>城は 1 つ。道は何本もある。押し寄せる大軍を、どう止めますか。</p>
 <p>Stonecrown（石と王冠）は、片手で遊べる中世ファンタジーの防衛ストラテジーです。</p>
 <p>1 戦はおよそ 5〜10 分。通勤の途中でも、寝る前の一息でも、ちょうど切りのいい長さです。</p>
@@ -143,22 +149,97 @@ footer a { color:var(--muted); }
 <ul><li>Endless stages on freshly generated terrain every time</li><li>Three regions — plains, forest and snowfield. In the snowfield the rivers freeze over, and the horde walks straight across</li><li>One to three stars per stage. Finish with an untouched castle for all three</li><li>Put it down mid-battle and pick the same board back up later</li><li>A small amount of experience accrues while you are away</li><li>Japanese and English</li></ul>
 <h3>Our promises</h3>
 <ul><li>Ads, but kept light. Interstitials appear at most once every three battles, and never during your first one. The &quot;double XP&quot; ad plays only if you choose it</li><li>One purchase removes the ads for good. Buying it changes nothing about how strong you are — there is no power you can only get by paying</li><li>The network is used only for ads and to check that purchase. The game plays identically in airplane mode</li><li>No personal information is collected. Your progress stays on your device</li></ul>
-<p>Rated for ages 13 and over. No blood, no gore.</p></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<p>Rated for ages 13 and over. No blood, no gore.</p></div><div lang="zh-Hant"><p>城堡只有一座，道路卻有好幾條。你要如何擋下蜂擁而至的大軍？</p>
+<p>Stonecrown（石與王冠）是單手就能玩的中世紀奇幻防衛策略遊戲。</p>
+<p>每場戰鬥約 5～10 分鐘。無論是通勤途中，還是睡前小憩，長度都剛剛好。</p>
+<h3>玩法</h3>
+<p>用準備的 60 秒建設城鎮。</p>
+<p>用農場增加金錢，用箭塔射擊敵人，從兵營派出士兵，用城牆讓道路變窄。</p>
+<p>在哪裡蓋多少，直接決定勝負。</p>
+<p>準備結束後，敵人會從上方降臨。</p>
+<p>敵潮會逐漸變厚，到了終盤，數千敵人會布滿地面。</p>
+<p>守住就獲勝。城堡陷落就失敗。</p>
+<h3>人手不足時，就從天上來</h3>
+<p>可以降下魔法「隕石」。這一擊能將密集的敵人一併掃平。</p>
+<p>不過也會波及友軍，而且每施放一次，下一發就會變貴。</p>
+<p>猶豫該何時使用，也是這個魔法有趣的地方。</p>
+<h3>即使戰敗，王國也會變強</h3>
+<p>每場戰鬥結束後城鎮都會恢復一片空白，但賺到的經驗值會保留。</p>
+<p>經驗值可以永久強化「初始金錢」「箭塔攻擊力」「農場收入」。</p>
+<p>即使戰敗也能獲得經驗值，所以不會有無法前進的情況。</p>
+<p>關卡沒有終點。越往後，敵人越多、越硬、越強。</p>
+<p>能走多遠，取決於你的組合方式。</p>
+<h3>遊戲內容</h3>
+<ul><li>關卡無限。每次地形都不同</li><li>平原、森林、雪原 3 個地區。在雪原，河流會結冰，敵人可以走過去</li><li>星級評價 1～3 顆。完好無損地守住城堡就是 3 顆星</li><li>中途離開，也能從該盤面繼續</li><li>即使沒在玩的期間，也會累積少量經驗值</li><li>日語與英語</li></ul>
+<h3>我們的約定</h3>
+<ul><li>會有廣告，但很克制。插頁廣告每 3 場戰鬥最多 1 次，第一場戰鬥不會出現。「經驗值 2 倍」的廣告只有在你選擇時才會播放</li><li>廣告可用一次買斷移除。無論是否移除，遊戲的強度都不會改變。沒有只能靠付費取得的強度</li><li>只有為了廣告與確認購買才會連線。即使在飛航模式下，從頭到尾也能一樣地遊玩</li><li>不蒐集個人資料。遊玩紀錄全部只保存在你的裝置內</li></ul>
+<p>適用年齡為 13 歲以上。不含血腥與殘酷的表現。</p>
+<h3>推薦給這樣的你</h3>
+<ul><li>喜歡塔防、防衛遊戲、守城遊戲</li><li>想在短時間內玩到需要好好思考的策略模擬遊戲</li><li>喜歡即使戰敗也能一點一點變強的 Roguelite 要素</li><li>正在找可離線遊玩的遊戲</li></ul></div><div lang="zh-Hans"><p>城堡只有一座，道路却有好几条。你要如何挡下蜂拥而至的大军？</p>
+<p>Stonecrown（石与王冠）是单手就能玩的中世纪奇幻防卫策略游戏。</p>
+<p>每场战斗约 5～10 分钟。无论是通勤途中，还是睡前小憩，长度都刚刚好。</p>
+<h3>玩法</h3>
+<p>用准备的 60 秒建设城镇。</p>
+<p>用农场增加金钱，用箭塔射击敌人，从兵营派出士兵，用城墙让道路变窄。</p>
+<p>在哪里盖多少，直接决定胜负。</p>
+<p>准备结束后，敌人会从上方降临。</p>
+<p>敌潮会逐渐变厚，到了终盘，数千敌人会布满地面。</p>
+<p>守住就获胜。城堡陷落就失败。</p>
+<h3>人手不足时，就从天上来</h3>
+<p>可以降下魔法“陨石”。这一击能将密集的敌人一并扫平。</p>
+<p>不过也会波及友军，而且每施放一次，下一发就会变贵。</p>
+<p>犹豫该何时使用，也是这个魔法有趣的地方。</p>
+<h3>即使战败，王国也会变强</h3>
+<p>每场战斗结束后城镇都会恢复一片空白，但赚到的经验值会保留。</p>
+<p>经验值可以永久强化“初始金钱”“箭塔攻击力”“农场收入”。</p>
+<p>即使战败也能获得经验值，所以不会有无法前进的情况。</p>
+<p>关卡没有终点。越往后，敌人越多、越硬、越强。</p>
+<p>能走多远，取决于你的组合方式。</p>
+<h3>游戏内容</h3>
+<ul><li>关卡无限。每次地形都不同</li><li>平原、森林、雪原 3 个地区。在雪原，河流会结冰，敌人可以走过去</li><li>星级评价 1～3 颗。完好无损地守住城堡就是 3 颗星</li><li>中途离开，也能从该盘面继续</li><li>即使没在玩的期间，也会累积少量经验值</li><li>日语与英语</li></ul>
+<h3>我们的约定</h3>
+<ul><li>会有广告，但很克制。插屏广告每 3 场战斗最多 1 次，第一场战斗不会出现。“经验值 2 倍”的广告只有在你选择时才会播放</li><li>广告可用一次买断移除。无论是否移除，游戏的强度都不会改变。没有只能靠付费取得的强度</li><li>只有为了广告与确认购买才会联网。即使在飞行模式下，从头到尾也能一样地游玩</li><li>不搜集个人资料。游玩纪录全部只保存在你的设备内</li></ul>
+<p>适用年龄为 13 岁以上。不含血腥与残酷的表现。</p>
+<h3>推荐给这样的你</h3>
+<ul><li>喜欢塔防、防卫游戏、守城游戏</li><li>想在短时间内玩到需要好好思考的策略模拟游戏</li><li>喜欢即使战败也能一点一点变强的 Roguelite 要素</li><li>正在找可离线游玩的游戏</li></ul></div><div lang="ko"><p>성은 하나. 길은 여러 갈래. 밀려오는 대군을, 어떻게 막으시겠습니까.</p>
+<p>Stonecrown(돌과 왕관)은 한 손으로 즐기는 중세 판타지 방어 전략 게임입니다. 1판은 약 5~10분. 출퇴근길에도, 자기 전 잠깐의 휴식에도 딱 알맞은 길이입니다.</p>
+<h3>플레이 방법</h3>
+<p>준비 시간 60초 동안 마을을 만듭니다. 농장으로 돈을 늘리고, 활탑으로 적을 쏘고, 병영에서 병사를 내보내고, 벽으로 길을 좁힙니다. 어디에 몇 개를 세우느냐가 곧 승패가 됩니다.</p>
+<p>준비가 끝나면 적이 위에서 내려옵니다. 파도는 점점 두터워지고, 후반에는 수천 명의 적이 땅을 가득 메웁니다. 끝까지 지키면 승리. 성이 무너지면 패배입니다.</p>
+<h3>손이 모자랄 때는 하늘에서</h3>
+<p>마법 &#x27;운석&#x27;을 떨어뜨릴 수 있습니다. 밀집한 적을 한꺼번에 쓸어버리는 일격입니다. 다만 아군도 휩쓸리고, 쏠 때마다 다음 한 발이 비싸집니다. 언제 쓸지 고민하는 것까지가 이 마법의 재미입니다.</p>
+<h3>져도 왕국은 강해진다</h3>
+<p>1판이 끝날 때마다 마을은 깨끗하게 원래대로 돌아가지만, 모은 경험치는 남습니다. 경험치로 &#x27;시작 소지금&#x27;, &#x27;활탑의 공격력&#x27;, &#x27;농장의 수입&#x27;을 영구적으로 강화할 수 있습니다. 진 싸움에서도 경험치는 들어오므로 더 나아가지 못하게 되는 일이 없습니다.</p>
+<p>스테이지에 끝은 없습니다. 나아갈수록 적은 늘어나고, 단단해지고, 강해집니다. 어디까지 갈 수 있을지는 당신이 어떻게 짜 나가느냐에 달려 있습니다.</p>
+<h3>이런 구성입니다</h3>
+<ul><li>스테이지는 무한. 지형은 매번 다릅니다</li><li>평원·숲·설원의 3개 지방. 설원에서는 강이 얼어 건널 수 있습니다</li><li>별 1~3개 평가. 성을 무사히 지켜 내면 별 3개</li><li>중단해도 그 판에서 이어서 할 수 있습니다</li><li>플레이하지 않는 동안에도 경험치가 조금씩 쌓입니다</li><li>일본어와 영어</li></ul>
+<h3>약속</h3>
+<ul><li>광고는 나오지만 절제되어 있습니다. 전면 광고는 3판에 1번까지. 첫 번째 판에는 나오지 않습니다. &#x27;경험치 2배&#x27; 광고는 선택했을 때만 재생됩니다</li><li>광고는 1회 구매로 없앨 수 있습니다. 없애든 없애지 않든 게임의 강함은 달라지지 않습니다. 결제로만 얻을 수 있는 강함은 없습니다</li><li>통신하는 것은 광고와 구매 확인을 위해서뿐. 비행기 모드에서도 처음부터 끝까지 똑같이 즐길 수 있습니다</li><li>개인 정보를 수집하지 않습니다. 플레이 기록은 모두 당신의 기기 안에만 남습니다</li></ul>
+<p>대상 연령은 13세 이상입니다. 피나 잔혹한 표현은 들어 있지 않습니다.</p></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">無料で遊べます。広告は控えめで、1回の買い切りで消せます。課金でしか取れない強さはありません。</span><span lang="en">Yes. Ads are kept light and can be removed with a one-time purchase. Nothing that makes you stronger is sold.</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span></summary><p><span lang="ja">はい。通信は広告と購入の確認のためだけで、機内モードでも同じように遊べます。</span><span lang="en">Yes. The network is only used for ads and purchase checks; it plays the same in airplane mode.</span></p></details><details><summary><span lang="ja">1回どのくらいで遊べますか?</span><span lang="en">How long is a battle?</span></summary><p><span lang="ja">1戦はおよそ5〜10分です。中断しても、その盤面から続けられます。</span><span lang="en">About 5–10 minutes, and you can resume a battle where you left off.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span><span lang="zh-Hant">可以免費玩嗎？</span><span lang="zh-Hans">可以免费玩吗？</span><span lang="ko">무료로 즐길 수 있나요?</span></summary><p><span lang="ja">無料で遊べます。広告は控えめで、1回の買い切りで消せます。課金でしか取れない強さはありません。</span><span lang="en">Yes. Ads are kept light and can be removed with a one-time purchase. Nothing that makes you stronger is sold.</span><span lang="zh-Hant">可免費遊玩。廣告很克制，可用一次買斷移除。沒有只能靠付費取得的強度。</span><span lang="zh-Hans">可免费游玩。广告很克制，可用一次买断移除。没有只能靠付费取得的强度。</span><span lang="ko">무료로 즐길 수 있습니다. 광고는 절제되어 있으며 1회 구매로 없앨 수 있습니다. 결제로만 얻을 수 있는 강함은 없습니다.</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span><span lang="zh-Hant">可以離線玩嗎？</span><span lang="zh-Hans">可以离线玩吗？</span><span lang="ko">오프라인에서도 즐길 수 있나요?</span></summary><p><span lang="ja">はい。通信は広告と購入の確認のためだけで、機内モードでも同じように遊べます。</span><span lang="en">Yes. The network is only used for ads and purchase checks; it plays the same in airplane mode.</span><span lang="zh-Hant">可以。連線只用於廣告與確認購買，即使在飛航模式下也能一樣地遊玩。</span><span lang="zh-Hans">可以。联网只用于广告与确认购买，即使在飞行模式下也能一样地游玩。</span><span lang="ko">네. 통신은 광고와 구매 확인을 위해서뿐이며, 비행기 모드에서도 똑같이 즐길 수 있습니다.</span></p></details><details><summary><span lang="ja">1回どのくらいで遊べますか?</span><span lang="en">How long is a battle?</span><span lang="zh-Hant">一場大約要玩多久？</span><span lang="zh-Hans">一场大约要玩多久？</span><span lang="ko">한 번에 얼마나 걸리나요?</span></summary><p><span lang="ja">1戦はおよそ5〜10分です。中断しても、その盤面から続けられます。</span><span lang="en">About 5–10 minutes, and you can resume a battle where you left off.</span><span lang="zh-Hant">每場戰鬥約 5～10 分鐘。中途離開，也能從該盤面繼續。</span><span lang="zh-Hans">每场战斗约 5～10 分钟。中途离开，也能从该盘面继续。</span><span lang="ko">1판은 약 5~10분입니다. 중단해도 그 판에서 이어서 할 수 있습니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span><span lang="zh-Hant">隱私權政策</span><span lang="zh-Hans">隐私政策</span><span lang="ko">개인정보 처리방침</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>

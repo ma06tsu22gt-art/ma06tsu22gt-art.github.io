@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › Block Space Roguelite</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › Block Space Roguelite</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/blockspace_icon.png" alt="" width="84" height="84">
-        <div><h1>Block Space Roguelite</h1><span class="chip"><span lang="ja">宇宙戦艦ビルド・ローグライト</span><span lang="en">Battleship-building roguelite</span></span></div></div>
-      <p class="lead"><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span></p>
+        <div><h1>Block Space Roguelite</h1><span class="chip"><span lang="ja">宇宙戦艦ビルド・ローグライト</span><span lang="en">Battleship-building roguelite</span><span lang="zh-Hant">太空戰艦建造 Roguelite</span><span lang="zh-Hans">太空战舰建造 Roguelite</span><span lang="ko">우주 전함 빌드 로그라이트</span></span></div></div>
+      <p class="lead"><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span><span lang="zh-Hant">以武器、裝甲、引擎與護盾方塊建造太空戰艦，並透過探索收集裝備，挑戰各個宙域。</span><span lang="zh-Hans">以武器、装甲、引擎与护盾方块建造太空战舰，并透过探索收集装备，挑战各个宙域。</span><span lang="ko">무기·장갑·엔진·실드 블록으로 우주 전함을 건조하고, 탐색으로 장비를 모아 우주 해역 공략을 노립니다.</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/blockspace_card.webp" alt="Block Space Roguelite" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/blockspace/shot1.webp" alt="Block Space Roguelite スクリーンショット 1" loading="lazy"><img src="../../img/apps/blockspace/shot2.webp" alt="Block Space Roguelite スクリーンショット 2" loading="lazy"><img src="../../img/apps/blockspace/shot3.webp" alt="Block Space Roguelite スクリーンショット 3" loading="lazy"><img src="../../img/apps/blockspace/shot4.webp" alt="Block Space Roguelite スクリーンショット 4" loading="lazy"><img src="../../img/apps/blockspace/shot5.webp" alt="Block Space Roguelite スクリーンショット 5" loading="lazy"><img src="../../img/apps/blockspace/shot6.webp" alt="Block Space Roguelite スクリーンショット 6" loading="lazy"></div></div></section>
-<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/W1t4uXu_SRA" title="Block Space Roguelite gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">Block Space Roguelite はどんなゲーム?</span><span lang="en">What is Block Space Roguelite?</span></h2>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/blockspace/shot1.webp" alt="Block Space Roguelite スクリーンショット 1" loading="lazy"><img src="../../img/apps/blockspace/shot2.webp" alt="Block Space Roguelite スクリーンショット 2" loading="lazy"><img src="../../img/apps/blockspace/shot3.webp" alt="Block Space Roguelite スクリーンショット 3" loading="lazy"><img src="../../img/apps/blockspace/shot4.webp" alt="Block Space Roguelite スクリーンショット 4" loading="lazy"><img src="../../img/apps/blockspace/shot5.webp" alt="Block Space Roguelite スクリーンショット 5" loading="lazy"><img src="../../img/apps/blockspace/shot6.webp" alt="Block Space Roguelite スクリーンショット 6" loading="lazy"></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span><span lang="zh-Hant">遊玩影片</span><span lang="zh-Hans">游玩视频</span><span lang="ko">플레이 영상</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/W1t4uXu_SRA" title="Block Space Roguelite gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">Block Space Roguelite はどんなゲーム?</span><span lang="en">What is Block Space Roguelite?</span><span lang="zh-Hant">Block Space Roguelite 是什麼樣的遊戲？</span><span lang="zh-Hans">Block Space Roguelite 是什么样的游戏？</span><span lang="ko">Block Space Roguelite는 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>ブロックを組み合わせ、自分だけの宇宙戦艦を建造しよう。</p>
 <p>武器、装甲、エンジン、シールドなどを配置して艦船を設計。</p>
 <p>探索で装備を集め、強敵が待つ宙域の攻略を目指します。</p>
@@ -139,22 +145,85 @@ footer a { color:var(--muted); }
 <h3>Repeated Challenges for Growth</h3>
 <p>Prepare for the next exploration with permanent enhancements and aim to conquer more difficult sectors of space.</p>
 <h3>Recommended for those who:</h3>
-<ul><li>Enjoy collecting equipment in roguelike and roguelite games</li><li>Enjoy combining identical equipment to make it stronger</li><li>Want to build their own spaceship</li><li>Enjoy games where you make gradual progress by trying multiple times</li></ul></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<ul><li>Enjoy collecting equipment in roguelike and roguelite games</li><li>Enjoy combining identical equipment to make it stronger</li><li>Want to build their own spaceship</li><li>Enjoy games where you make gradual progress by trying multiple times</li></ul></div><div lang="zh-Hant"><p>組合方塊，建造專屬於你的太空戰艦。</p>
+<p>配置武器、裝甲、引擎、護盾等來設計艦船。</p>
+<p>透過探索收集裝備，挑戰強敵等候的宙域。</p>
+<h3>自由建造艦船</h3>
+<p>零件的配置與組合會改變戰鬥方式。</p>
+<p>權衡攻擊力、防禦力與機動力的平衡，打造自己的戰艦。</p>
+<h3>巡遊宇宙的探索</h3>
+<p>透過短局挑戰與遠征，挑戰各式各樣的區域。</p>
+<p>藉由戰鬥與商店整備裝備，為頭目戰做好準備。</p>
+<h3>多樣的武器與無人機</h3>
+<p>組合砲擊、光束、飛彈與無人機進行戰鬥。</p>
+<p>可配合敵方編成，享受編組的樂趣。</p>
+<h3>裝備收集與強化</h3>
+<p>將獲得的裝備存放在倉庫。</p>
+<p>可將相同種類、相同標記的裝備合體，進一步強化。</p>
+<h3>反覆挑戰，持續成長</h3>
+<p>以永久強化為下一次探索做準備，挑戰更困難的宙域。</p>
+<h3>推薦給這樣的你</h3>
+<ul><li>喜歡在 Roguelike、Roguelite 遊戲中收集裝備</li><li>喜歡把相同裝備合體變強</li><li>想依自己喜好組裝太空戰艦</li><li>喜歡多次挑戰、一點一點前進的遊戲</li></ul></div><div lang="zh-Hans"><p>组合方块，建造专属于你的太空战舰。</p>
+<p>配置武器、装甲、引擎、护盾等来设计舰船。</p>
+<p>透过探索收集装备，挑战强敌等候的宙域。</p>
+<h3>自由建造舰船</h3>
+<p>零件的配置与组合会改变战斗方式。</p>
+<p>权衡攻击力、防御力与机动力的平衡，打造自己的战舰。</p>
+<h3>巡游宇宙的探索</h3>
+<p>透过短局挑战与远征，挑战各式各样的区域。</p>
+<p>借由战斗与商店整备装备，为首领战做好准备。</p>
+<h3>多样的武器与无人机</h3>
+<p>组合炮击、光束、导弹与无人机进行战斗。</p>
+<p>可配合敌方编成，享受编组的乐趣。</p>
+<h3>装备收集与强化</h3>
+<p>将获得的装备存放在仓库。</p>
+<p>可将相同种类、相同标记的装备合体，进一步强化。</p>
+<h3>反复挑战，持续成长</h3>
+<p>以永久强化为下一次探索做准备，挑战更困难的宙域。</p>
+<h3>推荐给这样的你</h3>
+<ul><li>喜欢在 Roguelike、Roguelite 游戏中收集装备</li><li>喜欢把相同装备合体变强</li><li>想依自己喜好组装太空战舰</li><li>喜欢多次挑战、一点一点前进的游戏</li></ul></div><div lang="ko"><p>블록을 조합해 나만의 우주 전함을 건조하세요.</p>
+<p>무기, 장갑, 엔진, 실드 등을 배치해 함선을 설계합니다.</p>
+<p>탐색으로 장비를 모아, 강적이 기다리는 우주 해역 공략을 노립니다.</p>
+<h3>자유로운 함선 건조</h3>
+<p>부품의 배치와 조합에 따라 전투 방식이 달라집니다.</p>
+<p>공격력, 방어력, 기동력의 균형을 생각하며 나만의 전함을 만들 수 있습니다.</p>
+<h3>우주를 누비는 탐색</h3>
+<p>쇼트 런과 원정으로 다양한 지역에 도전합니다.</p>
+<p>전투와 상점을 통해 장비를 갖추고 보스와의 싸움에 대비합니다.</p>
+<h3>다양한 무기와 드론</h3>
+<p>포격, 빔, 미사일, 드론을 조합해 전투를 벌입니다.</p>
+<p>적의 구성에 맞춘 편성을 즐길 수 있습니다.</p>
+<h3>장비 수집과 강화</h3>
+<p>획득한 장비를 창고에 보관합니다.</p>
+<p>같은 종류, 같은 마크의 장비를 합체해 더욱 강화할 수 있습니다.</p>
+<h3>반복 도전으로 성장</h3>
+<p>영구 강화로 다음 탐색에 대비하며, 더 어려운 우주 해역 공략을 노립니다.</p>
+<h3>이런 분께 추천합니다</h3>
+<ul><li>로그라이크, 로그라이트에서 장비를 모으는 것을 좋아한다</li><li>같은 장비를 합체해 강하게 만드는 것을 좋아한다</li><li>우주 전함을 취향대로 조립하고 싶다</li><li>여러 번 도전하며 조금씩 앞으로 나아가는 게임을 좋아한다</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">どんなゲームですか?</span><span lang="en">What kind of game is it?</span></summary><p><span lang="ja">ブロックで宇宙戦艦を組み、探索で装備を集めて宙域の攻略を目指すローグライトです。同じ装備を合体させて強化できます。</span><span lang="en">A roguelite: build a battleship from blocks, collect gear while exploring, and merge matching gear to power it up.</span></p></details><details><summary><span lang="ja">繰り返し遊ぶ要素はありますか?</span><span lang="en">Is there long-term progression?</span></summary><p><span lang="ja">恒久強化で次の探索に備え、より難しい宙域に挑戦できます。</span><span lang="en">Yes — permanent upgrades carry over to your next run.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">どんなゲームですか?</span><span lang="en">What kind of game is it?</span><span lang="zh-Hant">這是什麼樣的遊戲？</span><span lang="zh-Hans">这是什么样的游戏？</span><span lang="ko">어떤 게임인가요?</span></summary><p><span lang="ja">ブロックで宇宙戦艦を組み、探索で装備を集めて宙域の攻略を目指すローグライトです。同じ装備を合体させて強化できます。</span><span lang="en">A roguelite: build a battleship from blocks, collect gear while exploring, and merge matching gear to power it up.</span><span lang="zh-Hant">以方塊組裝太空戰艦，透過探索收集裝備，挑戰各個宙域的 Roguelite 遊戲。相同裝備可以合體強化。</span><span lang="zh-Hans">以方块组装太空战舰，透过探索收集装备，挑战各个宙域的 Roguelite 游戏。相同装备可以合体强化。</span><span lang="ko">블록으로 우주 전함을 조립하고, 탐색으로 장비를 모아 우주 해역 공략을 노리는 로그라이트입니다. 같은 장비를 합체해 강화할 수 있습니다.</span></p></details><details><summary><span lang="ja">繰り返し遊ぶ要素はありますか?</span><span lang="en">Is there long-term progression?</span><span lang="zh-Hant">有可以反覆遊玩的內容嗎？</span><span lang="zh-Hans">有可以反复游玩的内容吗？</span><span lang="ko">반복해서 즐길 요소가 있나요?</span></summary><p><span lang="ja">恒久強化で次の探索に備え、より難しい宙域に挑戦できます。</span><span lang="en">Yes — permanent upgrades carry over to your next run.</span><span lang="zh-Hant">以永久強化為下一次探索做準備，挑戰更困難的宙域。</span><span lang="zh-Hans">以永久强化为下一次探索做准备，挑战更困难的宙域。</span><span lang="ko">영구 강화로 다음 탐색에 대비하며, 더 어려운 우주 해역에 도전할 수 있습니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>

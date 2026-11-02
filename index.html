@@ -26,7 +26,14 @@ body {
   font-family: "Segoe UI", system-ui, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display: none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color: var(--accent); }
 img { max-width: 100%; display: block; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
@@ -44,7 +51,6 @@ nav.menu a { color: var(--muted); text-decoration: none; }
 nav.menu a:hover { color: var(--white); }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
 .lang button { background: none; border: 0; color: var(--muted); font: inherit; font-size: .8rem; padding: 4px 11px; cursor: pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background: var(--accent); color: #0a1322; font-weight: 700; }
 
 /* hero */
 .hero { position: relative; overflow: hidden; padding: 96px 0 84px; }
@@ -161,13 +167,13 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <a class="brand" href="#"><img src="img/sb.png" alt="">STEAM BASE</a>
     <nav class="menu">
-      <a href="#works"><span lang="ja">作品</span><span lang="en">Works</span></a>
-      <a href="#about"><span lang="ja">STEAM BASE について</span><span lang="en">About</span></a>
-      <a href="#follow"><span lang="ja">最新情報</span><span lang="en">Follow</span></a>
-      <a href="#contact"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></a>
+      <a href="#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a>
+      <a href="#about"><span lang="ja">STEAM BASE について</span><span lang="en">About</span><span lang="zh-Hant">關於 STEAM BASE</span><span lang="zh-Hans">关于 STEAM BASE</span><span lang="ko">STEAM BASE 소개</span></a>
+      <a href="#follow"><span lang="ja">最新情報</span><span lang="en">Follow</span><span lang="zh-Hant">最新消息</span><span lang="zh-Hans">最新消息</span><span lang="ko">최신 소식</span></a>
+      <a href="#contact"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span><span lang="zh-Hant">聯絡我們</span><span lang="zh-Hans">联络我们</span><span lang="ko">문의</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button>
+      <select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select>
     </div>
   </div>
 </header>
@@ -177,16 +183,16 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <div>
       <div class="eyebrow">Indie games &amp; apps for Android</div>
-      <h1><span lang="ja">遊んで楽しい。</span><span lang="en">Fun to play.</span><br><em><span lang="ja">使って続く。</span><span lang="en">Easy to keep.</span></em></h1>
-      <p class="lead"><span lang="ja">STEAM BASE は、Android 向けのゲームとアプリを個人で開発しています。すきま時間に遊べるゲームから、毎日の暮らしで使える小さなアプリまで。</span><span lang="en">STEAM BASE is a one-person studio making games and apps for Android — from quick games for your spare minutes to small tools for everyday life.</span></p>
+      <h1><span lang="ja">遊んで楽しい。</span><span lang="en">Fun to play.</span><span lang="zh-Hant">玩得開心。</span><span lang="zh-Hans">玩得开心。</span><span lang="ko">하면 즐겁다.</span><br><em><span lang="ja">使って続く。</span><span lang="en">Easy to keep.</span><span lang="zh-Hant">用得長久。</span><span lang="zh-Hans">用得长久。</span><span lang="ko">쓰면 계속된다.</span></em></h1>
+      <p class="lead"><span lang="ja">STEAM BASE は、Android 向けのゲームとアプリを個人で開発しています。すきま時間に遊べるゲームから、毎日の暮らしで使える小さなアプリまで。</span><span lang="en">STEAM BASE is a one-person studio making games and apps for Android — from quick games for your spare minutes to small tools for everyday life.</span><span lang="zh-Hant">STEAM BASE 是一個獨立開發 Android 遊戲與應用程式的個人工作室。從利用零碎時間就能玩的遊戲，到日常生活中用得上的小型應用程式。</span><span lang="zh-Hans">STEAM BASE 是一个独立开发 Android 游戏与应用的个人工作室。从利用碎片时间就能玩的游戏，到日常生活中用得上的小型应用。</span><span lang="ko">STEAM BASE는 Android용 게임과 앱을 혼자서 개발하고 있습니다. 짬짬이 즐길 수 있는 게임부터 매일의 생활에 쓸 수 있는 작은 앱까지.</span></p>
       <div class="cta">
-        <a class="btn primary" href="#works"><span lang="ja">作品を見る</span><span lang="en">See our works</span></a>
-        <a class="btn" href="https://play.google.com/store/apps/developer?id=STEAM+BASE" target="_blank" rel="noopener"><span lang="ja">Google Play の全作品</span><span lang="en">All on Google Play</span></a>
+        <a class="btn primary" href="#works"><span lang="ja">作品を見る</span><span lang="en">See our works</span><span lang="zh-Hant">查看作品</span><span lang="zh-Hans">查看作品</span><span lang="ko">작품 보기</span></a>
+        <a class="btn" href="https://play.google.com/store/apps/developer?id=STEAM+BASE" target="_blank" rel="noopener"><span lang="ja">Google Play の全作品</span><span lang="en">All on Google Play</span><span lang="zh-Hant">Google Play 上的全部作品</span><span lang="zh-Hans">Google Play 上的全部作品</span><span lang="ko">Google Play의 모든 작품</span></a>
       </div>
       <div class="stats">
-        <div><b>11</b><span lang="ja">Google Play で配信中</span><span lang="en">on Google Play</span></div>
-        <div><b>9</b><span lang="ja">ゲーム</span><span lang="en">games</span></div>
-        <div><b>2</b><span lang="ja">アプリ</span><span lang="en">apps</span></div>
+        <div><b>11</b><span lang="ja">Google Play で配信中</span><span lang="en">on Google Play</span><span lang="zh-Hant">已於 Google Play 上架</span><span lang="zh-Hans">已于 Google Play 上架</span><span lang="ko">Google Play에서 서비스 중</span></div>
+        <div><b>9</b><span lang="ja">ゲーム</span><span lang="en">games</span><span lang="zh-Hant">遊戲</span><span lang="zh-Hans">游戏</span><span lang="ko">게임</span></div>
+        <div><b>2</b><span lang="ja">アプリ</span><span lang="en">apps</span><span lang="zh-Hant">應用程式</span><span lang="zh-Hans">应用</span><span lang="ko">앱</span></div>
       </div>
     </div>
     <div class="emblem"><img src="img/sb.png" alt="STEAM BASE" width="300" height="300"></div>
@@ -195,19 +201,19 @@ footer a { color: var(--muted); }
 
 <section id="coming" class="alt">
   <div class="wrap reveal">
-    <h2><span lang="ja">新作・配信中</span><span lang="en">New release</span></h2>
-    <p class="sub"><span lang="ja">いま、いちばん力を入れているタイトルです。</span><span lang="en">The title we are working hardest on right now.</span></p>
+    <h2><span lang="ja">新作・配信中</span><span lang="en">New release</span><span lang="zh-Hant">新作、已上架</span><span lang="zh-Hans">新作、已上架</span><span lang="ko">신작·서비스 중</span></h2>
+    <p class="sub"><span lang="ja">いま、いちばん力を入れているタイトルです。</span><span lang="en">The title we are working hardest on right now.</span><span lang="zh-Hant">目前最用心投入的作品。</span><span lang="zh-Hans">目前最用心投入的作品。</span><span lang="ko">지금 가장 힘을 쏟고 있는 타이틀입니다.</span></p>
     <div class="coming">
       <div class="kv" style="background-image:url('https://ma06tsu22gt-art.github.io/lanternstarsea/assets/lp/og_kv.jpg')" role="img" aria-label="星海のランタン"></div>
       <div class="txt">
         <span class="badge">NOW ON GOOGLE PLAY</span>
         <h3>星海のランタン</h3>
         <p class="en-name">Lantern of the Star Sea</p>
-        <p><span lang="ja">艦隊を率いて星の海へ。66人の指揮官と30の艦種で戦う、宇宙艦隊リアルタイムストラテジー。2026年10月17日、Google Play で配信を開始しました（Android版のみ。App Store／iOSでは未リリース）。</span><span lang="en">Lead your fleets into the star sea. A real-time space fleet strategy game with 66 commanders and 30 ship classes. Out now on Google Play since October 17, 2026 (Android only; not on the App Store / iOS).</span></p>
+        <p><span lang="ja">艦隊を率いて星の海へ。66人の指揮官と30の艦種で戦う、宇宙艦隊リアルタイムストラテジー。2026年10月17日、Google Play で配信を開始しました（Android版のみ。App Store／iOSでは未リリース）。</span><span lang="en">Lead your fleets into the star sea. A real-time space fleet strategy game with 66 commanders and 30 ship classes. Out now on Google Play since October 17, 2026 (Android only; not on the App Store / iOS).</span><span lang="zh-Hant">率領艦隊，航向星海。以 66 位指揮官與 30 種艦種作戰的太空艦隊即時戰略遊戲。已於 2026 年 10 月 17 日在 Google Play 上架（僅限 Android 版，App Store／iOS 尚未推出）。</span><span lang="zh-Hans">率领舰队，航向星海。以 66 位指挥官与 30 种舰种作战的太空舰队即时战略游戏。已于 2026 年 10 月 17 日在 Google Play 上架（仅限 Android 版，App Store／iOS 尚未推出）。</span><span lang="ko">함대를 이끌고 별의 바다로. 66명의 지휘관과 30종의 함종으로 싸우는 우주 함대 실시간 전략 게임. 2026년 10월 17일 Google Play에서 서비스를 시작했습니다(Android 버전만 제공. App Store/iOS에서는 출시되지 않았습니다).</span></p>
         <div class="cta">
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lanternstarsea.game" target="_blank" rel="noopener"><span lang="ja">Google Play で見る</span><span lang="en">Get it on Google Play</span></a>
-          <a class="btn" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><span lang="ja">特設ページ</span><span lang="en">Official page</span></a>
-          <a class="btn" href="https://www.youtube.com/watch?v=1QRdVLoc8_c" target="_blank" rel="noopener"><span lang="ja">トレーラーを見る</span><span lang="en">Watch the trailer</span></a>
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lanternstarsea.game" target="_blank" rel="noopener"><span lang="ja">Google Play で見る</span><span lang="en">Get it on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a>
+          <a class="btn" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><span lang="ja">特設ページ</span><span lang="en">Official page</span><span lang="zh-Hant">專題頁面</span><span lang="zh-Hans">专题页面</span><span lang="ko">특설 페이지</span></a>
+          <a class="btn" href="https://www.youtube.com/watch?v=1QRdVLoc8_c" target="_blank" rel="noopener"><span lang="ja">トレーラーを見る</span><span lang="en">Watch the trailer</span><span lang="zh-Hant">觀看預告片</span><span lang="zh-Hans">观看预告片</span><span lang="ko">트레일러 보기</span></a>
         </div>
       </div>
     </div>
@@ -216,12 +222,12 @@ footer a { color: var(--muted); }
 
 <section id="works">
   <div class="wrap">
-    <h2 class="reveal"><span lang="ja">作品</span><span lang="en">Works</span></h2>
-    <p class="sub reveal"><span lang="ja">すべて Google Play で配信中です。</span><span lang="en">All available on Google Play.</span></p>
+    <h2 class="reveal"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></h2>
+    <p class="sub reveal"><span lang="ja">すべて Google Play で配信中です。</span><span lang="en">All available on Google Play.</span><span lang="zh-Hant">全部都已在 Google Play 上架。</span><span lang="zh-Hans">全部都已在 Google Play 上架。</span><span lang="ko">모두 Google Play에서 서비스 중입니다.</span></p>
     <div class="filters" role="group" aria-label="Filter">
-      <button type="button" data-filter="all" aria-pressed="true"><span lang="ja">すべて</span><span lang="en">All</span></button>
-      <button type="button" data-filter="game" aria-pressed="false"><span lang="ja">ゲーム</span><span lang="en">Games</span></button>
-      <button type="button" data-filter="app" aria-pressed="false"><span lang="ja">アプリ</span><span lang="en">Apps</span></button>
+      <button type="button" data-filter="all" aria-pressed="true"><span lang="ja">すべて</span><span lang="en">All</span><span lang="zh-Hant">全部</span><span lang="zh-Hans">全部</span><span lang="ko">전체</span></button>
+      <button type="button" data-filter="game" aria-pressed="false"><span lang="ja">ゲーム</span><span lang="en">Games</span><span lang="zh-Hant">遊戲</span><span lang="zh-Hans">游戏</span><span lang="ko">게임</span></button>
+      <button type="button" data-filter="app" aria-pressed="false"><span lang="ja">アプリ</span><span lang="en">Apps</span><span lang="zh-Hant">應用程式</span><span lang="zh-Hans">应用</span><span lang="ko">앱</span></button>
     </div>
     <div class="grid">
     <article class="card" data-kind="game">
@@ -233,11 +239,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/lantern_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>星海のランタン</h3>
-            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span></span>
+            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span><span lang="zh-Hant">策略</span><span lang="zh-Hans">策略</span><span lang="ko">전략</span></span>
           </div>
         </div>
-        <p><span lang="ja">最大8艦隊を率いて戦う、宇宙艦隊リアルタイムストラテジー。66人の指揮官と30の艦種。2026年10月17日に配信開始（Android のみ）。</span><span lang="en">Command up to eight fleets in real-time space battles, with 66 commanders and 30 ship classes. Out now on Android (since Oct 17, 2026).</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lanternstarsea.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a></div>
+        <p><span lang="ja">最大8艦隊を率いて戦う、宇宙艦隊リアルタイムストラテジー。66人の指揮官と30の艦種。2026年10月17日に配信開始（Android のみ）。</span><span lang="en">Command up to eight fleets in real-time space battles, with 66 commanders and 30 ship classes. Out now on Android (since Oct 17, 2026).</span><span lang="zh-Hant">最多可率領 8 支艦隊作戰的太空艦隊即時戰略遊戲。66 位指揮官與 30 種艦種。2026 年 10 月 17 日上架（僅限 Android）。</span><span lang="zh-Hans">最多可率领 8 支舰队作战的太空舰队即时战略游戏。66 位指挥官与 30 种舰种。2026 年 10 月 17 日上架（仅限 Android）。</span><span lang="ko">최대 8개 함대를 이끌고 싸우는 우주 함대 실시간 전략 게임. 66명의 지휘관과 30종의 함종. 2026년 10월 17일 서비스 시작(Android만 제공).</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lanternstarsea.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -249,11 +255,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/nekotower_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>ねこタワー - ぐにゃぐにゃ猫積み</h3>
-            <span class="chip"><span lang="ja">パズル</span><span lang="en">Puzzle</span></span>
+            <span class="chip"><span lang="ja">パズル</span><span lang="en">Puzzle</span><span lang="zh-Hant">益智</span><span lang="zh-Hans">解谜</span><span lang="ko">퍼즐</span></span>
           </div>
         </div>
-        <p><span lang="ja">やわらかい猫を1匹ずつ積み上げる3Dゲーム。置いて3秒で猫が勝手に動き出すので、積んだ塔も油断できません。2026年10月27日に配信開始（Android のみ）。</span><span lang="en">Stack soft, wobbly cats one by one. Three seconds after landing they start to stretch and wriggle, so no tower is ever safe. Out now on Android (since Oct 27, 2026).</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/nekotower-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">やわらかい猫を1匹ずつ積み上げる3Dゲーム。置いて3秒で猫が勝手に動き出すので、積んだ塔も油断できません。2026年10月27日に配信開始（Android のみ）。</span><span lang="en">Stack soft, wobbly cats one by one. Three seconds after landing they start to stretch and wriggle, so no tower is ever safe. Out now on Android (since Oct 27, 2026).</span><span lang="zh-Hant">把柔軟的貓咪一隻一隻往上疊的 3D 遊戲。放下 3 秒後貓咪就會自己動起來，疊好的塔也不能大意。2026 年 10 月 27 日上架（僅限 Android）。</span><span lang="zh-Hans">把柔软的猫咪一只一只往上叠的 3D 游戏。放下 3 秒后猫咪就会自己动起来，叠好的塔也不能大意。2026 年 10 月 27 日上架（仅限 Android）。</span><span lang="ko">말랑말랑한 고양이를 한 마리씩 쌓아 올리는 3D 게임. 내려놓고 3초가 지나면 고양이가 제멋대로 움직이기 시작하므로, 쌓아 올린 탑도 방심할 수 없습니다. 2026년 10월 27일 서비스 시작(Android만 제공).</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/nekotower-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -265,11 +271,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/starfall_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>STARFALL SURVIVOR</h3>
-            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span></span>
+            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span><span lang="zh-Hant">動作</span><span lang="zh-Hans">动作</span><span lang="ko">액션</span></span>
           </div>
         </div>
-        <p><span lang="ja">四方から押し寄せる敵の大群を撃ち抜く、ネオンのサバイバーシューティング。操作は移動とダッシュだけ、武器は自動で撃ちます。</span><span lang="en">A neon survivor shooter. You only move and dash — your weapons fire on their own as the swarm closes in.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/starfall-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">四方から押し寄せる敵の大群を撃ち抜く、ネオンのサバイバーシューティング。操作は移動とダッシュだけ、武器は自動で撃ちます。</span><span lang="en">A neon survivor shooter. You only move and dash — your weapons fire on their own as the swarm closes in.</span><span lang="zh-Hant">射穿從四面八方湧來的大批敵人，霓虹風格的生存射擊遊戲。操作只有移動與衝刺，武器會自動射擊。</span><span lang="zh-Hans">射穿从四面八方涌来的大批敌人，霓虹风格的生存射击游戏。操作只有移动与冲刺，武器会自动射击。</span><span lang="ko">사방에서 밀려오는 적의 대군을 쏘아 쓰러뜨리는 네온 서바이버 슈팅. 조작은 이동과 대시뿐이며, 무기는 자동으로 발사됩니다.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/starfall-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -281,11 +287,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/stonecrown_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>Stonecrown 石と王冠</h3>
-            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span></span>
+            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span><span lang="zh-Hant">策略</span><span lang="zh-Hans">策略</span><span lang="ko">전략</span></span>
           </div>
         </div>
-        <p><span lang="ja">街づくりと塔と魔法で大軍をしのぐ、片手で遊べる中世ファンタジーの防衛ストラテジー。1戦はおよそ5〜10分。</span><span lang="en">A one-handed medieval fantasy defense game: hold back the horde with town building, towers and magic. 5–10 minutes a battle.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">街づくりと塔と魔法で大軍をしのぐ、片手で遊べる中世ファンタジーの防衛ストラテジー。1戦はおよそ5〜10分。</span><span lang="en">A one-handed medieval fantasy defense game: hold back the horde with town building, towers and magic. 5–10 minutes a battle.</span><span lang="zh-Hant">以建設城鎮、箭塔與魔法擋下大軍，單手就能玩的中世紀奇幻防衛策略遊戲。每場戰鬥約 5～10 分鐘。</span><span lang="zh-Hans">以建设城镇、箭塔与魔法挡下大军，单手就能玩的中世纪奇幻防卫策略游戏。每场战斗约 5～10 分钟。</span><span lang="ko">마을 건설과 탑과 마법으로 대군을 막아 내는, 한 손으로 즐기는 중세 판타지 방어 전략 게임. 1판은 약 5~10분.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.aios.stonecrown" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/stonecrown-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -297,11 +303,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/novaforge_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>NOVA FORGE</h3>
-            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span></span>
+            <span class="chip"><span lang="ja">ストラテジー</span><span lang="en">Strategy</span><span lang="zh-Hant">策略</span><span lang="zh-Hans">策略</span><span lang="ko">전략</span></span>
           </div>
         </div>
-        <p><span lang="ja">パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライト。</span><span lang="en">Design your own starship from parts and break through sector after sector in auto-battles. A roguelite.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/novaforge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">パーツを組み合わせて自分だけの宇宙艦を設計し、オートバトルで宙域を突破していくローグライト。</span><span lang="en">Design your own starship from parts and break through sector after sector in auto-battles. A roguelite.</span><span lang="zh-Hant">組合零件設計專屬的太空艦，以自動戰鬥突破宙域的 Roguelite 遊戲。</span><span lang="zh-Hans">组合零件设计专属的太空舰，以自动战斗突破宙域的 Roguelite 游戏。</span><span lang="ko">부품을 조합해 나만의 우주함을 설계하고, 오토 배틀로 우주 해역을 돌파해 나가는 로그라이트.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.novaforge.game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/novaforge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -313,11 +319,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/dropmerge_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>DropMerge - しずく合流パズル</h3>
-            <span class="chip"><span lang="ja">パズル</span><span lang="en">Puzzle</span></span>
+            <span class="chip"><span lang="ja">パズル</span><span lang="en">Puzzle</span><span lang="zh-Hant">益智</span><span lang="zh-Hans">解谜</span><span lang="ko">퍼즐</span></span>
           </div>
         </div>
-        <p><span lang="ja">氷の上を滑るしずくを、同じ色どうしで合流させるパズル。1ステージ1〜3分、全150ステージ。</span><span lang="en">Slide droplets across the ice and merge matching colors. 1–3 minutes a stage, 150 stages.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.dropmerge.puzzle" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/dropmerge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">氷の上を滑るしずくを、同じ色どうしで合流させるパズル。1ステージ1〜3分、全150ステージ。</span><span lang="en">Slide droplets across the ice and merge matching colors. 1–3 minutes a stage, 150 stages.</span><span lang="zh-Hant">讓在冰面上滑動的水滴，與同色水滴合流的益智遊戲。每關 1～3 分鐘，共 150 關。</span><span lang="zh-Hans">让在冰面上滑动的水滴，与同色水滴合流的解谜游戏。每关 1～3 分钟，共 150 关。</span><span lang="ko">얼음 위를 미끄러지는 물방울을 같은 색끼리 합쳐 주는 퍼즐. 1스테이지 1~3분, 전 150스테이지.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.dropmerge.puzzle" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/dropmerge-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -329,11 +335,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/shipbuilder_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>星組み造船所</h3>
-            <span class="chip"><span lang="ja">シミュレーション</span><span lang="en">Simulation</span></span>
+            <span class="chip"><span lang="ja">シミュレーション</span><span lang="en">Simulation</span><span lang="zh-Hant">模擬</span><span lang="zh-Hans">模拟</span><span lang="ko">시뮬레이션</span></span>
           </div>
         </div>
-        <p><span lang="ja">船体・エンジン・主砲を組み合わせて宇宙船を建造し、自分の艦で戦う3D造船・戦闘ゲーム。全50ステージ。</span><span lang="en">Build a starship from hulls, engines and guns, then fly it into battle. A 3D ship-building game with 50 stages.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.Prototype.ShipBuilderM1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a></div>
+        <p><span lang="ja">船体・エンジン・主砲を組み合わせて宇宙船を建造し、自分の艦で戦う3D造船・戦闘ゲーム。全50ステージ。</span><span lang="en">Build a starship from hulls, engines and guns, then fly it into battle. A 3D ship-building game with 50 stages.</span><span lang="zh-Hant">組合船體、引擎與主砲建造太空船，再駕駛自己的艦艇作戰的 3D 造船戰鬥遊戲。共 50 關。</span><span lang="zh-Hans">组合船体、引擎与主炮建造太空船，再驾驶自己的舰艇作战的 3D 造船战斗游戏。共 50 关。</span><span lang="ko">선체·엔진·주포를 조합해 우주선을 건조하고, 자신의 함선으로 싸우는 3D 조선·전투 게임. 전 50스테이지.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.Prototype.ShipBuilderM1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -345,11 +351,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/blockspace_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>Block Space Roguelite</h3>
-            <span class="chip"><span lang="ja">ロールプレイング</span><span lang="en">RPG</span></span>
+            <span class="chip"><span lang="ja">ロールプレイング</span><span lang="en">RPG</span><span lang="zh-Hant">角色扮演</span><span lang="zh-Hans">角色扮演</span><span lang="ko">롤플레잉</span></span>
           </div>
         </div>
-        <p><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a></div>
+        <p><span lang="ja">武器・装甲・エンジン・シールドのブロックで宇宙戦艦を建造し、探索で装備を集めて宙域の攻略を目指します。</span><span lang="en">Build a battleship out of weapon, armor, engine and shield blocks, and gear up as you explore hostile space.</span><span lang="zh-Hant">以武器、裝甲、引擎與護盾方塊建造太空戰艦，並透過探索收集裝備，挑戰各個宙域。</span><span lang="zh-Hans">以武器、装甲、引擎与护盾方块建造太空战舰，并透过探索收集装备，挑战各个宙域。</span><span lang="ko">무기·장갑·엔진·실드 블록으로 우주 전함을 건조하고, 탐색으로 장비를 모아 우주 해역 공략을 노립니다.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.blockspaceroguelit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="game">
@@ -361,11 +367,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/makikomi_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>巻き込みおじさん</h3>
-            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span></span>
+            <span class="chip"><span lang="ja">アクション</span><span lang="en">Action</span><span lang="zh-Hant">動作</span><span lang="zh-Hans">动作</span><span lang="ko">액션</span></span>
           </div>
         </div>
-        <p><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span><span lang="zh-Hant">讓全力衝刺的西裝大叔一路捲入路人、讓隊伍越拉越長的休閒動作遊戲。</span><span lang="zh-Hans">让全力冲刺的西装大叔一路卷入路人、让队伍越拉越长的休闲动作游戏。</span><span lang="ko">전력 질주하는 정장 차림 아저씨로 행인을 계속 말려들게 해 행렬을 늘려 가는 캐주얼 액션.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="app">
@@ -377,11 +383,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/hodohodo_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>HodoHodo ほどほど記録</h3>
-            <span class="chip"><span lang="ja">ライフスタイル</span><span lang="en">Lifestyle</span></span>
+            <span class="chip"><span lang="ja">ライフスタイル</span><span lang="en">Lifestyle</span><span lang="zh-Hant">生活</span><span lang="zh-Hans">生活</span><span lang="ko">라이프스타일</span></span>
           </div>
         </div>
-        <p><span lang="ja">コーヒー・お酒・間食など、やめずに減らしたい習慣に上限を決めて1タップで記録。我慢した分は節約額で見えます。</span><span lang="en">Set a limit for coffee, drinks or snacks and log each one with a tap — cut back without quitting, and see what you saved.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/hodohodo/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">コーヒー・お酒・間食など、やめずに減らしたい習慣に上限を決めて1タップで記録。我慢した分は節約額で見えます。</span><span lang="en">Set a limit for coffee, drinks or snacks and log each one with a tap — cut back without quitting, and see what you saved.</span><span lang="zh-Hant">咖啡、酒、零食等想減少而不是戒掉的習慣，設定上限後一鍵記錄。忍住沒買的部分會以節省的金額顯示。</span><span lang="zh-Hans">咖啡、酒、零食等想减少而不是戒掉的习惯，设定上限后一键记录。忍住没买的部分会以节省的金额显示。</span><span lang="ko">커피·술·간식 등 끊지 않고 줄이고 싶은 습관에 상한을 정하고 한 번의 탭으로 기록. 참은 만큼은 절약 금액으로 확인할 수 있습니다.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.hodohodo2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/hodohodo/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/hodohodo-privacy-policy/"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     <article class="card" data-kind="app">
@@ -393,11 +399,11 @@ footer a { color: var(--muted); }
           <img class="icon" src="img/apps/yokatta_icon.png" alt="" width="64" height="64" loading="lazy">
           <div>
             <h3>ヨカッタ 1行日記</h3>
-            <span class="chip"><span lang="ja">ライフスタイル</span><span lang="en">Lifestyle</span></span>
+            <span class="chip"><span lang="ja">ライフスタイル</span><span lang="en">Lifestyle</span><span lang="zh-Hant">生活</span><span lang="zh-Hans">生活</span><span lang="ko">라이프스타일</span></span>
           </div>
         </div>
-        <p><span lang="ja">今日よかったことを1日1行だけ。書けない日は責めない、ストリークなしのポジティブ日記。登録不要で、日記は端末の中だけ。</span><span lang="en">One good thing a day, in one line. No streaks, no guilt, no account — your journal stays on your device.</span></p>
-        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.yokatta" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/yokatta/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/yokatta/privacy.html"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a></div>
+        <p><span lang="ja">今日よかったことを1日1行だけ。書けない日は責めない、ストリークなしのポジティブ日記。登録不要で、日記は端末の中だけ。</span><span lang="en">One good thing a day, in one line. No streaks, no guilt, no account — your journal stays on your device.</span><span lang="zh-Hant">每天只寫一行今天的美好事物。寫不出來的日子也不責備，沒有連續天數壓力的正向日記。免註冊，日記只留在裝置內。</span><span lang="zh-Hans">每天只写一行今天的美好事物。写不出来的日子也不责备，没有连续天数压力的正向日记。免注册，日记只留在设备内。</span><span lang="ko">오늘 좋았던 일을 하루에 딱 한 줄만. 못 쓰는 날도 탓하지 않는, 연속 기록(스트릭) 없는 긍정 일기. 회원 가입 불필요, 일기는 기기 안에만 저장됩니다.</span></p>
+        <div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.yokatta" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play</span><span lang="en">Google Play</span><span lang="zh-Hant">Google Play</span><span lang="zh-Hans">Google Play</span><span lang="ko">Google Play</span></a><a class="btn" href="https://ma06tsu22gt-art.github.io/yokatta/"><span lang="ja">紹介ページ</span><span lang="en">Learn more</span><span lang="zh-Hant">介紹頁面</span><span lang="zh-Hans">介绍页面</span><span lang="ko">소개 페이지</span></a><a class="link" href="https://ma06tsu22gt-art.github.io/yokatta/privacy.html"><span lang="ja">プライバシー</span><span lang="en">Privacy</span><span lang="zh-Hant">隱私權</span><span lang="zh-Hans">隐私</span><span lang="ko">개인정보 처리방침</span></a></div>
       </div>
     </article>
     </div>
@@ -406,32 +412,32 @@ footer a { color: var(--muted); }
 
 <section id="about" class="alt">
   <div class="wrap reveal">
-    <h2><span lang="ja">STEAM BASE について</span><span lang="en">About STEAM BASE</span></h2>
-    <p class="sub"><span lang="ja">企画・デザイン・開発・ストア公開まで、ひとりで手がけています。</span><span lang="en">Planning, design, development and publishing — all done by one person.</span></p>
+    <h2><span lang="ja">STEAM BASE について</span><span lang="en">About STEAM BASE</span><span lang="zh-Hant">關於 STEAM BASE</span><span lang="zh-Hans">关于 STEAM BASE</span><span lang="ko">STEAM BASE 소개</span></h2>
+    <p class="sub"><span lang="ja">企画・デザイン・開発・ストア公開まで、ひとりで手がけています。</span><span lang="en">Planning, design, development and publishing — all done by one person.</span><span lang="zh-Hant">從企劃、設計、開發到上架商店，全部由一個人完成。</span><span lang="zh-Hans">从企划、设计、开发到上架商店，全部由一个人完成。</span><span lang="ko">기획·디자인·개발·스토어 공개까지 혼자서 해내고 있습니다.</span></p>
     <div class="points">
-      <div class="point"><div class="num">01</div><h3><span lang="ja">すきま時間に、手軽に</span><span lang="en">Short sessions</span></h3><p><span lang="ja">1回数分で区切りよく遊べる、スマホらしいゲームを作っています。</span><span lang="en">Games you can play in a few minutes and put down at a natural break.</span></p></div>
-      <div class="point"><div class="num">02</div><h3><span lang="ja">つくる楽しさ</span><span lang="en">The joy of building</span></h3><p><span lang="ja">宇宙艦の設計や街づくりなど、自分で組み立てる遊びが好きです。</span><span lang="en">Designing starships, building towns — we love games where you put things together yourself.</span></p></div>
-      <div class="point"><div class="num">03</div><h3><span lang="ja">暮らしに役立つ道具も</span><span lang="en">Tools for everyday life</span></h3><p><span lang="ja">ゲームだけでなく、毎日の習慣を助ける小さなアプリも作っています。</span><span lang="en">Besides games, we make small apps that help with everyday habits.</span></p></div>
+      <div class="point"><div class="num">01</div><h3><span lang="ja">すきま時間に、手軽に</span><span lang="en">Short sessions</span><span lang="zh-Hant">零碎時間，輕鬆就能玩</span><span lang="zh-Hans">碎片时间，轻松就能玩</span><span lang="ko">짬짬이, 가볍게</span></h3><p><span lang="ja">1回数分で区切りよく遊べる、スマホらしいゲームを作っています。</span><span lang="en">Games you can play in a few minutes and put down at a natural break.</span><span lang="zh-Hant">我們製作的是每次只需幾分鐘、能在適當段落收手的手機風格遊戲。</span><span lang="zh-Hans">我们制作的是每次只需几分钟、能在适当段落收手的手机风格游戏。</span><span lang="ko">한 번에 몇 분씩 끊어서 즐길 수 있는, 스마트폰다운 게임을 만들고 있습니다.</span></p></div>
+      <div class="point"><div class="num">02</div><h3><span lang="ja">つくる楽しさ</span><span lang="en">The joy of building</span><span lang="zh-Hant">創造的樂趣</span><span lang="zh-Hans">创造的乐趣</span><span lang="ko">만드는 즐거움</span></h3><p><span lang="ja">宇宙艦の設計や街づくりなど、自分で組み立てる遊びが好きです。</span><span lang="en">Designing starships, building towns — we love games where you put things together yourself.</span><span lang="zh-Hant">我們喜歡自己動手組裝的玩法，例如設計太空艦、建設城鎮。</span><span lang="zh-Hans">我们喜欢自己动手组装的玩法，例如设计太空舰、建设城镇。</span><span lang="ko">우주함 설계나 마을 건설처럼 직접 조립하는 놀이를 좋아합니다.</span></p></div>
+      <div class="point"><div class="num">03</div><h3><span lang="ja">暮らしに役立つ道具も</span><span lang="en">Tools for everyday life</span><span lang="zh-Hant">也有生活實用的小工具</span><span lang="zh-Hans">也有生活实用的小工具</span><span lang="ko">생활에 도움이 되는 도구도</span></h3><p><span lang="ja">ゲームだけでなく、毎日の習慣を助ける小さなアプリも作っています。</span><span lang="en">Besides games, we make small apps that help with everyday habits.</span><span lang="zh-Hant">除了遊戲，也製作幫助養成日常習慣的小型應用程式。</span><span lang="zh-Hans">除了游戏，也制作帮助养成日常习惯的小型应用。</span><span lang="ko">게임뿐 아니라 매일의 습관을 돕는 작은 앱도 만들고 있습니다.</span></p></div>
     </div>
   </div>
 </section>
 
 <section id="follow">
   <div class="wrap reveal">
-    <h2><span lang="ja">最新情報</span><span lang="en">Follow us</span></h2>
-    <p class="sub"><span lang="ja">新作の情報や開発の裏側を発信しています。</span><span lang="en">News on new titles and behind-the-scenes notes.</span></p>
+    <h2><span lang="ja">最新情報</span><span lang="en">Follow us</span><span lang="zh-Hant">最新消息</span><span lang="zh-Hans">最新消息</span><span lang="ko">최신 소식</span></h2>
+    <p class="sub"><span lang="ja">新作の情報や開発の裏側を発信しています。</span><span lang="en">News on new titles and behind-the-scenes notes.</span><span lang="zh-Hant">發布新作資訊與開發幕後花絮。</span><span lang="zh-Hans">发布新作信息与开发幕后花絮。</span><span lang="ko">신작 소식과 개발 뒷이야기를 전하고 있습니다.</span></p>
     <div class="follow">
       <a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4.5" width="22" height="15" rx="4.5" fill="#ff0033"/><path d="M10 9v6l5.2-3z" fill="#fff"/></svg>
-        <span><b>YouTube</b><small><span lang="ja">トレーラー・プレイ動画</span><span lang="en">Trailers &amp; gameplay</span></small></span>
+        <span><b>YouTube</b><small><span lang="ja">トレーラー・プレイ動画</span><span lang="en">Trailers &amp; gameplay</span><span lang="zh-Hant">預告片與遊玩影片</span><span lang="zh-Hans">预告片与游玩视频</span><span lang="ko">트레일러·플레이 영상</span></small></span>
       </a>
       <a href="https://note.com/steambase_dev" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="5" fill="#fff"/><path d="M7 17V8.6c0-.4.3-.6.7-.6h5.6c2.2 0 3.7 1.4 3.7 3.6V17h-2.4v-5.2c0-1-.6-1.6-1.6-1.6H9.4V17z" fill="#111"/></svg>
-        <span><b>note</b><small><span lang="ja">開発記・アプリ紹介</span><span lang="en">Dev notes (Japanese)</span></small></span>
+        <span><b>note</b><small><span lang="ja">開発記・アプリ紹介</span><span lang="en">Dev notes (Japanese)</span><span lang="zh-Hant">開發日誌、應用程式介紹</span><span lang="zh-Hans">开发日志、应用介绍</span><span lang="ko">개발기·앱 소개</span></small></span>
       </a>
       <a href="https://play.google.com/store/apps/developer?id=STEAM+BASE" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.5 13.4 12l-9.8 10.5c-.4-.2-.6-.6-.6-1.1V2.6c0-.5.2-.9.6-1.1z" fill="#00d26a"/><path d="m16.7 8.6-3.3 3.4L3.6 1.5l.2.1z" fill="#3bccff"/><path d="m16.7 15.4-12.9 7-.2.1L13.4 12z" fill="#ff3d4f"/><path d="M20.6 10.8c.8.5.8 1.9 0 2.4l-3.9 2.2-3.3-3.4 3.3-3.4z" fill="#ffd400"/></svg>
-        <span><b>Google Play</b><small><span lang="ja">すべての作品</span><span lang="en">All titles</span></small></span>
+        <span><b>Google Play</b><small><span lang="ja">すべての作品</span><span lang="en">All titles</span><span lang="zh-Hant">全部作品</span><span lang="zh-Hans">全部作品</span><span lang="ko">모든 작품</span></small></span>
       </a>
     </div>
   </div>
@@ -439,8 +445,8 @@ footer a { color: var(--muted); }
 
 <section id="contact" class="alt">
   <div class="wrap reveal">
-    <h2><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></h2>
-    <p class="sub"><span lang="ja">ご意見・ご要望・不具合のご報告は、メールでお送りください。</span><span lang="en">For feedback, requests or bug reports, please email us.</span></p>
+    <h2><span lang="ja">お問い合わせ</span><span lang="en">Contact</span><span lang="zh-Hant">聯絡我們</span><span lang="zh-Hans">联络我们</span><span lang="ko">문의</span></h2>
+    <p class="sub"><span lang="ja">ご意見・ご要望・不具合のご報告は、メールでお送りください。</span><span lang="en">For feedback, requests or bug reports, please email us.</span><span lang="zh-Hant">如有意見、需求或問題回報，請來信告知。</span><span lang="zh-Hans">如有意见、需求或问题回报，请来信告知。</span><span lang="ko">의견, 요청 사항, 오류 신고는 이메일로 보내 주세요.</span></p>
     <a class="btn primary" href="mailto:steam.base777@gmail.com">✉ steam.base777@gmail.com</a>
   </div>
 </section>
@@ -462,10 +468,17 @@ footer a { color: var(--muted); }
   }
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
-  });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 
   var cards = document.querySelectorAll('.card');
   document.querySelectorAll('.filters button').forEach(function (b) {

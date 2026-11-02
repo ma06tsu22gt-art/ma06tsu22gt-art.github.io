@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › STARFALL SURVIVOR</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › STARFALL SURVIVOR</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/starfall_icon.png" alt="" width="84" height="84">
-        <div><h1>STARFALL SURVIVOR</h1><span class="chip"><span lang="ja">サバイバーシューティング</span><span lang="en">Survivor shooter</span></span></div></div>
-      <p class="lead"><span lang="ja">四方から押し寄せる敵の大群を撃ち抜く、ネオンのサバイバーシューティング。操作は移動とダッシュだけ、武器は自動で撃ちます。</span><span lang="en">A neon survivor shooter. You only move and dash — your weapons fire on their own as the swarm closes in.</span></p>
+        <div><h1>STARFALL SURVIVOR</h1><span class="chip"><span lang="ja">サバイバーシューティング</span><span lang="en">Survivor shooter</span><span lang="zh-Hant">生存射擊</span><span lang="zh-Hans">生存射击</span><span lang="ko">서바이버 슈팅</span></span></div></div>
+      <p class="lead"><span lang="ja">四方から押し寄せる敵の大群を撃ち抜く、ネオンのサバイバーシューティング。操作は移動とダッシュだけ、武器は自動で撃ちます。</span><span lang="en">A neon survivor shooter. You only move and dash — your weapons fire on their own as the swarm closes in.</span><span lang="zh-Hant">射穿從四面八方湧來的大批敵人，霓虹風格的生存射擊遊戲。操作只有移動與衝刺，武器會自動射擊。</span><span lang="zh-Hans">射穿从四面八方涌来的大批敌人，霓虹风格的生存射击游戏。操作只有移动与冲刺，武器会自动射击。</span><span lang="ko">사방에서 밀려오는 적의 대군을 쏘아 쓰러뜨리는 네온 서바이버 슈팅. 조작은 이동과 대시뿐이며, 무기는 자동으로 발사됩니다.</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/starfall_card.webp" alt="STARFALL SURVIVOR" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/starfall/shot1.webp" alt="STARFALL SURVIVOR スクリーンショット 1" loading="lazy"><img src="../../img/apps/starfall/shot2.webp" alt="STARFALL SURVIVOR スクリーンショット 2" loading="lazy"><img src="../../img/apps/starfall/shot3.webp" alt="STARFALL SURVIVOR スクリーンショット 3" loading="lazy"><img src="../../img/apps/starfall/shot4.webp" alt="STARFALL SURVIVOR スクリーンショット 4" loading="lazy"><img src="../../img/apps/starfall/shot5.webp" alt="STARFALL SURVIVOR スクリーンショット 5" loading="lazy"><img src="../../img/apps/starfall/shot6.webp" alt="STARFALL SURVIVOR スクリーンショット 6" loading="lazy"><img src="../../img/apps/starfall/shot7.webp" alt="STARFALL SURVIVOR スクリーンショット 7" loading="lazy"><img src="../../img/apps/starfall/shot8.webp" alt="STARFALL SURVIVOR スクリーンショット 8" loading="lazy"></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/starfall/shot1.webp" alt="STARFALL SURVIVOR スクリーンショット 1" loading="lazy"><img src="../../img/apps/starfall/shot2.webp" alt="STARFALL SURVIVOR スクリーンショット 2" loading="lazy"><img src="../../img/apps/starfall/shot3.webp" alt="STARFALL SURVIVOR スクリーンショット 3" loading="lazy"><img src="../../img/apps/starfall/shot4.webp" alt="STARFALL SURVIVOR スクリーンショット 4" loading="lazy"><img src="../../img/apps/starfall/shot5.webp" alt="STARFALL SURVIVOR スクリーンショット 5" loading="lazy"><img src="../../img/apps/starfall/shot6.webp" alt="STARFALL SURVIVOR スクリーンショット 6" loading="lazy"><img src="../../img/apps/starfall/shot7.webp" alt="STARFALL SURVIVOR スクリーンショット 7" loading="lazy"><img src="../../img/apps/starfall/shot8.webp" alt="STARFALL SURVIVOR スクリーンショット 8" loading="lazy"></div></div></section>
 
-<section><div class="wrap"><h2><span lang="ja">STARFALL SURVIVOR はどんなゲーム?</span><span lang="en">What is STARFALL SURVIVOR?</span></h2>
+<section><div class="wrap"><h2><span lang="ja">STARFALL SURVIVOR はどんなゲーム?</span><span lang="en">What is STARFALL SURVIVOR?</span><span lang="zh-Hant">STARFALL SURVIVOR 是什麼樣的遊戲？</span><span lang="zh-Hans">STARFALL SURVIVOR 是什么样的游戏？</span><span lang="ko">STARFALL SURVIVOR는 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>撃て。避けろ。生き延びろ。</p>
 <p>STARFALL SURVIVOR は、四方から押し寄せる敵の大群を撃ち抜いて生き延びる、ネオンのサバイバーシューティングです。操作は移動とダッシュだけ。武器は自動で発射されます。</p>
 <h3>遊び方</h3>
@@ -127,22 +133,68 @@ footer a { color:var(--muted); }
 <p>PERMANENT UPGRADES</p>
 <ul><li>Spend the stardust you earn on permanent upgrades (the seven core stats go up to Lv 30)</li><li>Later stages are tough: upgrade, push a little further, repeat</li><li>Clear stages to unlock two more ships, Tempest and Bastion</li></ul>
 <p>ALSO</p>
-<ul><li>No ads</li><li>Playable offline (except purchases)</li><li>English and Japanese</li><li>Stardust can also be bought in the app (optional). Every stage, ship and upgrade can be reached without paying</li></ul></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<ul><li>No ads</li><li>Playable offline (except purchases)</li><li>English and Japanese</li><li>Stardust can also be bought in the app (optional). Every stage, ship and upgrade can be reached without paying</li></ul></div><div lang="zh-Hant"><p>射擊。閃避。活下去。</p>
+<p>STARFALL SURVIVOR 是一款霓虹風格的生存射擊遊戲，射穿從四面八方湧來的大批敵人，努力活下去。操作只有移動與衝刺。武器會自動發射。</p>
+<h3>玩法</h3>
+<ul><li>拖曳畫面移動。衝刺期間無敵，可穿過敵群</li><li>收集敵人掉落的結晶來升級。從 3 張卡片中選擇 1 項強化</li><li>每關約 4～5 分鐘。擊敗最後出現的頭目即可過關，並解鎖下一關</li></ul>
+<h3>裝備什麼決定勝負</h3>
+<ul><li>武器有 5 種：脈衝爆能槍／追蹤飛彈／環繞刃／電弧閃電／新星脈衝</li><li>被動有 5 種：強化裝甲／推進器／反應爐／超頻／力場放大器</li><li>單次遊玩最多可裝備 3 個武器、3 個被動。組合不同，戰法也會改變</li></ul>
+<h3>每一關都不同的戰場</h3>
+<ul><li>8 個星域：霓虹宙域、紅蓮星雲、小行星帶、冰晶帶、毒霧之海、機械要塞、重力井、星墜盡頭</li><li>熔岩池、擋住子彈的小行星、打滑的冰面、飄來的毒雲、雷射柵欄、重力井、傾瀉而下的隕石</li><li>每個星域的敵人外型與攻擊都不同，最後有該星域的頭目等著你</li><li>通過 8 個之後進入第 2 輪。敵人會更強，沒有終點</li></ul>
+<h3>永久強化</h3>
+<ul><li>用遊玩中獲得的「星塵」永久強化機體（主要 7 項最高 Lv30）</li><li>越後面的關卡越難纏。這是一款不斷強化、一點一點前進的遊戲</li><li>持續通關後，會解鎖新機體「Tempest」「Bastion」</li></ul>
+<h3>其他</h3>
+<ul><li>無廣告</li><li>可離線遊玩（購買時除外）</li><li>支援日語／英語</li><li>也可以在應用程式內購買星塵（可自由選擇）。即使不購買，也能玩到所有關卡、機體與強化</li></ul>
+<h3>推薦給這樣的你</h3>
+<ul><li>喜歡生存類、《吸血鬼倖存者》類的遊戲</li><li>喜歡在 Roguelite 中一點一點變強</li><li>正在找單手就能玩的短時間射擊遊戲</li><li>想體驗一口氣轟飛大批敵人的爽快感</li></ul></div><div lang="zh-Hans"><p>射击。闪避。活下去。</p>
+<p>STARFALL SURVIVOR 是一款霓虹风格的生存射击游戏，射穿从四面八方涌来的大批敌人，努力活下去。操作只有移动与冲刺。武器会自动发射。</p>
+<h3>玩法</h3>
+<ul><li>拖曳画面移动。冲刺期间无敌，可穿过敌群</li><li>收集敌人掉落的结晶来升级。从 3 张卡片中选择 1 项强化</li><li>每关约 4～5 分钟。击败最后出现的首领即可过关，并解锁下一关</li></ul>
+<h3>装备什么决定胜负</h3>
+<ul><li>武器有 5 种：脉冲爆能枪／追踪导弹／环绕刃／电弧闪电／新星脉冲</li><li>被动有 5 种：强化装甲／推进器／反应炉／超频／力场放大器</li><li>单次游玩最多可装备 3 个武器、3 个被动。组合不同，战法也会改变</li></ul>
+<h3>每一关都不同的战场</h3>
+<ul><li>8 个星域：霓虹宙域、红莲星云、小行星带、冰晶带、毒雾之海、机械要塞、重力井、星坠尽头</li><li>熔岩池、挡住子弹的小行星、打滑的冰面、飘来的毒云、激光栅栏、重力井、倾泻而下的陨石</li><li>每个星域的敌人外型与攻击都不同，最后有该星域的首领等着你</li><li>通过 8 个之后进入第 2 轮。敌人会更强，没有终点</li></ul>
+<h3>永久强化</h3>
+<ul><li>用游玩中获得的“星尘”永久强化机体（主要 7 项最高 Lv30）</li><li>越后面的关卡越难缠。这是一款不断强化、一点一点前进的游戏</li><li>持续通关后，会解锁新机体“Tempest”“Bastion”</li></ul>
+<h3>其他</h3>
+<ul><li>无广告</li><li>可离线游玩（购买时除外）</li><li>支持日语／英语</li><li>也可以在应用内购买星尘（可自由选择）。即使不购买，也能玩到所有关卡、机体与强化</li></ul>
+<h3>推荐给这样的你</h3>
+<ul><li>喜欢生存类、《吸血鬼幸存者》类的游戏</li><li>喜欢在 Roguelite 中一点一点变强</li><li>正在找单手就能玩的短时间射击游戏</li><li>想体验一口气轰飞大批敌人的爽快感</li></ul></div><div lang="ko"><p>쏴라. 피해라. 살아남아라.</p>
+<p>STARFALL SURVIVOR는 사방에서 밀려오는 적의 대군을 쏘아 쓰러뜨리며 살아남는 네온 서바이버 슈팅입니다. 조작은 이동과 대시뿐. 무기는 자동으로 발사됩니다.</p>
+<p>플레이 방법</p>
+<ul><li>화면을 드래그해 이동. 대시 중에는 무적이라 적의 무리를 빠져나갈 수 있습니다</li><li>적이 떨어뜨리는 결정을 모아 레벨 업. 3장의 카드 중 강화를 하나 고릅니다</li><li>1스테이지는 약 4~5분. 마지막에 나타나는 보스를 쓰러뜨리면 클리어하고 다음 스테이지가 해금됩니다</li></ul>
+<p>무엇을 장비하느냐가 승부</p>
+<ul><li>무기는 5종류: 펄스 블래스터/시커 미사일/오빗 블레이드/아크 라이트닝/노바 펄스</li><li>패시브는 5종류: 강화 장갑/추진기/리액터/오버클록/필드 증폭기</li><li>1회 플레이에서 장비할 수 있는 것은 무기 3개, 패시브 3개까지. 조합에 따라 전투 방식이 달라집니다</li></ul>
+<p>스테이지마다 달라지는 전장</p>
+<ul><li>8개의 성역: 네온 우주 해역, 홍련 성운, 소행성대, 빙정대, 독안개의 바다, 기계 요새, 중력 우물, 별이 떨어지는 끝</li><li>용암 웅덩이, 탄을 막는 소행성, 미끄러운 얼음, 흘러오는 독구름, 레이저 울타리, 중력 우물, 쏟아지는 운석</li><li>성역마다 적의 모습도 공격도 바뀌며, 마지막에는 그 성역의 보스가 기다립니다</li><li>8개를 넘으면 2회차로. 적은 더욱 강해지며 끝은 없습니다</li></ul>
+<p>영구 강화</p>
+<ul><li>플레이로 얻는 '별가루'로 기체를 영구적으로 강화(주요 7개 항목은 최대 Lv30)</li><li>뒤쪽 스테이지일수록 상대하기 까다로워집니다. 강화를 거듭하며 조금씩 앞으로 나아가는 게임입니다</li><li>스테이지를 클리어해 나가면 새로운 기체 '템페스트', '바스티온'이 해금됩니다</li></ul>
+<p>그 밖에</p>
+<ul><li>광고 없음</li><li>오프라인에서 즐길 수 있습니다(구매 시 제외)</li><li>일본어/영어 지원</li><li>별가루는 인앱 구매도 가능합니다(선택 사항). 구매하지 않아도 모든 스테이지·기체·강화를 즐길 수 있습니다</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.starfallsurvivor.game&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">無料で遊べます。広告はありません。「星屑」はアプリ内で購入することもできます（任意）が、購入しなくても、すべてのステージ・機体・強化を遊べます。</span><span lang="en">Yes, and there are no ads. Stardust can be bought in-app (optional), but every stage, ship and upgrade can be played without paying.</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span></summary><p><span lang="ja">はい、購入時を除いてオフラインで遊べます。</span><span lang="en">Yes, except when making a purchase.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span></summary><p><span lang="ja">画面をドラッグして移動するだけです。武器は自動で発射され、ダッシュ中は無敵になります。</span><span lang="en">Drag to move. Weapons fire automatically, and you are invincible while dashing.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span><span lang="zh-Hant">可以免費玩嗎？</span><span lang="zh-Hans">可以免费玩吗？</span><span lang="ko">무료로 즐길 수 있나요?</span></summary><p><span lang="ja">無料で遊べます。広告はありません。「星屑」はアプリ内で購入することもできます（任意）が、購入しなくても、すべてのステージ・機体・強化を遊べます。</span><span lang="en">Yes, and there are no ads. Stardust can be bought in-app (optional), but every stage, ship and upgrade can be played without paying.</span><span lang="zh-Hant">可免費遊玩。沒有廣告。「星塵」可在應用程式內購買（可自由選擇），但即使不購買，也能玩到所有關卡、機體與強化。</span><span lang="zh-Hans">可免费游玩。没有广告。“星尘”可在应用内购买（可自由选择），但即使不购买，也能玩到所有关卡、机体与强化。</span><span lang="ko">무료로 즐길 수 있습니다. 광고는 없습니다. '별가루'는 인앱 구매도 가능하지만(선택 사항), 구매하지 않아도 모든 스테이지·기체·강화를 즐길 수 있습니다.</span></p></details><details><summary><span lang="ja">オフラインで遊べますか?</span><span lang="en">Can I play offline?</span><span lang="zh-Hant">可以離線玩嗎？</span><span lang="zh-Hans">可以离线玩吗？</span><span lang="ko">오프라인에서도 즐길 수 있나요?</span></summary><p><span lang="ja">はい、購入時を除いてオフラインで遊べます。</span><span lang="en">Yes, except when making a purchase.</span><span lang="zh-Hant">可以，除購買時之外都能離線遊玩。</span><span lang="zh-Hans">可以，除购买时之外都能离线游玩。</span><span lang="ko">네, 구매 시를 제외하고 오프라인에서 즐길 수 있습니다.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span><span lang="zh-Hant">要怎麼操作？</span><span lang="zh-Hans">要怎么操作？</span><span lang="ko">어떻게 조작하나요?</span></summary><p><span lang="ja">画面をドラッグして移動するだけです。武器は自動で発射され、ダッシュ中は無敵になります。</span><span lang="en">Drag to move. Weapons fire automatically, and you are invincible while dashing.</span><span lang="zh-Hant">只要拖曳畫面移動即可。武器會自動發射，衝刺期間處於無敵狀態。</span><span lang="zh-Hans">只要拖曳画面移动即可。武器会自动发射，冲刺期间处于无敌状态。</span><span lang="ko">화면을 드래그해 이동하기만 하면 됩니다. 무기는 자동으로 발사되며, 대시 중에는 무적이 됩니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/starfall-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="https://ma06tsu22gt-art.github.io/starfall-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span><span lang="zh-Hant">隱私權政策</span><span lang="zh-Hans">隐私政策</span><span lang="ko">개인정보 처리방침</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>

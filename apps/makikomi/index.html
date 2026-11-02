@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › 巻き込みおじさん</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › 巻き込みおじさん</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/makikomi_icon.png" alt="" width="84" height="84">
-        <div><h1>巻き込みおじさん</h1><span class="chip"><span lang="ja">カジュアルアクション</span><span lang="en">Casual action</span></span></div></div>
-      <p class="lead"><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span></p>
+        <div><h1>巻き込みおじさん</h1><span class="chip"><span lang="ja">カジュアルアクション</span><span lang="en">Casual action</span><span lang="zh-Hant">休閒動作</span><span lang="zh-Hans">休闲动作</span><span lang="ko">캐주얼 액션</span></span></div></div>
+      <p class="lead"><span lang="ja">全力疾走するスーツのおじさんで、通行人をどんどん巻き込んで行列を伸ばすカジュアルアクション。</span><span lang="en">A suited man sprints down the street — tap to switch lanes, sweep up passers-by and grow the line.</span><span lang="zh-Hant">讓全力衝刺的西裝大叔一路捲入路人、讓隊伍越拉越長的休閒動作遊戲。</span><span lang="zh-Hans">让全力冲刺的西装大叔一路卷入路人、让队伍越拉越长的休闲动作游戏。</span><span lang="ko">전력 질주하는 정장 차림 아저씨로 행인을 계속 말려들게 해 행렬을 늘려 가는 캐주얼 액션.</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/makikomi_card.webp" alt="巻き込みおじさん" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/makikomi/shot1.webp" alt="巻き込みおじさん スクリーンショット 1" loading="lazy"><img src="../../img/apps/makikomi/shot2.webp" alt="巻き込みおじさん スクリーンショット 2" loading="lazy"><img src="../../img/apps/makikomi/shot3.webp" alt="巻き込みおじさん スクリーンショット 3" loading="lazy"><img src="../../img/apps/makikomi/shot4.webp" alt="巻き込みおじさん スクリーンショット 4" loading="lazy"></div></div></section>
-<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/XMnJf1tt4mU" title="巻き込みおじさん gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">巻き込みおじさん はどんなゲーム?</span><span lang="en">What is 巻き込みおじさん?</span></h2>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/makikomi/shot1.webp" alt="巻き込みおじさん スクリーンショット 1" loading="lazy"><img src="../../img/apps/makikomi/shot2.webp" alt="巻き込みおじさん スクリーンショット 2" loading="lazy"><img src="../../img/apps/makikomi/shot3.webp" alt="巻き込みおじさん スクリーンショット 3" loading="lazy"><img src="../../img/apps/makikomi/shot4.webp" alt="巻き込みおじさん スクリーンショット 4" loading="lazy"></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">プレイ動画</span><span lang="en">Gameplay video</span><span lang="zh-Hant">遊玩影片</span><span lang="zh-Hans">游玩视频</span><span lang="ko">플레이 영상</span></h2><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/XMnJf1tt4mU" title="巻き込みおじさん gameplay" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">巻き込みおじさん はどんなゲーム?</span><span lang="en">What is 巻き込みおじさん?</span><span lang="zh-Hant">巻き込みおじさん 是什麼樣的遊戲？</span><span lang="zh-Hans">巻き込みおじさん 是什么样的游戏？</span><span lang="ko">巻き込みおじさん은 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>スーツ姿のおじさんが、なぜか全力疾走。 左右をタップしてレーンを移動し、道行く人をどんどん巻き込め！ 気づけば後ろには長蛇の行列……でも電柱や障害物にぶつかったら一巻の終わり。</p>
 <h3>あそびかた</h3>
 <ul><li>画面の左右をタップしておじさんをレーン移動</li><li>通行人にぶつかると仲間になって行列に加わる(得点アップ)</li><li>障害物(コーン・看板・電柱)にぶつかるとゲームオーバー</li><li>巻き込んだ仲間が障害物に当たると、その人だけ行列から脱落(減点)</li></ul>
@@ -119,22 +125,55 @@ footer a { color:var(--muted); }
 <p>A title is displayed brilliantly every 10 people, which you might even use to brag on social media! From &quot;A Little Local Celebrity&quot; to &quot;The Master of Picking Up People,&quot; see how far you can pick up!</p>
 <p>It&#x27;s completely free to play, and we also offer a one-time purchase option to remove ads.</p>
 <h3>Recommended for those who:</h3>
-<ul><li>Are looking for a time-killing game to play during short waiting times</li><li>Want to laugh at a silly, goofy game</li><li>Like simple tap-only running games</li><li>Want to show off their high scores and titles to their friends</li></ul></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<ul><li>Are looking for a time-killing game to play during short waiting times</li><li>Want to laugh at a silly, goofy game</li><li>Like simple tap-only running games</li><li>Want to show off their high scores and titles to their friends</li></ul></div><div lang="zh-Hant"><p>穿著西裝的大叔，不知為何全力衝刺。點擊左右移動跑道，把沿途的路人一個個捲進來！回過神來，身後已是一條長長的隊伍……但要是撞上電線桿或障礙物就完蛋了。</p>
+<h3>玩法</h3>
+<ul><li>點擊畫面左右，讓大叔切換跑道</li><li>撞到路人，對方就會成為夥伴加入隊伍（得分增加）</li><li>撞到障礙物（交通錐、看板、電線桿）就遊戲結束</li><li>被捲進來的夥伴撞到障礙物時，只有那個人會脫離隊伍（扣分）</li></ul>
+<h3>獎勵道具</h3>
+<ul><li>寶物：取得後立即加分</li><li>營養飲料：暫時加速</li><li>磁鐵：暫時自動捲入周圍的路人</li><li>安全帽：僅限下一次，無效化撞上障礙物</li></ul>
+<p>每增加 10 人，稱號就會華麗地顯示出來，說不定還能在社群網站上炫耀？從「里內小有名氣的人」到「世紀捲入大師」，來挑戰看看你究竟能捲入多少人吧。</p>
+<p>可完全免費遊玩，也備有移除廣告的買斷制道具。</p>
+<h3>推薦給這樣的你</h3>
+<ul><li>正在找等待空檔也能玩的消磨時間遊戲</li><li>想被蠢到好笑的搞笑遊戲逗笑</li><li>喜歡只需點擊的簡單跑酷遊戲</li><li>想向朋友炫耀高分與稱號</li></ul></div><div lang="zh-Hans"><p>穿着西装的大叔，不知为何全力冲刺。点击左右移动跑道，把沿途的路人一个个卷进来！回过神来，身后已是一条长长的队伍……但要是撞上电线杆或障碍物就完蛋了。</p>
+<h3>玩法</h3>
+<ul><li>点击画面左右，让大叔切换跑道</li><li>撞到路人，对方就会成为伙伴加入队伍（得分增加）</li><li>撞到障碍物（交通锥、看板、电线杆）就游戏结束</li><li>被卷进来的伙伴撞到障碍物时，只有那个人会脱离队伍（扣分）</li></ul>
+<h3>奖励道具</h3>
+<ul><li>宝物：取得后立即加分</li><li>营养饮料：暂时加速</li><li>磁铁：暂时自动卷入周围的路人</li><li>安全帽：仅限下一次，无效化撞上障碍物</li></ul>
+<p>每增加 10 人，称号就会华丽地显示出来，说不定还能在社交平台上炫耀？从“里内小有名气的人”到“世纪卷入大师”，来挑战看看你究竟能卷入多少人吧。</p>
+<p>可完全免费游玩，也备有移除广告的买断制道具。</p>
+<h3>推荐给这样的你</h3>
+<ul><li>正在找等待空档也能玩的消磨时间游戏</li><li>想被蠢到好笑的搞笑游戏逗笑</li><li>喜欢只需点击的简单跑酷游戏</li><li>想向朋友炫耀高分与称号</li></ul></div><div lang="ko"><p>정장 차림의 아저씨가 어째서인지 전력 질주. 좌우를 탭해 레인을 이동하며 길 가는 사람들을 계속 말려들게 하세요! 정신 차려 보면 뒤에는 기나긴 행렬…… 하지만 전봇대나 장애물에 부딪히면 그걸로 끝.</p>
+<p>플레이 방법</p>
+<ul><li>화면 좌우를 탭해 아저씨를 레인 이동</li><li>행인에게 부딪히면 동료가 되어 행렬에 합류(점수 상승)</li><li>장애물(콘·간판·전봇대)에 부딪히면 게임 오버</li><li>말려든 동료가 장애물에 부딪히면 그 사람만 행렬에서 이탈(감점)</li></ul>
+<p>보너스 아이템</p>
+<ul><li>보물: 획득하면 즉시 점수 상승</li><li>영양 드링크: 일시적으로 속도 상승</li><li>자석: 일시적으로 주변 행인을 자동으로 말려들게 함</li><li>헬멧: 다음 1회에 한해 장애물 충돌을 무효화</li></ul>
+<p>10명마다 칭호가 화려하게 표시되니, SNS 자랑에도 쓸 수 있을지도? &#x27;동네 작은 유명인&#x27;부터 &#x27;세기의 말려들기 마스터&#x27;까지, 과연 어디까지 말려들게 할 수 있는지 도전해 보세요.</p>
+<p>완전 무료로 플레이할 수 있으며, 광고를 제거하는 1회 구매 아이템도 준비되어 있습니다.</p>
+<h3>이런 분께 추천합니다</h3>
+<ul><li>잠깐의 대기 시간에 즐길 수 있는 시간 때우기 게임을 찾고 있다</li><li>시시한 바보 게임으로 웃고 싶다</li><li>탭만으로 하는 단순한 러닝 게임을 좋아한다</li><li>하이 스코어나 칭호를 친구에게 자랑하고 싶다</li></ul></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ma06tsu22.makikomiojisan&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">完全無料で遊べます。広告を削除する買い切りアイテムもあります。</span><span lang="en">Yes, completely. A one-time purchase removes ads.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span></summary><p><span lang="ja">画面の左右をタップしてレーンを移動するだけです。</span><span lang="en">Just tap the left or right side of the screen to change lanes.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span><span lang="zh-Hant">可以免費玩嗎？</span><span lang="zh-Hans">可以免费玩吗？</span><span lang="ko">무료로 즐길 수 있나요?</span></summary><p><span lang="ja">完全無料で遊べます。広告を削除する買い切りアイテムもあります。</span><span lang="en">Yes, completely. A one-time purchase removes ads.</span><span lang="zh-Hant">完全免費。也備有移除廣告的買斷制道具。</span><span lang="zh-Hans">完全免费。也备有移除广告的买断制道具。</span><span lang="ko">완전 무료로 즐길 수 있습니다. 광고를 제거하는 1회 구매 아이템도 있습니다.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span><span lang="zh-Hant">要怎麼操作？</span><span lang="zh-Hans">要怎么操作？</span><span lang="ko">어떻게 조작하나요?</span></summary><p><span lang="ja">画面の左右をタップしてレーンを移動するだけです。</span><span lang="en">Just tap the left or right side of the screen to change lanes.</span><span lang="zh-Hant">只要點擊畫面左右側切換跑道即可。</span><span lang="zh-Hans">只要点击画面左右侧切换跑道即可。</span><span lang="ko">화면 좌우를 탭해 레인을 이동하기만 하면 됩니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/nekotower/"><img src="../../img/apps/nekotower_icon.png" alt="" width="44" height="44" loading="lazy"><span>ねこタワー - ぐにゃぐにゃ猫積み</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="https://ma06tsu22gt-art.github.io/makikomi-ojisan-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span><span lang="zh-Hant">隱私權政策</span><span lang="zh-Hans">隐私政策</span><span lang="ko">개인정보 처리방침</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>

@@ -19,7 +19,14 @@
 :root { --bg:#0a1322; --bg2:#0f1c33; --panel:#13223d; --line:rgba(138,172,255,.18); --ink:#eaf0ff; --muted:#a3b2d1; --accent:#8aacff; --accent2:#ffb454; --white:#fff; color-scheme:dark; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); line-height:1.85; font-family:"Segoe UI",system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif; -webkit-font-smoothing:antialiased; }
-html[data-lang="ja"] [lang="en"], html[data-lang="en"] [lang="ja"] { display:none; }
+html[data-lang="ja"] [lang="en"], html[data-lang="ja"] [lang="zh-Hant"], html[data-lang="ja"] [lang="zh-Hans"], html[data-lang="ja"] [lang="ko"] { display: none; }
+html[data-lang="en"] [lang="ja"], html[data-lang="en"] [lang="zh-Hant"], html[data-lang="en"] [lang="zh-Hans"], html[data-lang="en"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hant"] [lang="ja"], html[data-lang="zh-Hant"] [lang="en"], html[data-lang="zh-Hant"] [lang="zh-Hans"], html[data-lang="zh-Hant"] [lang="ko"] { display: none; }
+html[data-lang="zh-Hans"] [lang="ja"], html[data-lang="zh-Hans"] [lang="en"], html[data-lang="zh-Hans"] [lang="zh-Hant"], html[data-lang="zh-Hans"] [lang="ko"] { display: none; }
+html[data-lang="ko"] [lang="ja"], html[data-lang="ko"] [lang="en"], html[data-lang="ko"] [lang="zh-Hant"], html[data-lang="ko"] [lang="zh-Hans"] { display: none; }
+html:not([data-lang]) [lang="en"], html:not([data-lang]) [lang="zh-Hant"], html:not([data-lang]) [lang="zh-Hans"], html:not([data-lang]) [lang="ko"] { display: none; }
+.lang select { background: none; border: 0; color: var(--ink); font: inherit; font-size: .8rem; padding: 4px 8px; cursor: pointer; outline-offset: 2px; }
+.lang option { color: #eaf0ff; background: #13223d; }
 a { color:var(--accent); }
 img { max-width:100%; display:block; }
 .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
@@ -31,7 +38,6 @@ header.top .wrap { display:flex; align-items:center; gap:16px; height:58px; }
 .crumb a { color:var(--muted); }
 .lang { display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; flex:none; }
 .lang button { background:none; border:0; color:var(--muted); font:inherit; font-size:.8rem; padding:4px 11px; cursor:pointer; }
-html[data-lang="ja"] .lang [data-set="ja"], html[data-lang="en"] .lang [data-set="en"] { background:var(--accent); color:#0a1322; font-weight:700; }
 .hero { position:relative; overflow:hidden; }
 .hero .bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(28px) brightness(.45); transform:scale(1.15); }
 .hero .wrap { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; padding-top:56px; padding-bottom:56px; }
@@ -81,8 +87,8 @@ footer a { color:var(--muted); }
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="https://ma06tsu22gt-art.github.io/"><img src="../../img/sb.png" alt="">STEAM BASE</a>
-  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span></a> › ねこタワー - ぐにゃぐにゃ猫積み</nav>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="ja">日本語</button><button type="button" data-set="en">EN</button></div>
+  <nav class="crumb"><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a> › <a href="https://ma06tsu22gt-art.github.io/#works"><span lang="ja">作品</span><span lang="en">Works</span><span lang="zh-Hant">作品</span><span lang="zh-Hans">作品</span><span lang="ko">작품</span></a> › ねこタワー - ぐにゃぐにゃ猫積み</nav>
+  <div class="lang" role="group" aria-label="Language"><select aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="ko">한국어</option></select></div>
 </div></header>
 <main>
 <section class="hero">
@@ -90,19 +96,19 @@ footer a { color:var(--muted); }
   <div class="wrap">
     <div>
       <div class="id"><img src="../../img/apps/nekotower_icon.png" alt="" width="84" height="84">
-        <div><h1>ねこタワー - ぐにゃぐにゃ猫積み</h1><span class="chip"><span lang="ja">3D猫積みパズル</span><span lang="en">3D cat-stacking puzzle</span></span></div></div>
-      <p class="lead"><span lang="ja">やわらかい猫を1匹ずつ積み上げる3Dゲーム。置いて3秒で猫が勝手に動き出すので、積んだ塔も油断できません。2026年10月27日に配信開始（Android のみ）。</span><span lang="en">Stack soft, wobbly cats one by one. Three seconds after landing they start to stretch and wriggle, so no tower is ever safe. Out now on Android (since Oct 27, 2026).</span></p>
+        <div><h1>ねこタワー - ぐにゃぐにゃ猫積み</h1><span class="chip"><span lang="ja">3D猫積みパズル</span><span lang="en">3D cat-stacking puzzle</span><span lang="zh-Hant">3D 疊貓益智</span><span lang="zh-Hans">3D 叠猫解谜</span><span lang="ko">3D 고양이 쌓기 퍼즐</span></span></div></div>
+      <p class="lead"><span lang="ja">やわらかい猫を1匹ずつ積み上げる3Dゲーム。置いて3秒で猫が勝手に動き出すので、積んだ塔も油断できません。2026年10月27日に配信開始（Android のみ）。</span><span lang="en">Stack soft, wobbly cats one by one. Three seconds after landing they start to stretch and wriggle, so no tower is ever safe. Out now on Android (since Oct 27, 2026).</span><span lang="zh-Hant">把柔軟的貓咪一隻一隻往上疊的 3D 遊戲。放下 3 秒後貓咪就會自己動起來，疊好的塔也不能大意。2026 年 10 月 27 日上架（僅限 Android）。</span><span lang="zh-Hans">把柔软的猫咪一只一只往上叠的 3D 游戏。放下 3 秒后猫咪就会自己动起来，叠好的塔也不能大意。2026 年 10 月 27 日上架（仅限 Android）。</span><span lang="ko">말랑말랑한 고양이를 한 마리씩 쌓아 올리는 3D 게임. 내려놓고 3초가 지나면 고양이가 제멋대로 움직이기 시작하므로, 쌓아 올린 탑도 방심할 수 없습니다. 2026년 10월 27일 서비스 시작(Android만 제공).</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span></a>
-        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span></span>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で無料ダウンロード</span><span lang="en">Get it free on Google Play</span><span lang="zh-Hant">在 Google Play 免費下載</span><span lang="zh-Hans">在 Google Play 免费下载</span><span lang="ko">Google Play에서 무료 다운로드</span></a>
+        <span class="note"><span lang="ja">Android 版のみ（App Store／iOS では未配信）</span><span lang="en">Android only (not on the App Store / iOS)</span><span lang="zh-Hant">僅限 Android 版（App Store／iOS 尚未推出）</span><span lang="zh-Hans">仅限 Android 版（App Store／iOS 尚未推出）</span><span lang="ko">Android 버전만 제공(App Store/iOS에서는 서비스하지 않습니다)</span></span>
       </div>
     </div>
     <div class="key"><img src="../../img/apps/nekotower_card.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み" width="800" height="500"></div>
   </div>
 </section>
-<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span></h2><div class="gallery"><img src="../../img/apps/nekotower/shot1.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 1" loading="lazy"><img src="../../img/apps/nekotower/shot2.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 2" loading="lazy"><img src="../../img/apps/nekotower/shot3.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 3" loading="lazy"><img src="../../img/apps/nekotower/shot4.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 4" loading="lazy"><img src="../../img/apps/nekotower/shot5.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 5" loading="lazy"></div></div></section>
+<section class="alt"><div class="wrap"><h2><span lang="ja">スクリーンショット</span><span lang="en">Screenshots</span><span lang="zh-Hant">螢幕截圖</span><span lang="zh-Hans">截图</span><span lang="ko">스크린샷</span></h2><div class="gallery"><img src="../../img/apps/nekotower/shot1.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 1" loading="lazy"><img src="../../img/apps/nekotower/shot2.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 2" loading="lazy"><img src="../../img/apps/nekotower/shot3.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 3" loading="lazy"><img src="../../img/apps/nekotower/shot4.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 4" loading="lazy"><img src="../../img/apps/nekotower/shot5.webp" alt="ねこタワー - ぐにゃぐにゃ猫積み スクリーンショット 5" loading="lazy"></div></div></section>
 
-<section><div class="wrap"><h2><span lang="ja">ねこタワー - ぐにゃぐにゃ猫積み はどんなゲーム?</span><span lang="en">What is ねこタワー - ぐにゃぐにゃ猫積み?</span></h2>
+<section><div class="wrap"><h2><span lang="ja">ねこタワー - ぐにゃぐにゃ猫積み はどんなゲーム?</span><span lang="en">What is ねこタワー - ぐにゃぐにゃ猫積み?</span><span lang="zh-Hant">ねこタワー - ぐにゃぐにゃ猫積み 是什麼樣的遊戲？</span><span lang="zh-Hans">ねこタワー - ぐにゃぐにゃ猫積み 是什么样的游戏？</span><span lang="ko">ねこタワー - ぐにゃぐにゃ猫積み는 어떤 게임인가요?</span></h2>
   <div class="desc"><div lang="ja"><p>ぐにゃぐにゃの猫を、落として、積んで、タワーにするゲームです。</p>
 <p>猫は置いてから3秒たつと目を覚まし、伸びをしたり、もぞもぞ動いたり、ときどき歩いたりします。せっかく積んだ塔がゆっくり崩れていくのを、ハラハラしながら見守ってください。3匹落ちたらおしまい。高さと匹数で21段階の称号がもらえます。</p>
 <h3>あそびかた</h3>
@@ -121,22 +127,58 @@ footer a { color:var(--muted); }
 <p>RESULTS CARD</p>
 <p>When the game ends you get a card with a photo of your tower, your title, height and cat count, ready to share on social media.</p>
 <p>PURCHASES</p>
-<p>One-time purchases: remove ads, extra coats, accessories, stands and card frames. They only change the look and never affect gameplay.</p></div></div>
-  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span></a></div>
+<p>One-time purchases: remove ads, extra coats, accessories, stands and card frames. They only change the look and never affect gameplay.</p></div><div lang="zh-Hant"><p>這是一款把軟趴趴的貓咪放下、疊起來、堆成一座塔的遊戲。</p>
+<p>貓咪放下 3 秒後就會醒來，伸懶腰、窸窸窣窣地動，偶爾還會走動。請提心吊膽地看著辛苦疊好的塔慢慢崩塌。掉下 3 隻就結束。依高度與隻數可獲得 21 階段的稱號。</p>
+<h3>玩法</h3>
+<ul><li>用手指左右滑動，決定掉落位置</li><li>放開手指，貓咪就會掉下去</li><li>滑動畫面下方，底座會旋轉，也能疊到後方或前方</li></ul>
+<h3>關於貓咪</h3>
+<ul><li>有香箱坐、伸展、蜷縮、坐姿、胖胖、小貓共 6 種。偶爾還會出現形狀奇特的稀有貓咪</li><li>橘虎斑、白、黑、銀虎斑、八字、暹羅、三花等毛色，可以自由換裝選擇</li><li>貓咪會發出真實的叫聲。疊得越多就越熱鬧</li></ul>
+<h3>結果卡片</h3>
+<p>遊戲結束後，會產生一張附有塔的照片、稱號、高度與隻數的卡片。可以直接分享到社群網站。</p>
+<h3>關於付費</h3>
+<p>備有移除廣告，以及毛色、小物、底座、卡片外框等買斷制商品。全都只改變外觀，不會影響遊戲的強弱。</p></div><div lang="zh-Hans"><p>这是一款把软趴趴的猫咪放下、叠起来、堆成一座塔的游戏。</p>
+<p>猫咪放下 3 秒后就会醒来，伸懒腰、窸窸窣窣地动，偶尔还会走动。请提心吊胆地看着辛苦叠好的塔慢慢崩塌。掉下 3 只就结束。依高度与只数可获得 21 阶段的称号。</p>
+<h3>玩法</h3>
+<ul><li>用手指左右滑动，决定掉落位置</li><li>放开手指，猫咪就会掉下去</li><li>滑动画面下方，底座会旋转，也能叠到后方或前方</li></ul>
+<h3>关于猫咪</h3>
+<ul><li>有香箱坐、伸展、蜷缩、坐姿、胖胖、小猫共 6 种。偶尔还会出现形状奇特的稀有猫咪</li><li>橘虎斑、白、黑、银虎斑、八字、暹罗、三花等毛色，可以自由换装选择</li><li>猫咪会发出真实的叫声。叠得越多就越热闹</li></ul>
+<h3>结果卡片</h3>
+<p>游戏结束后，会产生一张附有塔的照片、称号、高度与只数的卡片。可以直接分享到社交平台。</p>
+<h3>关于付费</h3>
+<p>备有移除广告，以及毛色、小物、底座、卡片边框等买断制商品。全都只改变外观，不会影响游戏的强弱。</p></div><div lang="ko"><p>흐물흐물한 고양이를 떨어뜨리고 쌓아서 타워로 만드는 게임입니다.</p>
+<p>고양이는 내려놓고 3초가 지나면 눈을 뜨고 기지개를 켜거나, 꼼지락거리거나, 가끔 걸어 다니기도 합니다. 애써 쌓은 탑이 천천히 무너져 가는 모습을 조마조마하게 지켜보세요. 3마리가 떨어지면 끝. 높이와 마릿수에 따라 21단계의 칭호를 받을 수 있습니다.</p>
+<p>플레이 방법</p>
+<ul><li>손가락으로 좌우로 쓸어 떨어뜨릴 위치를 정합니다</li><li>손가락을 떼면 고양이가 떨어집니다</li><li>화면 아래쪽을 쓸면 받침대가 돌아가, 안쪽이나 바깥쪽에도 쌓을 수 있습니다</li></ul>
+<p>고양이에 대해</p>
+<ul><li>식빵 자세, 기지개, 동그랗게 말기, 앉기, 뚱냥이, 아기 고양이의 6종류. 가끔 이상한 모양의 희귀한 고양이도 나타납니다</li><li>치즈, 흰색, 검정, 고등어, 턱시도, 샴, 삼색 등 털 색은 꾸미기로 고를 수 있습니다</li><li>고양이들은 진짜 울음소리로 웁니다. 쌓을수록 시끌벅적해집니다</li></ul>
+<p>결과 카드</p>
+<p>게임이 끝나면 탑 사진과 칭호, 높이, 마릿수가 담긴 카드가 만들어집니다. 그대로 SNS에 공유할 수 있습니다.</p>
+<p>결제에 대해</p>
+<p>광고 제거, 털 색이나 소품, 받침대, 카드 테두리 등 1회 구매 상품이 있습니다. 모두 외형만 바뀔 뿐, 게임의 유불리는 달라지지 않습니다.</p></div></div>
+  <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mashi.nekotower&amp;referrer=utm_source%3Dsite%26utm_campaign%3Dapp_page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2c.4-.2.4-.9 0-1.1l-16-9.3c-.4-.2-.9.1-.9.6z"/></svg><span lang="ja">Google Play で見る</span><span lang="en">View on Google Play</span><span lang="zh-Hant">在 Google Play 上查看</span><span lang="zh-Hans">在 Google Play 上查看</span><span lang="ko">Google Play에서 보기</span></a></div>
 </div></section>
-<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span></h2>
-  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span></summary><p><span lang="ja">無料で遊べます。広告を消すアイテムや、毛色・小物・台座・カードの枠などの買い切りの品物がありますが、どれも見た目が変わるだけで、ゲームの有利不利は変わりません。</span><span lang="en">Yes. There are one-time purchases (ad removal, coat colors, accessories, stands, card frames), but they only change the look and never affect the game.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span></summary><p><span lang="ja">指で左右になぞって落とす場所を決め、指をはなすと猫が落ちます。画面の下をなぞると台座が回り、奥や手前にも積めます。</span><span lang="en">Slide left or right to aim, and let go to drop the cat. Swipe along the bottom of the screen to turn the stand and stack from any side.</span></p></details><details><summary><span lang="ja">いつゲームオーバーになりますか?</span><span lang="en">When does a game end?</span></summary><p><span lang="ja">猫が3匹落ちたらおしまいです。高さと匹数で21段階の称号がもらえ、塔の写真入りの結果カードを SNS に共有できます。</span><span lang="en">When three cats fall. You get one of 21 titles for your height and cat count, plus a results card with a photo of your tower to share.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span></p></details>
+<section class="faq alt"><div class="wrap"><h2><span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="ko">자주 묻는 질문</span></h2>
+  <details><summary><span lang="ja">無料で遊べますか?</span><span lang="en">Is it free?</span><span lang="zh-Hant">可以免費玩嗎？</span><span lang="zh-Hans">可以免费玩吗？</span><span lang="ko">무료로 즐길 수 있나요?</span></summary><p><span lang="ja">無料で遊べます。広告を消すアイテムや、毛色・小物・台座・カードの枠などの買い切りの品物がありますが、どれも見た目が変わるだけで、ゲームの有利不利は変わりません。</span><span lang="en">Yes. There are one-time purchases (ad removal, coat colors, accessories, stands, card frames), but they only change the look and never affect the game.</span><span lang="zh-Hant">可免費遊玩。有移除廣告的道具，以及毛色、小物、底座、卡片外框等買斷制商品，但全都只改變外觀，不會影響遊戲強弱。</span><span lang="zh-Hans">可免费游玩。有移除广告的道具，以及毛色、小物、底座、卡片边框等买断制商品，但全都只改变外观，不会影响游戏强弱。</span><span lang="ko">무료로 즐길 수 있습니다. 광고를 제거하는 아이템과 털 색·소품·받침대·카드 테두리 등 1회 구매 상품이 있지만, 모두 외형만 바뀔 뿐 게임의 유불리는 달라지지 않습니다.</span></p></details><details><summary><span lang="ja">どんな操作ですか?</span><span lang="en">How do the controls work?</span><span lang="zh-Hant">要怎麼操作？</span><span lang="zh-Hans">要怎么操作？</span><span lang="ko">어떻게 조작하나요?</span></summary><p><span lang="ja">指で左右になぞって落とす場所を決め、指をはなすと猫が落ちます。画面の下をなぞると台座が回り、奥や手前にも積めます。</span><span lang="en">Slide left or right to aim, and let go to drop the cat. Swipe along the bottom of the screen to turn the stand and stack from any side.</span><span lang="zh-Hant">用手指左右滑動決定掉落位置，放開手指，貓咪就會掉下去。滑動畫面下方，底座會旋轉，也能疊到後方或前方。</span><span lang="zh-Hans">用手指左右滑动决定掉落位置，放开手指，猫咪就会掉下去。滑动画面下方，底座会旋转，也能叠到后方或前方。</span><span lang="ko">손가락으로 좌우로 쓸어 떨어뜨릴 위치를 정하고, 손가락을 떼면 고양이가 떨어집니다. 화면 아래쪽을 쓸면 받침대가 돌아가 안쪽이나 바깥쪽에도 쌓을 수 있습니다.</span></p></details><details><summary><span lang="ja">いつゲームオーバーになりますか?</span><span lang="en">When does a game end?</span><span lang="zh-Hant">什麼時候會遊戲結束？</span><span lang="zh-Hans">什么时候会游戏结束？</span><span lang="ko">언제 게임 오버가 되나요?</span></summary><p><span lang="ja">猫が3匹落ちたらおしまいです。高さと匹数で21段階の称号がもらえ、塔の写真入りの結果カードを SNS に共有できます。</span><span lang="en">When three cats fall. You get one of 21 titles for your height and cat count, plus a results card with a photo of your tower to share.</span><span lang="zh-Hant">掉下 3 隻貓咪就結束了。依高度與隻數可獲得 21 階段的稱號，還能把附有塔照片的結果卡片分享到社群網站。</span><span lang="zh-Hans">掉下 3 只猫咪就结束了。依高度与只数可获得 21 阶段的称号，还能把附有塔照片的结果卡片分享到社交平台。</span><span lang="ko">고양이가 3마리 떨어지면 끝입니다. 높이와 마릿수에 따라 21단계의 칭호를 받을 수 있으며, 탑 사진이 담긴 결과 카드를 SNS에 공유할 수 있습니다.</span></p></details><details><summary><span lang="ja">iPhone（iOS）でも遊べますか?</span><span lang="en">Is it on iPhone (iOS)?</span><span lang="zh-Hant">iPhone（iOS）也能玩嗎？</span><span lang="zh-Hans">iPhone（iOS）也能玩吗？</span><span lang="ko">iPhone(iOS)에서도 즐길 수 있나요?</span></summary><p><span lang="ja">現在は Android 版（Google Play）のみです。App Store（iOS）では配信していません。</span><span lang="en">Not at the moment — it is only on Android (Google Play), not on the App Store.</span><span lang="zh-Hant">目前僅提供 Android 版（Google Play），App Store（iOS）上沒有上架。</span><span lang="zh-Hans">目前仅提供 Android 版（Google Play），App Store（iOS）上没有上架。</span><span lang="ko">현재는 Android 버전(Google Play)만 제공합니다. App Store(iOS)에서는 서비스하지 않습니다.</span></p></details>
 </div></section>
-<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
+<section><div class="wrap"><h2><span lang="ja">STEAM BASE のほかの作品</span><span lang="en">More from STEAM BASE</span><span lang="zh-Hant">STEAM BASE 的其他作品</span><span lang="zh-Hans">STEAM BASE 的其他作品</span><span lang="ko">STEAM BASE의 다른 작품</span></h2><div class="others"><a class="other" href="https://ma06tsu22gt-art.github.io/lanternstarsea/"><img src="../../img/apps/lantern_icon.png" alt="" width="44" height="44" loading="lazy"><span>星海のランタン</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/starfall/"><img src="../../img/apps/starfall_icon.png" alt="" width="44" height="44" loading="lazy"><span>STARFALL SURVIVOR</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/stonecrown/"><img src="../../img/apps/stonecrown_icon.png" alt="" width="44" height="44" loading="lazy"><span>Stonecrown 石と王冠</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/novaforge/"><img src="../../img/apps/novaforge_icon.png" alt="" width="44" height="44" loading="lazy"><span>NOVA FORGE</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/dropmerge/"><img src="../../img/apps/dropmerge_icon.png" alt="" width="44" height="44" loading="lazy"><span>DropMerge - しずく合流パズル</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/shipbuilder/"><img src="../../img/apps/shipbuilder_icon.png" alt="" width="44" height="44" loading="lazy"><span>星組み造船所</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/blockspace/"><img src="../../img/apps/blockspace_icon.png" alt="" width="44" height="44" loading="lazy"><span>Block Space Roguelite</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/apps/makikomi/"><img src="../../img/apps/makikomi_icon.png" alt="" width="44" height="44" loading="lazy"><span>巻き込みおじさん</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/hodohodo/"><img src="../../img/apps/hodohodo_icon.png" alt="" width="44" height="44" loading="lazy"><span>HodoHodo ほどほど記録</span></a><a class="other" href="https://ma06tsu22gt-art.github.io/yokatta/"><img src="../../img/apps/yokatta_icon.png" alt="" width="44" height="44" loading="lazy"><span>ヨカッタ 1行日記</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span></a><a href="https://ma06tsu22gt-art.github.io/nekotower-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
+<footer><div class="wrap"><span>© 2026 STEAM BASE</span><a href="https://ma06tsu22gt-art.github.io/"><span lang="ja">トップへ</span><span lang="en">Home</span><span lang="zh-Hant">首頁</span><span lang="zh-Hans">首页</span><span lang="ko">홈</span></a><a href="https://ma06tsu22gt-art.github.io/nekotower-privacy/"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy policy</span><span lang="zh-Hant">隱私權政策</span><span lang="zh-Hans">隐私政策</span><span lang="ko">개인정보 처리방침</span></a><a href="mailto:steam.base777@gmail.com">steam.base777@gmail.com</a><a href="https://note.com/steambase_dev" target="_blank" rel="noopener">note</a><a href="https://www.youtube.com/@Steam-Base" target="_blank" rel="noopener">YouTube</a></div></footer>
 <script>
 (function () {
   var root = document.documentElement, KEY = 'sb-lang';
   function setLang(l) { root.setAttribute('data-lang', l); root.lang = l; try { localStorage.setItem(KEY, l); } catch (e) {} }
   var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  setLang(saved || ((navigator.language || 'ja').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en'));
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); }); });
+  function pick() {
+    var s = (navigator.language || 'ja').toLowerCase();
+    if (s.indexOf('ja') === 0) return 'ja';
+    if (s.indexOf('ko') === 0) return 'ko';
+    if (s.indexOf('zh') === 0) return /hant|tw|hk|mo/.test(s) ? 'zh-Hant' : 'zh-Hans';
+    return 'en';
+  }
+  var box = document.querySelector('.lang select');
+  setLang(saved && box.querySelector('option[value="' + saved + '"]') ? saved : pick());
+  box.value = root.getAttribute('data-lang');
+  box.addEventListener('change', function () { setLang(box.value); });
 })();
 </script>
 </body>
